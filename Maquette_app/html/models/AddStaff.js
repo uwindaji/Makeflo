@@ -43,11 +43,10 @@ function  AddStaff () {
         dSortie =  $('#date-sortie').val();
         metier =  $('#metier').val();
         secteur =  $('#secteur').val();
-        privilege = [];
+        privilege = $('#privilege').val();
         password =  $('#password').val();
         password2 =  $('#password2').val();
 
-        priv = checkPrivilege();
 
         if (nom.length <= 3) {
 
@@ -157,7 +156,7 @@ function  AddStaff () {
         form_data.append('dSortie', dSortie);
         form_data.append('metier', metier);
         form_data.append('secteur', secteur);
-        form_data.append('priv', priv);
+        form_data.append('priv', privilege);
         form_data.append('password', password);
         form_data.append('request', 'AddStaff');
         $.ajax({
@@ -169,7 +168,7 @@ function  AddStaff () {
             data: form_data,
             type: 'post',
             success: function (result) {
-                alert(result);
+                //console.log(result);
             }
         });
     };
@@ -197,12 +196,6 @@ function  AddStaff () {
 
                 console.log(cat);
                 switch(cat){
-
-                    case 'privilege':
-                        for(i = 0; i<res.length; i += 1){
-                            $("#" + cat).append('<div class="form-group form-check"><input type="checkbox" class="form-check-input" id='+res[i].privilege+' value='+res[i].privilege+'><label class="form-check-label" for="exampleCheck1">'+res[i].privilege+'</label></div>');
-                        }
-                    break;
 
                     case 'metier':
                         for(i = 0; i<res.length; i += 1){
@@ -248,20 +241,6 @@ function  AddStaff () {
 
             return false;
         }
-    };
-
-    var checkPrivilege = function () {
-
-        var i;
-        var checkBox = document.querySelectorAll('.form-check-input');
-
-        for(i = 0; i<checkBox.length; i += 1){
-
-            if (checkBox[i].checked == true){
-                privilege.push(checkBox[i].value);
-            }
-        }
-        return privilege;
     };
 
         //methode pour vider formulaire

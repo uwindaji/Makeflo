@@ -74,16 +74,7 @@ function AddItemStaff () {
 
                 var _result = result.replace(' ','');
 
-                if(_val === 'privilege'){
-
-
-                    $("#" + _val).append('<div class="form-group form-check"><input type="checkbox" class="form-check-input" id='+_result+'><label class="form-check-label" for="exampleCheck1">'+result+'</label></div>');
-                }else {
-
                         $("#" + _val).append("<option value="+_result+">"+result+"</option>");
-                }
-
-
             }
         });
     };

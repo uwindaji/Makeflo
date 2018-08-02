@@ -16,8 +16,9 @@ class AddStaff {
         $result    = $resultats->fetch();
         $pass = sha1($password);
 
-        $compt = $pdo->query("SELECT COUNT(*) FROM STAFF ") or die('impossible de se connecter la table CLIENT');
-        $id = count($compt);
+        $compt = $pdo->query("SELECT COUNT(*) AS id FROM STAFF ") or die('impossible de se connecter la table CLIENT');
+        $_result    = $compt->fetch();
+        $id = $_result['id']+1;
 
         $res_id_metier = $pdo->query("SELECT * FROM METIER  WHERE metier = '$metier' ") or die('impossible de se connecter la table METIER');
         $res_metier    = $res_id_metier->fetch();
@@ -27,10 +28,8 @@ class AddStaff {
         $_cd = str_replace( '-', '', $dateN).$id;
         if ($result) {
 
-        //     echo 'E-mail existe déja';
-        // } else {
-
-            $arr = explode(",", $priv);
+            echo 'E-mail existe déja';
+        } else {
 
 
             //$sql la requette pour inserer les données dans la base de donées
@@ -44,7 +43,7 @@ class AddStaff {
 
             // echo $sec;
             // die();
-            $sql_travail = "INSERT INTO `TRAVAIL`(`id`, `id_staff`) VALUES ('$sec',24)";// id secteur id staff
+            $sql_travail = "INSERT INTO `TRAVAIL`(`id`, `id_staff`) VALUES ('$sec','$id')";// id secteur id staff
 
             
 
@@ -54,18 +53,12 @@ class AddStaff {
 
             //___________________________________________________ zone resercer au privilege ____________________________________________________
 
-            for($i = 0; $i < count($arr); $i++){
-
-                $_arr = $arr[$i];
-
-                $res_id_priv = $pdo->query("SELECT * FROM PRIVILEGE  WHERE privilege = '$_arr' ") or die('impossible de se connecter la table PRIVILEGE');
+                $res_id_priv = $pdo->query("SELECT * FROM PRIVILEGE  WHERE privilege = '$priv' ") or die('impossible de se connecter la table PRIVILEGE');
                 $res_priv    = $res_id_priv->fetch();
                 $privilege = $res_priv['id'];
-                
-                $sql_privilege = "INSERT INTO `PRIVILIGIER`(`id`, `id_staff`) VALUES ('$privilege',24";// id metier id staff
+                $sql_privilege = "INSERT INTO `PRIVILIGIER`(`id`, `id_staff`) VALUES ('$privilege','$id')";// id metier id staff
+
                 $req_priv = $pdo->exec($sql_privilege) or die('impossible de saisir la table PRIVILIGIER');
-            }
-            
             //___________________________________________________________________________________________________________________________________
 
             echo ' compte STAFF creer avec success';
