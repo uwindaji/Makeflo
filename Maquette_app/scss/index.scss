@@ -1,0 +1,133 @@
+@import '_var.scss';
+
+* {
+
+    outline: none;
+    box-shadow: none;
+}
+
+body.body {
+
+    background-color: $vert5;
+}
+a:link, a:visited {
+
+    color: $white;
+}
+
+a:active, a:hover{
+
+    color:$vert4;
+}
+
+div.container-fluid {
+
+    div._menu {
+
+        background-color: $vert1;
+
+        div.col-menu {
+
+            nav.navbar {
+
+                button {
+                    background-color: $orange;
+                }
+
+                button:focus {
+
+                    outline: none;
+                    box-shadow: none;
+                }
+                ul.navbar-nav{
+
+                    li.dropdown {
+
+                        div.dropdown-menu.show {
+
+                            background-color: $vert1;
+
+                            .dropdown-item:hover{
+
+                                color: $black;
+                                background-color: $orange;
+                            }
+                        }
+                    }
+                }
+
+                div.collapse {
+
+                    form.form-inline {
+
+                        input.form-control:focus{
+
+                            outline: none;
+                            box-shadow: none;
+                            border: solid 1px $orange;
+                        }
+
+                        button.btn {
+
+                            outline: none;
+                            box-shadow: none;  
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    div._login {
+        overflow: hidden;
+        background-color: $vert2;
+        .col-menu{
+
+            div {
+
+                .img-user {
+
+                    width: 50px;
+                }
+
+                .name {
+                    position: relative;
+                    top: 15px;
+                    height: 100%;
+                    width: 30%;
+                    font-size: 26px;
+                    text-transform: uppercase;
+}
+
+                .circle {
+                    display: inline-block;
+                    position: relative;
+                    top: -10px;
+                    left: -20px;
+                    padding: 2px 5px;
+                    color:$white;
+                    background-color: $red;
+                    border-radius:  40%;
+                    -webkit-border-radius:  40%;
+                    -moz-border-radius:  40%;
+                    -ms-border-radius:  40%;
+                    -o-border-radius:  40%;
+                }
+            }
+
+            .card-body {
+                form {
+                    .form-group {
+
+                        input:focus {
+                            outline: none;
+                            box-shadow: none;
+                            border: solid 1px $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

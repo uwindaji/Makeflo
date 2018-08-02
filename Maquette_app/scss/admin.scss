@@ -1,0 +1,530 @@
+@import '_var.scss';
+
+* {
+
+    outline: none;
+    box-shadow: none;
+}
+
+body.body {
+
+    background-color: $vert5;
+}
+a:link, a:visited {
+
+    color: $white;
+}
+
+a:active, a:hover{
+
+    color:$vert4;
+}
+
+div.container-fluid {
+
+    div._menu {
+
+        background-color: $vert1;
+
+        div.col-menu {
+
+            nav.navbar {
+
+                button {
+                    background-color: $orange;
+                }
+
+                button:focus {
+
+                    outline: none;
+                    box-shadow: none;
+                }
+                ul.navbar-nav{
+
+                    li.dropdown {
+
+                        div.dropdown-menu.show {
+
+                            background-color: $vert1;
+
+                            .dropdown-item:hover{
+
+                                color: $black;
+                                background-color: $orange;
+                            }
+                        }
+                    }
+                }
+
+                div.collapse {
+
+                    form.form-inline {
+
+                        input.form-control:focus{
+
+                            outline: none;
+                            box-shadow: none;
+                            border: solid 1px $orange;
+                        }
+
+                        button.btn {
+
+                            outline: none;
+                            box-shadow: none;  
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    div._login {
+        overflow: hidden;
+        background-color: $vert2;
+        .col-menu{
+
+            p {
+
+                a {
+
+                    img {
+
+                        width: 50px;
+                    }
+
+                    // .cercle {
+                    //     display: inline-block;
+                    //     position: relative;
+                    //     top: -10px;
+                    //     left: -20px;
+                    //     padding: 5px 10px;
+                    //     color:$white;
+                    //     background-color: $red;
+                    //     border-radius:  40%;
+                    //     -webkit-border-radius:  40%;
+                    //     -moz-border-radius:  40%;
+                    //     -ms-border-radius:  40%;
+                    //     -o-border-radius:  40%;
+                    // }
+                }
+            }
+
+            .card-body {
+                form {
+                    .form-group {
+
+                        input:focus {
+                            outline: none;
+                            box-shadow: none;
+                            border: solid 1px $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    div._body{
+
+        div.col-addStaff {
+
+            form.form-addStaff {
+
+
+                margin-bottom: 80px;
+                padding: 25px;
+                background-color: $vert1;
+                border-radius:10px;
+                -webkit-border-radius:10px;
+                -moz-border-radius:10px;
+                -ms-border-radius:10px;
+                -o-border-radius:10px;
+
+
+                .form-group-check{
+
+                    margin-top: 20px;
+                    padding: 20px;
+                    background-color: $vert2;
+                    border-radius:10px;
+                    -webkit-border-radius:10px;
+                    -moz-border-radius:10px;
+                    -ms-border-radius:10px;
+                    -o-border-radius:10px;
+                }
+
+                .form-row {
+
+                    margin-top: 20px;
+                    padding: 20px;
+                    background-color: $vert2;
+                    border-radius:10px;
+                    -webkit-border-radius:10px;
+                    -moz-border-radius:10px;
+                    -ms-border-radius:10px;
+                    -o-border-radius:10px;
+
+                    .form-group {
+
+                        input.form-control:focus {
+
+                            box-shadow: none;
+                            border: none
+                        }
+                        select:focus {
+
+                            box-shadow: none;
+                            border: none
+                        }
+                        
+                    }
+
+                    
+
+                    
+                }
+
+                i {
+
+                        margin-left: 30px;
+                        cursor: pointer;
+                    }
+                .title {
+
+                    color: $white;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                    
+                    h2 {
+
+                        display: inline;
+                        vertical-align: middle;
+                        font-weight: bold;
+                        color: $black;
+                    }
+                }
+            }
+
+            .div-submit{
+
+                text-align: right;
+                #submit-AddStaff {
+
+                    display: inline;
+                    margin-top: 20px;
+                    
+                }
+            }
+
+            img {
+
+                display: inline;
+                width: 70px;
+            }
+        }
+        
+        div.col-addDemarque {
+
+            form.form-addStaff {
+
+
+                margin-bottom: 80px;
+                padding: 25px;
+                background-color: $vert1;
+                border-radius:10px;
+                -webkit-border-radius:10px;
+                -moz-border-radius:10px;
+                -ms-border-radius:10px;
+                -o-border-radius:10px;
+
+                .form-row {
+
+                    margin-top: 20px;
+                    padding: 20px;
+                    background-color: $vert2;
+                    border-radius:10px;
+                    -webkit-border-radius:10px;
+                    -moz-border-radius:10px;
+                    -ms-border-radius:10px;
+                    -o-border-radius:10px;
+
+                    .form-group {
+
+                        input.form-control:focus {
+
+                            box-shadow: none;
+                            border: none
+                        }
+                        select:focus {
+
+                            box-shadow: none;
+                            border: none
+                        }
+                        
+                    }
+
+                    
+
+                    
+                }
+
+                i {
+
+                        margin-left: 30px;
+                        cursor: pointer;
+                    }
+                .title {
+
+                    color: $white;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                    
+                    h2 {
+
+                        display: inline;
+                        vertical-align: middle;
+                        font-weight: bold;
+                        color: $black;
+                    }
+                }
+            }
+
+            .div-submit{
+
+                text-align: right;
+                #submit-AddDemarque {
+
+                    display: inline;
+                    margin-top: 20px;
+                    
+                }
+            }
+
+            img {
+
+                display: inline;
+                width: 70px;
+            }
+        }
+
+        div.col-addArticle {
+
+            form.form-addStaff {
+
+
+                margin-bottom: 80px;
+                padding: 25px;
+                background-color: $vert1;
+                border-radius:10px;
+                -webkit-border-radius:10px;
+                -moz-border-radius:10px;
+                -ms-border-radius:10px;
+                -o-border-radius:10px;
+
+
+                .form-group-check{
+
+                    margin-top: 20px;
+                    padding: 20px;
+                    background-color: $vert2;
+                    border-radius:10px;
+                    -webkit-border-radius:10px;
+                    -moz-border-radius:10px;
+                    -ms-border-radius:10px;
+                    -o-border-radius:10px;
+                }
+
+                .form-row {
+
+                    margin-top: 20px;
+                    padding: 20px;
+                    background-color: $vert2;
+                    border-radius:10px;
+                    -webkit-border-radius:10px;
+                    -moz-border-radius:10px;
+                    -ms-border-radius:10px;
+                    -o-border-radius:10px;
+
+                    .form-group {
+
+                        input.form-control:focus {
+
+                            box-shadow: none;
+                            border: none
+                        }
+                        select:focus {
+
+                            box-shadow: none;
+                            border: none
+                        }
+
+                        .color {
+                            width: 30px;
+                            height: 30px;
+                            cursor: pointer;
+                            border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                        }
+
+                        .fa-pencil-alt {
+
+                            margin-left: 50px;
+                            cursor: pointer;
+                        }
+                        
+                    }
+                    
+                    textarea {
+
+                        height: 200px;
+                    }
+                }
+
+                .title {
+
+                    color: $white;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                    
+                    h2 {
+
+                        display: inline;
+                        vertical-align: middle;
+                        font-weight: bold;
+                        color: $black;
+                    }
+                }
+            }
+
+            .div-submit{
+
+                text-align: right;
+                #submit-AddArticle {
+
+                    display: inline;
+                    margin-top: 20px;
+                    
+                }
+            }
+
+            img {
+
+                display: inline;
+                width: 70px;
+            }
+        }
+    }
+
+    ._modal {
+
+        pointer-events:none; 
+        z-index: 1;
+        .modal {
+
+            .modal-header {
+
+                background-color: $orange;
+                
+                button:active {
+
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+
+                h4 {
+
+
+                }
+            }
+
+        }
+    }
+    ._item {
+
+        pointer-events:none; 
+        .modal {
+
+            .modal-header {
+
+                background-color: $vert1;
+                
+                button:active {
+
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+
+            }
+
+        }
+    }
+    ._demarque {
+
+        pointer-events:none; 
+        .modal {
+
+            .modal-header {
+
+                background-color: $vert1;
+                
+                button:active {
+
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+
+            }
+
+        }
+    }
+    ._fournisseur{
+
+        pointer-events:none; 
+        .modal {
+
+            .modal-header {
+
+                background-color: $vert1;
+                
+                button:active {
+
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+
+            }
+
+        }
+    }
+    ._itemStaff{
+
+        pointer-events:none; 
+        .modal {
+
+            .modal-header {
+
+                background-color: $vert1;
+                
+                button:active {
+
+                    outline: none;
+                    border: none;
+                    box-shadow: none;
+                }
+
+            }
+
+        }
+    }
+}
