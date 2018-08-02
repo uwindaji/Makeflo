@@ -65,6 +65,17 @@ if(isset($_POST['request'])){ // si poste request
             $upload = new AddItem($pdo, $cat, $item);
         break;
 
+        case 'AdminLogin': 
+            // on creer un nouveau objet $controler
+            // on declare les variables de POST
+            $controler = new Rooter('AdminLogin'); // le controler charge le model 'upload'
+            $email = htmlentities($_POST['email'], ENT_QUOTES);
+            $password = htmlentities($_POST['password'], ENT_QUOTES);
+
+            // on appelle la class Upload apres avoir la requirer avec le controler
+            $upload = new AdminLogin($pdo, $email, $password);
+        break;
+
         case 'AddItemStaff': 
             // on creer un nouveau objet $controler
             // on declare les variables de POST

@@ -13,6 +13,9 @@ function  AdminLogin () {
 
             event.stopPropagation();
             event.preventDefault();
+
+            email = $('#email-login').val();
+            password = $('#password-login').val();
             sendData();
         });
     };
@@ -33,9 +36,37 @@ function  AdminLogin () {
             data: form_data,
             type: 'post',
             success: function (result) {
-                msg.init('info', result);
+
+                if(result === 'false'){
+
+                    msg.init('alert', 'erreur de connexion');
+                }else if (result === 'true'){
+
+                    msg.init('info', 'connexion success');
+                    sessionLogin = result;
+
+                    $( "#user-id" ).trigger( "click" );
+
+                        add_index.display("._menu", 'AdminMenu');
+                        add_index.createEvent('Evenement')
+                    vide();
+                }
+                
+                
             }
         });
+    };
+
+    var vide = function () {
+
+        var i = 0;
+        var input = $('input');
+
+        for (i = 0; i < input.length; i += 1) {
+
+            input[i].value = "";
+        }
+
     };
 }
 

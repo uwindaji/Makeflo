@@ -9,6 +9,8 @@ var vert5 = '#CAFCFC';
 var orange = '#fdc02f';
 var white = 'white';
 
+var sessionLogin = false;
+
 var color = null;
 var elemColor = null;
 

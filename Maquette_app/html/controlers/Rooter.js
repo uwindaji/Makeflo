@@ -44,7 +44,7 @@ function Rooter() {
     var display = function (loader, elem, x) {
         // on charge les views html et si la vue et charger on appelle la methode chargement
         // avec le paramètre x
-        $(loader).load('./html/views/' + elem + '.html', function () {
+        $(loader).load('./html/views/' + elem + '.php', function () {
             chargement(x);
         });
     };

@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -66,9 +72,9 @@
     <div id="AddLogin-script"></div>
     <div id="AddMenu-script"></div>
     <div id="Alert-script"></div>
-    <div id="evenement-script"></div>
-    <script src="./html/models/Evenement.js"></script>
+    <div id="Evenement-script"></div>
     <!-- -->
+    
     <!-- controlers -->
     <script src="./html/controlers/RooterAdmin.js"></script>
 </body>

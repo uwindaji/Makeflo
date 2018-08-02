@@ -14,8 +14,9 @@ function  AddStaff () {
         for(i = 0; i<categorie.length; i += 1){
 
             checkInfo(categorie[i]);
+
         }
-        
+
     };
 
     var evenement = function () {
@@ -194,7 +195,7 @@ function  AddStaff () {
 
                 var res = JSON.parse(result);
 
-                console.log(cat);
+
                 switch(cat){
 
                     case 'metier':
@@ -206,6 +207,12 @@ function  AddStaff () {
                     case 'secteur':
                         for(i = 0; i<res.length; i += 1){
                             $("#" + cat).append("<option value="+res[i].secteur+">"+res[i].secteur+"</option>")
+                        }
+                    break;
+                    case 'privilege':
+                        for(i = 0; i<res.length; i += 1){
+
+                            $("#" + cat).append("<option value="+res[i].privilege+">"+res[i].privilege+"</option>")
                         }
                     break;
                 }

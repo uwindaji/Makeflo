@@ -23,7 +23,7 @@ function Alert() {
             $('.modal-header').css('background-color', vert1);
             $('.modal-title').html(type);
 
-        }else if(type === 'info'){
+        }else if(type === 'alert'){
 
             $('.modal-header').css('background-color', orange);
             $('.modal-title').html(type);

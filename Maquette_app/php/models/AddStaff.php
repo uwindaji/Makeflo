@@ -14,7 +14,7 @@ class AddStaff {
         //la variable $resultats recupère toutes les données de la base de données
         $resultats = $pdo->query("SELECT * FROM STAFF  WHERE email_staff = '$email' ") or die('impossible de se connecter la table STAFF');
         $result    = $resultats->fetch();
-        $pass = sha1($password);
+        $pass = sha1(trim($password));
 
         $compt = $pdo->query("SELECT COUNT(*) AS id FROM STAFF ") or die('impossible de se connecter la table CLIENT');
         $_result    = $compt->fetch();

@@ -11,35 +11,30 @@ function RooterAdmin() {
 
     // la methode init le constructeur de la class
     this.init = function () {
-        var cge = 8; // cge variable = nombre de composant a charger
-        display("._menu", 'AdminMenu', cge);
-        display("._login", 'AdminLogin', cge);
-        display("._body", 'AddArticle', cge);
-        display("._modal", 'Alert', cge);
-        display("._item", 'AddItem', cge);
-        display("._demarque", 'AddItemDemarque', cge);
-        display("._itemStaff", 'AddItemStaff', cge);
-        display("._fournisseur", 'AddFournisseur', cge);
+        var cge = 6; // cge variable = nombre de composant a charger
+        this.display("._login", 'AdminLogin', cge);
+        this.display("._modal", 'Alert', cge);
+        this.display("._item", 'AddItem', cge);
+        this.display("._demarque", 'AddItemDemarque', cge);
+        this.display("._itemStaff", 'AddItemStaff', cge);
+        this.display("._fournisseur", 'AddFournisseur', cge);
 
     };
     /**
      * @param {number} x
      * function qui vérif le chargement des element
      */
-    var chargement = function (x) {
+    var chargement = function (elem, x) {
 
         charge += 1;
+        createScript(elem);
         if (charge === x) { //si tout les elements sont charger on lance la fonction evenement
             //createScript (elem);
             //_this.evenement();
             charge = 0; //et in initialise la variable charge
-            createScript('Alert');
-            createScript('AddItem');
-            createScript('AddItemDemarque');
-            createScript('AddItemStaff');
-            createScript('AddFournisseur');
+            
 
-            evenement.init();
+            
             //script.src = 'html/models/'+ elem + '.js';
         }
     };
@@ -50,15 +45,23 @@ function RooterAdmin() {
      * @param {number} x
      * la fonction qui permet de charger les composant html
      */
-    var display = function (loader, elem, x) {
+    this.display = function (loader, elem, x) {
         // on charge les views html et si la vue et charger on appelle la methode chargement
         // avec le paramètre x
-        $(loader).load('./html/views/' + elem + '.html', function () {
-            chargement(x);
+        $(loader).load('./html/views/' + elem + '.php', function () {
+            chargement(elem, x);
         });
     };
 
     var createScript = function (elem) {
+
+        var script = document.createElement('script');
+        script.src = './html/models/'+ elem +'.js';
+        var divScript = document.getElementById(elem + '-script');
+        divScript.appendChild(script);
+
+    }
+    this.createEvent = function (elem) {
 
         var script = document.createElement('script');
         script.src = './html/models/'+ elem +'.js';

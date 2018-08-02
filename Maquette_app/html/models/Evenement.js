@@ -21,13 +21,18 @@ function Evenement () {
         });
     }
 
-    display = function (loader, elem) { 
+    var display = function (loader, elem) { 
         // on charge les views html et si la vue et charger on appelle la methode chargement
         // avec le paramètre x
-        $(loader).load('./html/views/' + elem + '.html', function () {
 
-            createScript (elem);
-        });
+        if (sessionLogin === 'true'){
+            $(loader).load('./html/views/' + elem + '.php', function () {
+                createScript (elem);
+            });
+        } else {
+
+            msg.init('alert', 'il faut connecter');
+        }
         
     };
 
@@ -47,3 +52,4 @@ function Evenement () {
 }
 
 var evenement = new Evenement();
+evenement.init();
