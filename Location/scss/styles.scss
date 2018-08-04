@@ -1,0 +1,52 @@
+@import '_var.scss';
+
+body {
+
+
+}
+
+div.container-fluid{
+
+    .row-menu {
+
+        background-color: $color5;
+        .col-menu{
+
+        }
+    }
+
+    .row-item {
+
+        .carousel{
+
+            max-height: 780px;
+            overflow: hidden;
+        }
+    }
+
+    form.form-carousel{
+        position: absolute;
+        top: 500px;
+        left: 50%;
+        padding: 15px;
+        background-color: $color4;
+
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        
+        
+        .div-input{
+
+            width: 25%;
+            margin-left: 15px;
+        }
+
+        .btn {
+
+            margin-left: 15px;
+        }
+    }
+}
