@@ -1,0 +1,192 @@
+@import "_var.scss";
+
+.container-fluid {
+
+    // this is row menu
+    .row-menu {
+
+        background-color: $black;
+        nav.navbar {
+
+            a.navbar-brand {
+
+                text-transform: uppercase;
+
+                img {
+
+                    height: 30px;
+                }
+            }
+
+            .collapse {
+
+                .navbar-nav {
+
+                    a {
+                        color: $darkLight;
+                    }
+
+                    a:hover {
+                        color: $orange;
+                    }
+
+                    .dropdown-menu {
+
+                        border: solid 1px $orange;
+                        background: $black;
+                        .dropdown-item {
+
+                            color: $darkLight;
+                        }
+                        .dropdown-item:hover {
+
+                            color: $orange;
+                            background-color: $black;
+                        }
+                    }
+                }
+            }
+
+            button.navbar-toggler {
+
+                color: $white;
+                background-color: $white;
+                box-shadow: none;
+                outline: none;
+            }
+        }
+    }
+
+    // this is home for item
+    .row-home {
+        padding: 50px 0px 50px 0px;
+        background-color: $dark;
+        .item-home {
+
+            
+        }
+    }
+
+    // this is separator
+    .row.row-sepa {
+
+        height: 30px;
+        background-color: $orangeDark;
+    }
+    // this is login area
+    .row-login {
+        padding: 50px 0px 50px 0px;
+        background-color: $black;
+
+        button.btn {
+
+            outline: none;
+            box-shadow: none;
+            color: $orange;
+            background-color: $orangeDark;
+        }
+        button.btn:hover {
+            color: $black;
+            background-color: $orange;
+        }
+        .item-login {
+
+            color: $white;
+
+            .form-group {
+
+                label {
+
+                    color: $orange;
+                }
+
+                h3.h-orange {
+
+                    color: $orange;
+                }
+            }
+
+            select.form-control {
+                color: $orange;
+                border: none;
+                outline: none;
+                box-shadow: none;
+                border-bottom: solid 1px $orange;
+                background-color: $black;
+                border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                -ms-border-radius: 0px;
+                -o-border-radius: 0px;
+            }
+
+            input.form-control {
+                color: $orange;
+                border: none;
+                outline: none;
+                box-shadow: none;
+                border-bottom: solid 1px $orange;
+                background-color: $black;
+                border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                -ms-border-radius: 0px;
+                -o-border-radius: 0px;
+            }
+
+            input::placeholder {
+                color: $orange;
+                opacity: 0.5;
+            }
+
+            button {
+                color: $orange;
+                background-color: $orangeDark;
+            }
+
+            button:hover {
+                color: $black;
+                background-color: $orange;
+            }
+
+        }
+    }
+
+
+
+    // this is row-desktop area
+    .row-desktop {
+
+        padding: 100px 0;
+        background-color: $dark;
+        .card {
+
+            color: $orange;
+            cursor: pointer;
+            background-color: $black;
+            transition-duration: 0.5s;
+        }
+        .card:hover {
+
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -o-transform: scale(1.1);
+            transition-duration: 0.5s;
+        }
+
+    }
+
+    // this is the footer
+    .row-footer {
+
+        background-color: $black;
+        color: $orange;
+    }
+
+
+
+
+    
+}
