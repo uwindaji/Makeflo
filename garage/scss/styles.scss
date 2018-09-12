@@ -77,18 +77,18 @@
     .row-login {
         padding: 50px 0px 50px 0px;
         background-color: $black;
-
-        button.btn {
+        button.alert {
 
             outline: none;
             box-shadow: none;
             color: $orange;
             background-color: $orangeDark;
         }
-        button.btn:hover {
+        button.alert:hover {
             color: $black;
             background-color: $orange;
         }
+
         .item-login {
 
             color: $white;

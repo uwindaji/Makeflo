@@ -1,7 +1,7 @@
 <?php
 // name of project test.
 // Author :  lakhdar.
-// Create in  2018-08-21 at 16:11:34.
+// Create in  2018-09-11 at 16:46:38.
 // Contact : lakhdar-rouibah@live.fr.
 // Web : rouibah.fr
 
@@ -13,7 +13,14 @@ use app\kernel\db as db ;
 
 class Tools {
 
-
+    /**
+     * insert an array in position pricise
+     *
+     * @param [type] $array
+     * @param [type] $ad
+     * @param [type] $p
+     * @return array
+     */
     static function array_set($array, $ad, $p){
 
         // store keys and values of $ad  in $ks and $vs
@@ -74,6 +81,12 @@ class Tools {
         return $return;
     }
 
+    /**
+     * check if password is correct and hash it
+     *
+     * @param [type] $password
+     * @return string
+     */
     static function check_password($password){
 
         // check upercase
@@ -94,6 +107,12 @@ class Tools {
         }
     }
 
+    /**
+     * check if mail is correct
+     *
+     * @param [type] $mail
+     * @return string
+     */
     static function check_mail ($mail) {
 
         $mail = preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $mail);
@@ -105,9 +124,18 @@ class Tools {
         }
     }
 
+    /**
+     * check if value in post is empty 
+     *
+     * @param array $post
+     * @param [type] $array
+     * @return boolean
+     */
     static function is_empty(array $post,  $array){
 
+        // init $return in null
         $return = null;
+
 
         foreach($post as $key => $val){
 
@@ -125,5 +153,4 @@ class Tools {
         return $return;
 
     }
-
 }

@@ -2,12 +2,24 @@
 <div class="row row-login pt-5 pb-5">
     <div class=" col-xs-0 col-lg-1"></div>
     <div class="col-lg-10 col-xm-12">
-        <p>
-            <button class="btn " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <div class="col-lg-6 col-xm-12 d-flex justify-content-start pl-0">
+            <button class="alert col-lg-6 col-xm-12 ml-0 mr-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Add your car
             </button>
-        </p>
-        <div class="collapse col-lg-4 col-xm-12 pl-0 item-login" id="collapseExample">
+
+                <?PHP
+                    if ($_SESSION['registration']):
+                ?>
+                    <div class="alert  col-lg-6 col-xm-12 alert-<?= $_SESSION['icon'];?> " role="alert">
+                        <?= $_SESSION['registration']; ?>
+                    </div>
+                <?PHP
+                    $_SESSION['registration'] = null;
+                    endif;
+                ?>
+
+        </div>
+        <div class="collapse col-lg-6 col-xm-12 p-0 item-login" id="collapseExample">
             
                 <form action="" method="post">
                     <?PHP
@@ -23,6 +35,7 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">mark</label>
                         <select class="form-control" id="exampleFormControlSelect1" name="id_mark">
+                            <option value="">Select mark</option>
                             <?php
                                 foreach($select_mark as $key=>$val):
                             ?>
@@ -40,6 +53,8 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Year</label>
                         <select class="form-control" id="exampleFormControlSelect1" name="id_year">
+
+                            <option value="">Select year</option>
                             <?php
                                 foreach($select_year as $key=>$val):
                             ?>
@@ -51,6 +66,7 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Month</label>
                         <select class="form-control" id="exampleFormControlSelect1" name="id_month">
+                            <option value="">Select month</option>
                             <?php
                                 foreach($select_month as $key=>$val):
                             ?>
@@ -58,6 +74,9 @@
 
                             <?php endforeach;?>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="kilometers" name="kilometers" placeholder="Enter kilometers">
                     </div>
                     <div class="form-group d-flex justify-content-end">
                         <button type="submit" class="btn">Submit</button>
@@ -73,31 +92,26 @@
 <div class="row row-desktop">
     <div class=" col-xs-0 col-lg-1"></div>
     <div class="col-lg-10 col-xm-12">
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="./img/peugeot.jpg" alt="Card image cap">
+        <div class="d-flex flex-wrap justify-content-center">
+
+            <? if($_cars):
+            
+            foreach($_cars as $val): ?>
+            <div class="card col-lg-3 col-sm-5 col-xm-12 p-0 m-3">
+                <img class="card-img-top" src="./img/<?= $val[1] ?>.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Mark : <?= $val[1] ?></h5>
+                    <h6 class="card-title">Model : <?= $val[2] ?></h6>
+                    <h6 class="card-title">Register number : <?= $val[3] ?></h6>
+                    <h6 class="card-title">Kilometers : <?= $val[4] ?></h6>
+                    <h6 class="card-title">Month : <?= $val[5] ?></h6>
+                    <h6 class="card-title">Year : <?= $val[6] ?></h6>
+                    
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
-            <div class="card">
-                <img class="card-img-top" src="./img/bmw.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="./img/mercedes.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
+            <? endforeach; 
+                endif;?>
         </div>
     </div>
     <div class=" col-xs-0 col-lg-1"></div>

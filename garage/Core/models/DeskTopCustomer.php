@@ -14,35 +14,42 @@ $cars =  new service\Seed('CARS');
 $mark =  new service\Seed('MARK');
 $month =  new service\Seed('MONTH');
 $year =  new service\Seed('YEAR');
-
+$have =  new service\Seed('HAVE');
 $select_mark = $mark->search_in_table("*", null);
 $select_month = $month->search_in_table("*", null);
 $select_year = $year->search_in_table("*", null);
 
+$cars_array = new service\CastomerCars($_SESSION['loginCustomer'][0]);
+$_cars = $cars_array->get();
+
 if($_POST){
 
-    // search all in table CUSTOMER
-    $array = array("mark"=>$_POST['mark'], "model"=>$_POST['model'], "registration_number"=>$_POST['registration_number']);
-    $src_ad = $customer->search_in_table("*", $array);
+    $array = array('id_mark','model', 'registration_number', 'id_year', 'id_month', 'kilometers');
+    $return = service\Tools::is_empty($_POST, $array);
 
-    if(!$src_ad){
+    $_SESSION['registration'] = $return;
+    $_SESSION['icon'] = "danger";
 
-        $array = array('first_name', 'name', 'mail', 'tel', 'address', 'zip', 'city', 'password');
-        $return = service\Tools::is_empty($_POST, $array);
+    if(!$return){
 
-        $_SESSION['registration'] = $return;
+        // insert in table CARS $_POST
+        $_SESSION['registration'] = $cars->insert_in_table($_POST);
+        //select all in cars
+        $select_car = $cars->search_in_table("*", null);
+        // get the last id_car
+        $id_car = $select_car[count($select_car)-1]['id_car'];
+        // construct array to save in table HAVE
+        $array_have = array("id_car"=>$id_car, "id_customer"=>$_SESSION['loginCustomer'][0]);
+        // save in table HAVE
+        $have->insert_in_table($array_have);
         $_SESSION['icon'] = "danger";
+        if (!$_SESSION['registration']) {
 
-        if(!$return){
-            $_SESSION['registration'] = $customer->insert_in_table($_POST);
-            $_SESSION['icon'] = "danger";
-            if (!$_SESSION['registration']) {
+            $_SESSION['registration'] = "Registration sccess";
+            $_SESSION['icon'] = "success";
 
-                $_SESSION['registration'] = "Registration sccess";
-                $_SESSION['icon'] = "success";
-
-                
-            }
+            
         }
     }
+
 }
