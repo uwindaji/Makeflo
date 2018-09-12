@@ -27,7 +27,6 @@ class Seed {
         $dsn = new db\Database();
         $this->_pdo = $dsn->dbn();
         $this->_table = $table;
-        $this->_table = $table;
 
     }
 
@@ -170,14 +169,6 @@ class Seed {
         //return schema of table
         return $res;
 
-    }
-
-    private function sql(string $sql){
-
-
-        $req = $this->_pdo->exec($sql)or print_r($this->_pdo->errorInfo());
-
-        return $req;
     }
 }
 

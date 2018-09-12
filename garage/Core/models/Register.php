@@ -64,7 +64,7 @@ if($_POST){
             $_SESSION['registration'] = $admin->insert_in_table($_POST);
             if (!$_SESSION['registration']) {
 
-                $_SESSION['registration'] = "Registration sccess";
+                $_SESSION['registration'] = "Registration success";
                 $_SESSION['icon'] = "success";
 
                 $rooter = new controlers\Rooter('Login');

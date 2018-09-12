@@ -98,7 +98,30 @@
             
             foreach($_cars as $val): ?>
             <div class="card col-lg-3 col-sm-5 col-xm-12 p-0 m-3">
-                <img class="card-img-top" src="./img/<?= $val[1] ?>.jpg" alt="Card image cap">
+                <img class="card-img-top" src="./img/<?php
+                if (    
+                        $val[1] == "Audi" || 
+                        $val[1] == "Bmw" || 
+                        $val[1] == "Citroen" || 
+                        $val[1] == "Fiat" || 
+                        $val[1] == "Ford" || 
+                        $val[1] == "Mercedes" ||
+                        $val[1] == "Opel" ||
+                        $val[1] == "Peugeot" ||
+                        $val[1] == "Renault" ||
+                        $val[1] == "Volkswagen"  )
+                        
+                    {
+
+                            echo $val[1];
+                    }else {
+
+                        echo "Default";
+                    }
+                            
+                            
+                        ?>.jpg" alt="Card image cap">
+                        
                 <div class="card-body">
                     <h5 class="card-title">Mark : <?= $val[1] ?></h5>
                     <h6 class="card-title">Model : <?= $val[2] ?></h6>

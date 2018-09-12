@@ -23,12 +23,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // hash post password 
     $password = sha1($_POST['password']);
     $mail = $_POST['mail'];
-
     $array = array("mail"=>$mail, "password"=>$password);
     // search in table Admin mail and password and sotre in variable $res_admin
     $res_admin = $admin->search_in_table("*", $array);
 
-    
     // if variable $res_admin existe
     if($res_admin){
 

@@ -5,6 +5,10 @@ $rec = $_GET["rec"];
 switch ($rec){
 
     // case for login customer
+    case "Login";
+        $desktop = new controlers\Rooter('Login');
+    break;
+    // case for login customer
     case "LoginCustomer";
         $desktop = new controlers\Rooter('LoginCustomer');
     break;

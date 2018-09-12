@@ -47,7 +47,7 @@ if($_POST){
 
             $_SESSION['registration'] = "Registration sccess";
             $_SESSION['icon'] = "success";
-
+            exit(header('location: ?rec=DeskTopCustomer'));
             
         }
     }
