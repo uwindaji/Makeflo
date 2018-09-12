@@ -178,6 +178,162 @@
 
     }
 
+    // this is the agenda area
+
+    .row-agenda {
+
+        background-color: $dark;
+        .agenda {
+            margin: 10px;
+            border: solid 1px $orangeOpac;
+            background-color: $orangeOpa;
+
+            .agenda-head{
+
+                margin-top: 15px;
+                padding: 15px 0 15px 0px;
+                background-color: $orangeDark;
+                h4 {
+
+                    color: $orange;
+                }
+
+                a {
+
+                    color: $orange;
+                    font-size: 36px;
+                    line-height: 8px;
+                    box-shadow: none;
+                    outline: none;
+                }
+
+                a:hover {
+
+                    color: $orange;
+                }
+
+            }
+
+            .calend {
+
+                width: 100%;
+                margin: 15px 0px 5px 0px;
+                td {
+
+                    width: 14.29%;
+                    border: solid 1px $orangeOpac;
+                    vertical-align: top;
+                    .other-month {
+
+                        opacity: 0.2;
+                    } 
+                }
+
+
+            
+                .week-day {
+
+                    
+                    padding: 10px;
+                    color: $black;
+                    background-color: $orange;
+                    opacity: 1;
+                }
+                .weekend {
+
+                    padding: 10px;
+                    color: $white;
+                    background-color: $orangeDark;
+                    opacity: 1;
+                }
+                .today {
+
+                    padding: 10px;
+                    color: $white;
+                    background-color: $orange;
+                    opacity: 1;
+                }
+
+                .day {
+
+                    color: $white;
+                    padding: 10px;
+
+                    .green {
+
+                        width: 10px;
+                        height: 10px;
+                        background-color: green;
+
+                        border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -o-border-radius: 50%;
+                    }
+
+                    .red {
+
+                        width: 10px;
+                        height: 10px;
+                        background-color: red;
+
+                        border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -o-border-radius: 50%;
+                    }
+                }
+            }
+
+            .agenda-footer {
+
+                color: $orange;
+                margin-bottom: 5px;
+
+                .green {
+
+                    width: 10px;
+                    height: 10px;
+                    background-color: green;
+                    margin-top: 8px;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                }
+
+                .red {
+
+                    width: 10px;
+                    height: 10px;
+                    background-color: red;
+                    margin-top: 8px;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                }
+
+                .orange {
+
+                    width: 10px;
+                    height: 10px;
+                    background-color: $orange;
+                    margin-top: 8px;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                }
+            }
+        }
+    }
+
     // this is the footer
     .row-footer {
 
@@ -185,8 +341,4 @@
         color: $orange;
     }
 
-
-
-
-    
 }
