@@ -100,20 +100,18 @@
             <div class="card col-lg-3 col-sm-5 col-xm-12 p-0 m-3">
                 <img class="card-img-top" src="./img/<?php
                 if (    
-                        $val[1] == "Audi" || 
-                        $val[1] == "Bmw" || 
-                        $val[1] == "Citroen" || 
-                        $val[1] == "Fiat" || 
-                        $val[1] == "Ford" || 
-                        $val[1] == "Mercedes" ||
-                        $val[1] == "Opel" ||
-                        $val[1] == "Peugeot" ||
-                        $val[1] == "Renault" ||
-                        $val[1] == "Volkswagen"  )
-                        
+                        $val[2] == "Audi" || 
+                        $val[2] == "Bmw" || 
+                        $val[2] == "Citroen" || 
+                        $val[2] == "Fiat" || 
+                        $val[2] == "Ford" || 
+                        $val[2] == "Mercedes" ||
+                        $val[2] == "Opel" ||
+                        $val[2] == "Peugeot" ||
+                        $val[2] == "Renault" ||
+                        $val[2] == "Volkswagen"  )
                     {
-
-                            echo $val[1];
+                            echo $val[2];
                     }else {
 
                         echo "Default";
@@ -123,14 +121,14 @@
                         ?>.jpg" alt="Card image cap">
                         
                 <div class="card-body">
-                    <h5 class="card-title">Mark : <?= $val[1] ?></h5>
-                    <h6 class="card-title">Model : <?= $val[2] ?></h6>
-                    <h6 class="card-title">Register number : <?= $val[3] ?></h6>
-                    <h6 class="card-title">Kilometers : <?= $val[4] ?></h6>
-                    <h6 class="card-title">Month : <?= $val[5] ?></h6>
-                    <h6 class="card-title">Year : <?= $val[6] ?></h6>
+                    <h5 class="card-title">Mark : <?= $val[2] ?></h5>
+                    <h6 class="card-title">Model : <?= $val[3] ?></h6>
+                    <h6 class="card-title">Register number : <?= $val[4] ?></h6>
+                    <h6 class="card-title">Kilometers : <?= $val[5] ?></h6>
+                    <h6 class="card-title">Month : <?= $val[6] ?></h6>
+                    <h6 class="card-title">Year : <?= $val[7] ?></h6>
                     
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <a href="?rec=Agenda&id=<?= $val[1]?>&mark=<?= $val[2]?>&model=<?= $val[3]?>&iregister_number=<?= $val[4]?>&kilometers=<?= $val[5]?>&m=<?= $val[6]?>&y=<?= $val[7]?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >Take appointment</button></a>
                 </div>
             </div>
             <? endforeach; 

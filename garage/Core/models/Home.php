@@ -5,8 +5,6 @@
 // Contact : lakhdar-rouibah@live.fr.
 // Web : rouibah.fr
 
-// page to login
-
 namespace models ;
 use models as models;
 use app\kernel\service as service;

@@ -5,8 +5,6 @@
 // Contact : lakhdar-rouibah@live.fr.
 // Web : rouibah.fr
 
-// page to login
-
 namespace models ;
 use models as models;
 use app\kernel\service as service;
@@ -61,14 +59,31 @@ if($_POST){
 
         if (!$res){
 
-            $_SESSION['registration'] = $admin->insert_in_table($_POST);
-            if (!$_SESSION['registration']) {
 
-                $_SESSION['registration'] = "Registration success";
-                $_SESSION['icon'] = "success";
+            $array = array('first_name', 'name', 'mail', 'tel', 'date_hiring', 'password');
+            $return = service\Tools::is_empty($_POST, $array);
 
-                $rooter = new controlers\Rooter('Login');
+            
+
+            if(!$return){
+
+                $_SESSION['registration'] = $admin->insert_in_table($_POST);
+
+                if (!$_SESSION['registration']) {
+
+                    $_SESSION['registration'] = "Registration success";
+                    $_SESSION['icon'] = "success";
+
+                    //$rooter = new controlers\Rooter('Login');
+                    exit(header('location: ?rec=Login'));
+                }
+
+            }else {
+                $_SESSION['registration'] = $return;
+                $_SESSION['icon'] = "danger";
+
             }
+                
             
 
         }else {

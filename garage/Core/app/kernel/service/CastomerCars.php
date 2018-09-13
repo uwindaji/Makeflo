@@ -54,7 +54,7 @@ class CastomerCars {
             $arr_registration_number = $this->elem_car($this->_cars, 'registration_number', 'id_car', $arr_car[$i]);
             $arr_kilometers = $this->elem_car($this->_cars, 'kilometers', 'id_car', $arr_car[$i]);
             
-            $add = [$add, $mark[$i][0], $arr_model[0], $arr_registration_number[0], $arr_kilometers[0], $month[$i][0], $year[$i][0]];
+            $add = [$add,  $arr_car[$i], $mark[$i][0], $arr_model[0], $arr_registration_number[0], $arr_kilometers[0], $month[$i][0], $year[$i][0]];
 
             array_push($return, $add);
             

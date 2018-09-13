@@ -18,11 +18,18 @@ $have =  new service\Seed('HAVE');
 // search id_customer in table CUSTOMER
 $res_customer = $customer->search_in_table("*", null);
 
-foreach($res_customer as $val){
+if($res_customer):
 
-    $id = $val['id_customer'];
+    foreach($res_customer as $val){
 
-    $res_count = $have->search_in_table("COUNT(id_car)", array("id_customer"=>$id));
+        $id = $val['id_customer'];
 
-    echo $val['id_customer']." : ".$val['first_name']." ".$val['name']." have ".$res_count[0]['COUNT(id_car)']." cars"; echo"</br>";
-}
+        $res_count = $have->search_in_table("COUNT(id_car)", array("id_customer"=>$id));
+
+        if($res_count):
+            echo $val['id_customer']." : ".$val['first_name']." ".$val['name']." have ".$res_count[0]['COUNT(id_car)']." cars"; echo"</br>";
+        endif;
+    }
+endif;
+
+

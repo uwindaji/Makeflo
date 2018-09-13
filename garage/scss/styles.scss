@@ -162,7 +162,6 @@
         .card {
 
             color: $orange;
-            cursor: pointer;
             background-color: $black;
             transition-duration: 0.5s;
         }
@@ -176,13 +175,57 @@
             transition-duration: 0.5s;
         }
 
+        div.card-body {
+
+            a {
+
+                button.btn {
+
+                    width: 100%;
+                    color: $orange;
+                    text-align: center;
+                    padding: 5px;
+                    box-shadow: none;
+                    outline: none;
+                    background-color: $orangeDark;
+                }
+
+                button.btn:hover {
+
+                    color: $black;
+                    background-color: $orange;
+                }
+            }
+        }
+
     }
 
-    // this is the agenda area
+    // this is the agenda-head area
+    .row-agenda-head {
 
+        background-color: $dark;
+
+        .card {
+
+            color: $orange;
+            background-color: $orangeDark;
+        }
+
+    }
+    // this is the agenda area
     .row-agenda {
 
         background-color: $dark;
+
+        .card {
+
+            color: $orange;
+            background-color: $black;
+            transition-duration: 0.5s;
+        }
+
+
+        
         .agenda {
             margin: 10px;
             border: solid 1px $orangeOpac;
@@ -217,6 +260,7 @@
             .calend {
 
                 width: 100%;
+                height: 74%;
                 margin: 15px 0px 5px 0px;
                 td {
 
@@ -256,6 +300,7 @@
 
                 .day {
 
+                    height: 100%;
                     color: $white;
                     padding: 10px;
 

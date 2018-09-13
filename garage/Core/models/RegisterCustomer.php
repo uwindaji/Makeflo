@@ -26,9 +26,6 @@ if($_POST){
         $array = array('first_name', 'name', 'mail', 'tel', 'address', 'zip', 'city', 'password');
         $return = service\Tools::is_empty($_POST, $array);
 
-        $_SESSION['registration'] = $return;
-        $_SESSION['icon'] = "danger";
-
         if(!$return){
             $_SESSION['registration'] = $customer->insert_in_table($_POST);
             $_SESSION['icon'] = "danger";
@@ -39,6 +36,11 @@ if($_POST){
                 exit(header('location: ?rec=LoginCustomer'));
                 
             }
+        }else {
+
+            $_SESSION['registration'] = $return;
+            $_SESSION['icon'] = "danger";
+
         }
     }
 }

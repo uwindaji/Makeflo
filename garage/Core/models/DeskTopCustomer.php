@@ -22,6 +22,8 @@ $select_year = $year->search_in_table("*", null);
 $cars_array = new service\CastomerCars($_SESSION['loginCustomer'][0]);
 $_cars = $cars_array->get();
 
+
+
 if($_POST){
 
     $array = array('id_mark','model', 'registration_number', 'id_year', 'id_month', 'kilometers');

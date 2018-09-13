@@ -10,7 +10,9 @@ $mark =  new service\Seed('MARK');
 $month =  new service\Seed('MONTH');
 $year =  new service\Seed('YEAR');
 $ray =  new service\Seed('RAY');
+$appointment =  new service\Seed('APPOINTMENT');
 $admin =  new service\Seed('Admin');
+
 
 // search data in table WORKPLACE
 $select = $work->search_in_table("*", null);
@@ -136,21 +138,32 @@ if(!$select){
                         array("id_month"=>0, "month"=>"October"),   
                         array("id_month"=>0, "month"=>"November"),   
                         array("id_month"=>0, "month"=>"December")   
-                        
                     );
 
         $periods = array(    
                         array("id_period"=>0, "name_period"=>"CDI"),     
                         array("id_period"=>0, "name_period"=>"CDD"),     
                         array("id_period"=>0, "name_period"=>"Apprenticeship"),     
-                        array("id_period"=>0, "name_period"=>"Traineeship"),     
-                        
+                        array("id_period"=>0, "name_period"=>"Traineeship")     
+                    );
+
+        $appointments = array(    
+                        array("id_appointement"=>0, "app"=>"8"),
+                        array("id_appointement"=>0, "app"=>"10"),
+                        array("id_appointement"=>0, "app"=>"14"),
+                        array("id_appointement"=>0, "app"=>"16")      
                     );
 
     // insert data for WORKPLACE
     foreach($staff as $val){
 
         $work->insert_in_table($val);
+    }
+
+    // insert data for APPOINTMENT
+    foreach($appointments as $val){
+
+        $appointment->insert_in_table($val);
     }
 
     // insert data for PERIOD
