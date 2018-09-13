@@ -268,7 +268,6 @@
                     border: solid 1px $orangeOpac;
                     vertical-align: top;
                     .other-month {
-
                         opacity: 0.2;
                     } 
                 }
@@ -277,7 +276,7 @@
             
                 .week-day {
 
-                    
+                    height: 100%;
                     padding: 10px;
                     color: $black;
                     background-color: $orange;
@@ -303,6 +302,8 @@
                     height: 100%;
                     color: $white;
                     padding: 10px;
+                    cursor: pointer;
+                    background-color: $orangeOpa;
 
                     .green {
 
@@ -329,6 +330,11 @@
                         -ms-border-radius: 50%;
                         -o-border-radius: 50%;
                     }
+                }
+
+                .day:hover {
+
+                    background-color: $orangeOpac;
                 }
             }
 

@@ -53,18 +53,29 @@
         </div>
         <table class="calend">
             <?php  for($i = 0; $i < $month->getWeeks(); $i++ ):   ?>
+                <?php if($i === 0): ?>
+                    <tr>
+                        <?php foreach($month->days as $k => $day): 
 
+                            $date =(clone $start_day)->modify("+" . ($k + $i * 7) . " days");
+                            
+                        ?>
+                        <td >
+                            
+                                <div class="week-day"><?= $day; ?></div>
+                            
+                        </td>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endif; ?>
                 <tr>
                     <?php foreach($month->days as $k => $day): 
 
                         $date =(clone $start_day)->modify("+" . ($k + $i * 7) . " days");
                         
                     ?>
-                    <td class="">
-                        <?php if($i === 0): ?>
-                            <div class="week-day"><?= $day; ?></div>
-                        <?php endif; ?>
-                        <div class="d-flex justify-content-between day <?= $month->withinMonth($date) ? '' : 'other-month'; ?> <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?>">
+                    <td>
+                        <div  data-toggle="modal" data-target="#exampleModal" class="d-flex justify-content-between day <?= $month->withinMonth($date) ? '' : 'other-month'; ?> <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?>">
                             <?= $date->format('d'); ?> 
                             <div class="<?= $day == "Sun" || $day == "Sat" ? 'red' : 'green'; ?>"></div>
                         </div>
@@ -80,4 +91,26 @@
         </div>
     </div>
     <div class="col-lg-1 col-xm-0"></div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
