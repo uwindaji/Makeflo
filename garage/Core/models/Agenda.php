@@ -9,11 +9,24 @@ namespace models ;
 use models as models;
 use app\kernel\service as service;
 
+
+// initiation class Month
 $month = new service\Month($_GET['month'] ?? null, $_GET['year'] ?? null );
+
+// get the first day in month
 $start_day = $month->getStartingDay();
 $start_day = $start_day->format('N') === "1" ? $start_day : $month->getStartingDay()->modify('last monday');
 
+// initiation table APPOINTMENT
+$appoint = new service\Seed('APPOINTMENT');
+
+// search all in yable APPOINTMENT
+ $res_appoint = $appoint->search_in_table("*", null);
+
+//print_r($res_appoint); die();
+
 
 if($_GET['id']):
-$_SESSION['car'] = array($_GET['id'], $_GET['mark'],$_GET['model'],$_GET['register_number'],$_GET['kilometers'],$_GET['m'],$_GET['y'] );
+    $_SESSION['car'] = array($_GET['id'], $_GET['mark'],$_GET['model'],$_GET['register_number'],$_GET['kilometers'],$_GET['m'],$_GET['y'] );
+    $_SESSION['securite'] = rand(1000, 1000);
 endif;    

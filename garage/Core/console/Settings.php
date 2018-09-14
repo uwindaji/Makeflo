@@ -148,10 +148,10 @@ if(!$select){
                     );
 
         $appointments = array(    
-                        array("id_appointement"=>0, "app"=>"8"),
-                        array("id_appointement"=>0, "app"=>"10"),
-                        array("id_appointement"=>0, "app"=>"14"),
-                        array("id_appointement"=>0, "app"=>"16")      
+                        array("id_appointement"=>0, "app"=>"08:00"),
+                        array("id_appointement"=>0, "app"=>"10:00"),
+                        array("id_appointement"=>0, "app"=>"14:00"),
+                        array("id_appointement"=>0, "app"=>"16:00")      
                     );
 
     // insert data for WORKPLACE

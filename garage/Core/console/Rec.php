@@ -28,6 +28,22 @@ switch ($rec){
 
             exit(header('location: index.php'));
         }
+    // case for register Agenda
+    case "Agenda";
+        if($_SESSION['loginCustomer']){
+            $desktop = new controlers\Rooter('Agenda');
+        }else {
+
+            exit(header('location: index.php'));
+        }
+    // case for register Appoint
+    case "Appoint";
+        if($_SESSION['loginCustomer']){
+            require_once './Core/models/Appoint.php';
+        }else {
+
+            exit(header('location: index.php'));
+        }
     break;
     // case for log out
     case "LogOut";

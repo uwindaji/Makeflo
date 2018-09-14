@@ -79,7 +79,8 @@
                                                                                     <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> 
                                                                                     <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?> 
                                                                                     <?= $day == "Sun" || $day == "Sat" ? 'remove' : '' ?> 
-                                                                                    <?= strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))? 'remove' : '' ?>" >
+                                                                                    <?= strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))? 'remove' : '' ?>" 
+                                                                                    onclick="getDate('<?= $date->format('Y-m-d'); ?>', '<?=  $_SESSION['securite']  ?>')">
                             <?= $date->format('d'); ?> 
                             <div class="<?= $day == "Sun" || $day == "Sat" ? 'red' : 'green'; ?>"></div>
                         </div>
@@ -103,20 +104,27 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Appointment</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body p-5">
                 <form action="" method="post">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="date" name="date" disabled>
+                    </div>
                     <div class="form-group ">
                         <select class="form-control" id="exampleFormControlSelect1" name="id_workplace">
-                            <option value="">date</option>
+                            <option value="">Slect time</option>
+                            <?php  foreach($res_appoint as $val):  ?>
+                                <option value="<?= $val['id_appointement'];  ?>"><?=  $val['app']  ?></option>
+                            <?php endforeach;  ?>
                         </select>
                     </div>
                     <div class="form-group d-flex justify-content-end">
-                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn">Take</button>
                     </div>
                 </form>
             </div>
