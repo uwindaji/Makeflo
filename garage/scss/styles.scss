@@ -268,6 +268,9 @@
                     border: solid 1px $orangeOpac;
                     vertical-align: top;
                     .other-month {
+
+                        padding: 10px;
+                        color: $white;
                         opacity: 0.2;
                     } 
                 }
@@ -284,17 +287,22 @@
                 }
                 .weekend {
 
-                    padding: 10px;
+                    
                     color: $white;
-                    background-color: $orangeDark;
-                    opacity: 1;
+                    opacity: 0.2;
                 }
                 .today {
 
                     padding: 10px;
                     color: $white;
                     background-color: $orange;
-                    opacity: 1;
+                }
+
+                .remove {
+
+                    padding: 10px;
+                    color: $white;
+                    opacity: 0.2;
                 }
 
                 .day {
@@ -303,7 +311,6 @@
                     color: $white;
                     padding: 10px;
                     cursor: pointer;
-                    background-color: $orangeOpa;
 
                     .green {
 
@@ -390,6 +397,105 @@
 
         background-color: $black;
         color: $orange;
+    }
+
+    // this is modal area
+    .modal {
+
+        .modal-dialog {
+
+            .modal-content {
+
+                background-color: $orangeDark;
+
+                .modal-header {
+
+                    background-color: $orange;
+                    h5.modal-title {
+
+
+                    }
+                }
+
+                .modal-body {
+
+                    background-color: $black;
+
+                    form {
+
+                        .form-group {
+
+                            label {
+
+                                color: $orange;
+                            }
+
+                            h3.h-orange {
+
+                                color: $orange;
+                            }
+                        }
+
+                        select.form-control {
+                            color: $orange;
+                            border: none;
+                            outline: none;
+                            box-shadow: none;
+                            border-bottom: solid 1px $orange;
+                            background-color: $black;
+                            border-radius: 0px;
+                            -webkit-border-radius: 0px;
+                            -moz-border-radius: 0px;
+                            -ms-border-radius: 0px;
+                            -o-border-radius: 0px;
+                        }
+
+                        input.form-control {
+                            color: $orange;
+                            border: none;
+                            outline: none;
+                            box-shadow: none;
+                            border-bottom: solid 1px $orange;
+                            background-color: $black;
+                            border-radius: 0px;
+                            -webkit-border-radius: 0px;
+                            -moz-border-radius: 0px;
+                            -ms-border-radius: 0px;
+                            -o-border-radius: 0px;
+                        }
+
+                        input::placeholder {
+                            color: $orange;
+                            opacity: 0.5;
+                        }
+
+                        button {
+                            color: $orange;
+                            background-color: $orangeDark;
+                        }
+
+                        button:hover {
+                            color: $black;
+                            background-color: $orange;
+                        }
+                    }
+                }
+
+                .modal-footer {
+
+                    background-color: $dark;
+                    button {
+                            color: $orange;
+                            background-color: $orangeDark;
+                        }
+
+                    button:hover {
+                        color: $black;
+                        background-color: $orange;
+                    }
+                }
+            }
+        }
     }
 
 }

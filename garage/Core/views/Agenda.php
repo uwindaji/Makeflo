@@ -15,18 +15,18 @@
     <div class="card col-lg-3 col-xm-12 p-0 mt-3 mb-3">
         <img class="card-img-top" src="./img/<?php
         if (    
-                $_SESSION['mark'] == "Audi" || 
-                $_SESSION['mark'] == "Bmw" || 
-                $_SESSION['mark'] == "Citroen" || 
-                $_SESSION['mark'] == "Fiat" || 
-                $_SESSION['mark'] == "Ford" || 
-                $_SESSION['mark'] == "Mercedes" ||
-                $_SESSION['mark'] == "Opel" ||
-                $_SESSION['mark'] == "Peugeot" ||
-                $_SESSION['mark'] == "Renault" ||
-                $_SESSION['mark'] == "Volkswagen"  )
+                $_SESSION['car'][1] == "Audi" || 
+                $_SESSION['car'][1] == "Bmw" || 
+                $_SESSION['car'][1] == "Citroen" || 
+                $_SESSION['car'][1] == "Fiat" || 
+                $_SESSION['car'][1] == "Ford" || 
+                $_SESSION['car'][1] == "Mercedes" ||
+                $_SESSION['car'][1] == "Opel" ||
+                $_SESSION['car'][1] == "Peugeot" ||
+                $_SESSION['car'][1] == "Renault" ||
+                $_SESSION['car'][1] == "Volkswagen"  )
             {
-                    echo $_SESSION['mark'];
+                    echo $_SESSION['car'][1];
             }else {
 
                 echo "Default";
@@ -36,12 +36,12 @@
                 ?>.jpg" alt="Card image cap">
                 
         <div class="card-body">
-            <h5 class="card-title">Mark : <?= $_SESSION['mark'] ?></h5>
-            <h6 class="card-title">Model : <?= $_SESSION['model'] ?></h6>
-            <h6 class="card-title">Register number : <?= $_SESSION['register_number'] ?></h6>
-            <h6 class="card-title">Kilometers : <?= $_SESSION['kilometers'] ?></h6>
-            <h6 class="card-title">Month : <?= $_SESSION['m'] ?></h6>
-            <h6 class="card-title">Year : <?= $_SESSION['y'] ?></h6>
+            <h5 class="card-title">Mark : <?= $_SESSION['car'][1] ?></h5>
+            <h6 class="card-title">Model : <?= $_SESSION['car'][2] ?></h6>
+            <h6 class="card-title">Register number : <?= $_SESSION['car'][3] ?></h6>
+            <h6 class="card-title">Kilometers : <?= $_SESSION['car'][4] ?></h6>
+            <h6 class="card-title">Month : <?= $_SESSION['car'][5] ?></h6>
+            <h6 class="card-title">Year : <?= $_SESSION['car'][6] ?></h6>
         </div>
     </div>
     <div class="col-lg-1 col-xm-0"></div>
@@ -75,7 +75,11 @@
                         
                     ?>
                     <td>
-                        <div  data-toggle="modal" data-target="#exampleModal" class="d-flex justify-content-between day <?= $month->withinMonth($date) ? '' : 'other-month'; ?> <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?>">
+                        <div <?php  if (strtotime(date('d-m-Y')) <= strtotime($date->format('d-m-Y'))){ ?> data-toggle="modal" data-target="#exampleModal" <?php } ?>  class="d-flex justify-content-between  <?= $month->withinMonth($date) ? 'day' : 'other-month'; ?>  
+                                                                                    <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> 
+                                                                                    <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?> 
+                                                                                    <?= $day == "Sun" || $day == "Sat" ? 'remove' : '' ?> 
+                                                                                    <?= strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))? 'remove' : '' ?>" >
                             <?= $date->format('d'); ?> 
                             <div class="<?= $day == "Sun" || $day == "Sat" ? 'red' : 'green'; ?>"></div>
                         </div>
@@ -104,13 +108,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                ...
+            <div class="modal-body p-5">
+                <form action="" method="post">
+                    <div class="form-group ">
+                        <select class="form-control" id="exampleFormControlSelect1" name="id_workplace">
+                            <option value="">date</option>
+                        </select>
+                    </div>
+                    <div class="form-group d-flex justify-content-end">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
+

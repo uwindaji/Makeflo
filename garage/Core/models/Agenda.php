@@ -14,17 +14,6 @@ $start_day = $month->getStartingDay();
 $start_day = $start_day->format('N') === "1" ? $start_day : $month->getStartingDay()->modify('last monday');
 
 
-
-
-if ($_GET['id']){
-        $_SESSION['id_car'] = $_GET['id'];
-        $_SESSION['mark'] = $_GET['mark'];
-        $_SESSION['model'] = $_GET['model'];
-        $_SESSION['register_number'] = $_GET['register_number'];
-        $_SESSION['kilometers'] = $_GET['kilometers'];
-        $_SESSION['m'] = $_GET['m'];
-        $_SESSION['y'] = $_GET['y'];
-
-
-}
-        
+if($_GET['id']):
+$_SESSION['car'] = array($_GET['id'], $_GET['mark'],$_GET['model'],$_GET['register_number'],$_GET['kilometers'],$_GET['m'],$_GET['y'] );
+endif;    
