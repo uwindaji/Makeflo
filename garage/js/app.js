@@ -11,13 +11,20 @@ function getDate(date){
     $.get(url, function( data ) {
 
         data = JSON.parse(data);
-        console.log(data);
-        for(var i = 0; i < data.length; i++) {
-            
-            $('#select').append('<option value="' + data[i].id_appointement + '">' + data[i].app +'</option>');
-        }
+        
+        insertSelect(data)
 
         
     });
 
+}
+
+function insertSelect(data){
+
+    $("#select").empty();
+    $('#select').append('<option value="">Select hour</option>');
+    for(var i = 0; i < data.length; i++) {
+        
+        $('#select').append('<option value="' + data[i].id_appointement + '">' + data[i].app +'</option>');
+    }
 }

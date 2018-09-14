@@ -117,8 +117,6 @@
                     </div>
                     <div class="form-group ">
                         <select class="form-control" id="select" name="app">
-                            <option value="">Slect time</option>
-                            
                         </select>
                     </div>
                     <div class="form-group d-flex justify-content-end">
