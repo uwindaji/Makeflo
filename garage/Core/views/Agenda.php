@@ -80,7 +80,7 @@
                                                                                     <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?> 
                                                                                     <?= $day == "Sun" || $day == "Sat" ? 'remove' : '' ?> 
                                                                                     <?= strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))? 'remove' : '' ?>" 
-                                                                                    onclick="getDate('<?= $date->format('Y-m-d'); ?>', '<?=  $_SESSION['securite']  ?>')">
+                                                                                    onclick="getDate('<?= $date->format('Y-m-d'); ?>')">
                             <?= $date->format('d'); ?> 
                             <div class="<?= $day == "Sun" || $day == "Sat" ? 'red' : 'green'; ?>"></div>
                         </div>
@@ -116,11 +116,9 @@
                         <input type="text" class="form-control" id="date" name="date" disabled>
                     </div>
                     <div class="form-group ">
-                        <select class="form-control" id="exampleFormControlSelect1" name="id_workplace">
+                        <select class="form-control" id="select" name="app">
                             <option value="">Slect time</option>
-                            <?php  foreach($res_appoint as $val):  ?>
-                                <option value="<?= $val['id_appointement'];  ?>"><?=  $val['app']  ?></option>
-                            <?php endforeach;  ?>
+                            
                         </select>
                     </div>
                     <div class="form-group d-flex justify-content-end">

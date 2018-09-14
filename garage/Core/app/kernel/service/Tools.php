@@ -153,4 +153,30 @@ class Tools {
         return $return;
 
     }
+
+    static function diff_array($array1, $array2) {
+        $diff=array();
+        $array = array();
+        for($i = 0; $i< count($array1); $i++){
+
+            foreach($array2 as $key => $val){
+
+                if($array1[$i]['id_appointement'] == $val['id_appointement'] and $array1[$i]['app'] == $val['app']){
+
+                    array_push($diff, $i);
+                }
+            }
+        }
+
+        $d = array(0,1,2,3);
+
+        $ds = array_diff($d, $diff);
+
+        foreach($ds as $val){
+
+            array_push($array, $array1[$val]);
+        }
+
+        return $array;
+    }
 }

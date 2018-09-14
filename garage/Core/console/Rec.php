@@ -28,6 +28,7 @@ switch ($rec){
 
             exit(header('location: index.php'));
         }
+    break;
     // case for register Agenda
     case "Agenda";
         if($_SESSION['loginCustomer']){
@@ -36,6 +37,7 @@ switch ($rec){
 
             exit(header('location: index.php'));
         }
+    break;
     // case for register Appoint
     case "Appoint";
         if($_SESSION['loginCustomer']){
