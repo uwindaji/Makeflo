@@ -72,6 +72,7 @@
                     <?php foreach($month->days as $k => $day): 
 
                         $date =(clone $start_day)->modify("+" . ($k + $i * 7) . " days");
+                         $res_take_date = $take->search_in_table("*", array("date"=>$date->format('Y-m-d')));
                         
                     ?>
                     <td>
@@ -79,6 +80,7 @@
                                                                                     <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> 
                                                                                     <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?> 
                                                                                     <?= $day == "Sun" || $day == "Sat" ? 'remove' : '' ?> 
+                                                                                    <?= count($res_take_date) >=4 ? 'remove' : '' ?> 
                                                                                     <?= strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))? 'remove' : '' ?>" 
                                                                                     onclick="getDate('<?= $date->format('Y-m-d'); ?>')">
                             <?= $date->format('d'); ?> 
@@ -104,19 +106,29 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Appointment</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Appointement</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body p-5">
                 <form action="" method="post">
+                    <?php
+                        if($_SESSION['registration']):
+                    ?>
+                        <div class="alert alert-<?=$_SESSION['icon']?>" role="alert">
+                        <?= $_SESSION['registration'] ?>
+                        </div>
+                    <?php 
+                        $_SESSION['registration'] = null;
+                    endif;
+                    ?>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" id="date" name="date" disabled>
+                        <input type="text" class="form-control" id="date" name="date" readonly="readonly">
                     </div>
                     <div class="form-group ">
-                        <select class="form-control" id="select" name="app">
+                        <select class="form-control" id="select" name="id_appointement">
                         </select>
                     </div>
                     <div class="form-group d-flex justify-content-end">

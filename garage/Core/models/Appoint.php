@@ -22,9 +22,20 @@ $res_take = $take->search_in_table("*", $array);
 // get thedifferent array and store it in variable $result
 $result = service\Tools::diff_array($res_appoint, $res_take);
 
-// encode $result in var
-$var = json_encode($result);
+$var = array();
 
+foreach($result as $val){
+
+    $res = $appoint->search_in_table("*", array("id_appointement"=> $val['id_appointement']));
+    array_push($var, $res);
+}
+
+// encode $result in var
+$var = json_encode($var);
+
+// empty all
 ob_clean();
+    //echo $var;
     echo $var;
+// stop here
 die();

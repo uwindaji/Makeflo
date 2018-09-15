@@ -21,7 +21,7 @@ class Tools {
      * @param [type] $p
      * @return array
      */
-    static function array_set($array, $ad, $p){
+    static function array_set(array $array, array $ad, int $p){
 
         // store keys and values of $ad  in $ks and $vs
         foreach($ad as $k => $v){
@@ -87,7 +87,7 @@ class Tools {
      * @param [type] $password
      * @return string
      */
-    static function check_password($password){
+    static function check_password(string $password){
 
         // check upercase
         $uppercase = preg_match('@[A-Z]@', $password);
@@ -113,7 +113,7 @@ class Tools {
      * @param [type] $mail
      * @return string
      */
-    static function check_mail ($mail) {
+    static function check_mail (string $mail) {
 
         $mail = preg_match('#^[\w.-]+@[\w.-]+\.[a-z]{2,6}$#i', $mail);
         if ($mail){
@@ -131,7 +131,7 @@ class Tools {
      * @param [type] $array
      * @return boolean
      */
-    static function is_empty(array $post,  $array){
+    static function is_empty(array $post,  array $array){
 
         // init $return in null
         $return = null;
@@ -154,14 +154,21 @@ class Tools {
 
     }
 
-    static function diff_array($array1, $array2) {
+    /**
+     * diif_arrary function to get difference
+     *
+     * @param [type] $array1
+     * @param [type] $array2
+     * @return array
+     */
+    static function diff_array(array $array1, ?array $array2 = null) {
         $diff=array();
         $array = array();
         for($i = 0; $i< count($array1); $i++){
 
             foreach($array2 as $key => $val){
 
-                if($array1[$i]['id_appointement'] == $val['id_appointement'] and $array1[$i]['app'] == $val['app']){
+                if($array1[$i]['id_appointement'] == $val['id_appointement']){
 
                     array_push($diff, $i);
                 }

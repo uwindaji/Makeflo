@@ -127,8 +127,22 @@
                     <h6 class="card-title">Kilometers : <?= $val[5] ?></h6>
                     <h6 class="card-title">Month : <?= $val[6] ?></h6>
                     <h6 class="card-title">Year : <?= $val[7] ?></h6>
-                    
-                    <a href="?rec=Agenda&id=<?= $val[1]?>&mark=<?= $val[2]?>&model=<?= $val[3]?>&iregister_number=<?= $val[4]?>&kilometers=<?= $val[5]?>&m=<?= $val[6]?>&y=<?= $val[7]?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >Take appointment</button></a>
+
+                    <?php   $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
+
+                        if($select_take){
+
+                            foreach($select_take as $v){
+                    ?>
+                                <a href="?rec=Cancel&id=<?= $val[1]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" ><?= $v['date'] ?></button></a>
+                    <?php
+                            }
+                        }else{
+                    ?>
+                                <a href="?rec=Agenda&id=<?= $val[1]?>&mark=<?= $val[2]?>&model=<?= $val[3]?>&iregister_number=<?= $val[4]?>&kilometers=<?= $val[5]?>&m=<?= $val[6]?>&y=<?= $val[7]?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >Take appointment</button></a>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
             <? endforeach; 
