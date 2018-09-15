@@ -15,6 +15,7 @@ $mark =  new service\Seed('MARK');
 $month =  new service\Seed('MONTH');
 $year =  new service\Seed('YEAR');
 $have =  new service\Seed('HAVE');
+$appoint =  new service\Seed('APPOINTMENT');
 $take =  new service\Seed('TAKE');
 $select_mark = $mark->search_in_table("*", null);
 $select_month = $month->search_in_table("*", null);

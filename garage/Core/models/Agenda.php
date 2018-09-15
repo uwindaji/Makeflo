@@ -23,9 +23,6 @@ $take = new service\Seed('TAKE');
 // search all in yable APPOINTMENT
  $res_appoint = $appoint->search_in_table("*", null);
 
-// search all in yable APPOINTMENT
- $res_take = $appoint->search_in_table("*", null);
-
 if($_GET['id']):
     $_SESSION['car'] = array($_GET['id'], $_GET['mark'],$_GET['model'],$_GET['register_number'],$_GET['kilometers'],$_GET['m'],$_GET['y'] );
     $_SESSION['securite'] = rand(1000, 1000);

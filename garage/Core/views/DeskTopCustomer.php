@@ -128,13 +128,22 @@
                     <h6 class="card-title">Month : <?= $val[6] ?></h6>
                     <h6 class="card-title">Year : <?= $val[7] ?></h6>
 
-                    <?php   $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
+                    <?php   
+                    
+                        $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
 
                         if($select_take){
 
                             foreach($select_take as $v){
+
+                                $select_appoint = $appoint->search_in_table("*", array("id_appointement"=>$v['id_appointement'])); 
+
                     ?>
-                                <a href="?rec=Cancel&id=<?= $val[1]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" ><?= $v['date'] ?></button></a>
+                                <div class="alert alert-success text-center" role="alert">
+                                    <h5>Appointement : <?= $v['date']; ?></h5> 
+                                    AT <strong><?= $select_appoint[0]['app'] ?> o'clock</strong>
+                                </div>
+                                <a href="?rec=Cancel&id=<?= $val[1]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >cancel</button></a>
                     <?php
                             }
                         }else{

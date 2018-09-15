@@ -110,7 +110,7 @@ class Seed {
      * @param array $data
      * @return array
      */
-    public function search_in_table (string $id, $data) {
+    public function search_in_table (string $id, ?array $data= null) {
 
         if ($data){
             // shell array $data
@@ -151,6 +151,40 @@ class Seed {
 
                 return $result;
             }
+    }
+
+
+    public function delete_in_table (array $data) {
+
+        if ($data){
+            // shell array $data
+            foreach($data as $key => $val){
+
+                if (count($data)> 1){
+
+                    $value .= "$key = '$val' AND ";
+                }else {
+
+                    $value .= "$key = '$val'";
+                }
+            }
+        
+            // // remove the last AND
+            $words = explode( " ", $value );
+            $cnt = count($words);
+            if($words[$cnt-2] == "AND") {
+
+                array_splice( $words, -2 );
+            }
+            
+            $value =  implode( " ", $words );
+        }
+            
+
+            $sql = "DELETE FROM ".$this->_table." WHERE ".$value;
+            // send $sql to function sql to executate
+            $res =  $this->_pdo->exec($sql);
+
     }
 
     /**

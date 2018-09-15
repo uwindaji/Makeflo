@@ -16,11 +16,7 @@ switch ($rec){
     case "RegisterCustomer";
         $desktop = new controlers\Rooter('RegisterCustomer');
     break;
-    // case for Agenda
-    case "Agenda";
-        $desktop = new controlers\Rooter('Agenda');
-    break;
-    // case for register customer
+    // case for desktop customer
     case "DeskTopCustomer";
         if($_SESSION['loginCustomer']){
             $desktop = new controlers\Rooter('DeskTopCustomer');
@@ -29,7 +25,7 @@ switch ($rec){
             exit(header('location: index.php'));
         }
     break;
-    // case for register Agenda
+    // case for Agenda
     case "Agenda";
         if($_SESSION['loginCustomer']){
             $desktop = new controlers\Rooter('Agenda');
@@ -38,7 +34,16 @@ switch ($rec){
             exit(header('location: index.php'));
         }
     break;
-    // case for register Appoint
+    // case for Agenda
+    case "Cancel";
+        if($_SESSION['loginCustomer']){
+            $desktop = new controlers\Rooter('Cancel');
+        }else {
+
+            exit(header('location: index.php'));
+        }
+    break;
+    // case for Appoint
     case "Appoint";
         if($_SESSION['loginCustomer']){
             require_once './Core/models/Appoint.php';
