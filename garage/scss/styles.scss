@@ -1,5 +1,9 @@
 @import "_var.scss";
 
+body {
+
+    //background-color: $dark;
+}
 .container-fluid {
 
     // this is row menu
@@ -77,6 +81,13 @@
     .row-login {
         padding: 50px 0px 50px 0px;
         background-color: $black;
+
+
+        #dropSelect {
+
+            border: solid 1px $orange;
+            background-color: $dark;
+        }
         button.alert {
 
             outline: none;
@@ -392,6 +403,29 @@
         }
     }
 
+    // this area for cancel
+    .row-cancel {
+
+        background-color: $dark;
+        .cancel {
+
+            .alert {
+
+                .btn {
+
+                    color: $orange;
+                    background-color: $orangeDark;
+                }
+
+                .btn:hover {
+
+                    color: $orangeDark;
+                    background-color: $orange;
+                }
+            }
+        }
+    }
+
     // this is the footer
     .row-footer {
 
@@ -411,10 +445,6 @@
                 .modal-header {
 
                     background-color: $orange;
-                    h5.modal-title {
-
-
-                    }
                 }
 
                 .modal-body {

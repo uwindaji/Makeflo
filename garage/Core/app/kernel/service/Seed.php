@@ -154,6 +154,8 @@ class Seed {
     }
 
 
+
+
     public function delete_in_table (array $data) {
 
         if ($data){

@@ -9,6 +9,19 @@ switch ($request){
         $desktop = new controlers\Rooter('DeskTop');
     break;
 
+    // case for deskTop
+    case "SearchCustomer";
+        $desktop = new controlers\Rooter('SearchCustomer');
+    break;
+    // case for deskTop
+    case "CarsCustomer";
+        $desktop = new controlers\Rooter('CarsCustomer');
+    break;
+    // case for deskTop
+    case "Search";
+        require_once "./Core/models/Search.php";
+    break;
+
     // case for NewStaff
     case "Register";
         if($_SESSION['login'] == "admin"){

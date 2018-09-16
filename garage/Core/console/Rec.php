@@ -8,6 +8,10 @@ switch ($rec){
     case "Login";
         $desktop = new controlers\Rooter('Login');
     break;
+    // case for login staff
+    case "Password";
+        $desktop = new controlers\Rooter('Password');
+    break;
     // case for login customer
     case "LoginCustomer";
         $desktop = new controlers\Rooter('LoginCustomer');

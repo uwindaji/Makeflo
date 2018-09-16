@@ -34,7 +34,6 @@ class CastomerCars {
 
         $arr_car = $this->elem_car($this->_have, 'id_car','id_customer',$this->_id);
 
-        //$arr_model = $this->elem_car($this->_cars, 'model, registration_number, kilometers', 'id_car', $arr_car[0]);
 
         $arr_month = $this->get_id($arr_car, 'id_month');
         $arr_mark = $this->get_id($arr_car, 'id_mark');

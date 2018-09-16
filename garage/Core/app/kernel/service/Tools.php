@@ -186,4 +186,25 @@ class Tools {
 
         return $array;
     }
+
+    static function search_with (string $id, $table, ?string $prifix = null) {
+
+        $dsn = new db\Database();
+        $pdo = $dsn->dbn();
+
+        
+        $sql = "SELECT ".$id." FROM ".$table." ".$prifix;
+
+        // send $sql to function sql to executate
+        $res =  $pdo->query($sql);
+        
+        $result = $res->fetchAll();
+        
+        if($result){
+
+            return $result;
+        }
+
+        //return $sql;
+    }
 }

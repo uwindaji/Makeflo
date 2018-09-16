@@ -36,7 +36,16 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Period</a>  <!-- to do -->
-                        <a class="dropdown-item" href="#">work place</a>  <!-- to do -->
+                        <a class="dropdown-item" href="#">Work place</a>  <!-- to do -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Cars
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?req=SearchCustomer">Search customer</a>  <!-- to do -->
+                        <a class="dropdown-item" href="#">Revision</a>  <!-- to do -->
                     </div>
                 </li>
                 <li class="nav-item">
@@ -74,8 +83,8 @@
                             <?= $_SESSION['loginCustomer'][1] ?>
                     </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="?rec=DeskTopCustomer">My space</a>  <!-- to do -->
-                                <a class="dropdown-item" href="?rec=LogOut">log out</a>  <!-- to do -->
+                                <a class="dropdown-item" href="?rec=DeskTopCustomer">My space</a>
+                                <a class="dropdown-item" href="?rec=LogOut">log out</a>
                             </div>
                         </li>
 
@@ -83,8 +92,8 @@
                         Connection
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="?rec=LoginCustomer">login</a>  <!-- to do -->
-                            <a class="dropdown-item" href="?rec=RegisterCustomer">Register</a>  <!-- to do -->
+                            <a class="dropdown-item" href="?rec=LoginCustomer">login</a> 
+                            <a class="dropdown-item" href="?rec=RegisterCustomer">Register</a>
                         </div>
                     </li>
                         <?php }
