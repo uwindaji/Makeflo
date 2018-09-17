@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $res_work = $work->search_in_table("*", $src);
 
         // session login equal name of id_workplace
-        $_SESSION['login'] = $res_work[0]['name'];
+        $_SESSION['login'] = [$res_admin[0]['id'], $res_work[0]['name']];
         // location to DeskTop
         exit(header('location: ?req=DeskTop'));
 

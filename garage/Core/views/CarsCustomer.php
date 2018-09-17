@@ -39,24 +39,40 @@
 
                     <?php   
                     
-                        $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
+                        $select_recept = $recept->search_in_table("*", array("id_car"=>$val[1])); 
 
-                        if($select_take){
+                        if($select_recept){
 
-                            foreach($select_take as $v){
+                            foreach($select_recept as $v){
 
-                                $select_appoint = $appoint->search_in_table("*", array("id_appointement"=>$v['id_appointement'])); 
+                        ?>
+                                    <div class="alert alert-primary text-center" role="alert">
+                                        <h5>Car entred : <?= $v['date']; ?></h5> 
+                                    </div>
+                                    <a href="?req=Exit&id=<?= $val[1]?>&mark=<?= $val[2]?>&register_number=<?= $val[4]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" >Exit</button></a>
+                        <?php
+                                }
 
-                    ?>
-                                <div class="alert alert-success text-center" role="alert">
-                                    <h5>Appointement : <?= $v['date']; ?></h5> 
-                                    AT <strong><?= $select_appoint[0]['app'] ?> o'clock</strong>
-                                </div>
-                                <a href="?req=Enter&id=<?= $val[1]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" >Enter</button></a>
-                    <?php
+                        }else {
+                            $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
+
+                            if($select_take){
+
+                                foreach($select_take as $v){
+
+                                    $select_appoint = $appoint->search_in_table("*", array("id_appointement"=>$v['id_appointement'])); 
+
+                        ?>
+                                    <div class="alert alert-success text-center" role="alert">
+                                        <h5>Appointement : <?= $v['date']; ?></h5> 
+                                        AT <strong><?= $select_appoint[0]['app'] ?> o'clock</strong>
+                                    </div>
+                                    <a href="?req=Enter&id=<?= $val[1]?>&mark=<?= $val[2]?>&register_number=<?= $val[4]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" >Enter</button></a>
+                        <?php
+                                }
                             }
                         }
-                    ?>
+                        ?>
                 </div>
             </div>
             <? endforeach; 

@@ -18,7 +18,7 @@
                 </li>
                 <?php endif; ?>
 
-                <?php if($_SESSION['login'] == "admin"):?>
+                <?php if($_SESSION['login'][1] == "admin"):?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Staff
@@ -29,7 +29,7 @@
                     </div>
                 </li>
                 <?php endif; ?>
-                <?php if($_SESSION['login'] == "admin" || $_SESSION['login'] == "staff"):?>
+                <?php if($_SESSION['login'][1] == "admin" || $_SESSION['login'][1] == "staff"):?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Planning

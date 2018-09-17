@@ -26,9 +26,10 @@ if($res_customer):
 
         $res_count = $have->search_in_table("COUNT(id_car)", array("id_customer"=>$id));
 
-        if($res_count):
-            echo $val['id_customer']." : ".$val['first_name']." ".$val['name']." have ".$res_count[0]['COUNT(id_car)']." cars"; echo"</br>";
-        endif;
+        // to see it
+        // if($res_count):
+        //     echo $val['id_customer']." : ".$val['first_name']." ".$val['name']." have ".$res_count[0]['COUNT(id_car)']." cars"; echo"</br>";
+        // endif;
     }
 endif;
 

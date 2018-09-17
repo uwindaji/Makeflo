@@ -18,13 +18,17 @@ switch ($request){
         $desktop = new controlers\Rooter('CarsCustomer');
     break;
     // case for deskTop
+    case "Enter";
+        $desktop = new controlers\Rooter('Enter');
+    break;
+    // case for deskTop
     case "Search";
         require_once "./Core/models/Search.php";
     break;
 
     // case for NewStaff
     case "Register";
-        if($_SESSION['login'] == "admin"){
+        if($_SESSION['login'][1] == "admin"){
             $newstaff = new controlers\Rooter('Register');
         }else {
             exit(header("location: ?req=Desktop"));
