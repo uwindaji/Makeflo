@@ -61,6 +61,12 @@ class Seed {
             }else if($post[$result[$i]] == null){
 
                 $values .= "NULL,";
+            }else if($post[$result[$i]] == "FALSE"){
+
+                $values .= "FALSE,";
+            }else if($post[$result[$i]] == "TRUE"){
+
+                $values .= "TRUE,";
             }else if($result[$i] == 'password'){
                 // check password with Tools
                 $password = service\Tools::check_password($post[$result[$i]]);
@@ -94,8 +100,9 @@ class Seed {
         if($return == null){
 
             $sql = "INSERT INTO ".$this->_table."(".$k_res.") VALUES(".$values.")";
+
             
-            $res =  $this->_pdo->exec($sql);//or var_dump($this->_pdo->errorInfo());
+            $res =  $this->_pdo->exec($sql)or var_dump($this->_pdo->errorInfo());
             return $return;
         }else {
 
@@ -189,6 +196,61 @@ class Seed {
 
     }
 
+    public function update_table (array $data, array $condition){
+
+        if ($data){
+            // shell array $data
+            foreach($data as $key => $val){
+
+                if (count($data)> 1){
+
+                    $value .= "$key = '$val' AND ";
+                }else {
+
+                    $value .= "$key = '$val'";
+                }
+            }
+        
+            // // remove the last AND
+            $words = explode( " ", $value );
+            $cnt = count($words);
+            if($words[$cnt-2] == "AND") {
+
+                array_splice( $words, -2 );
+            }
+            
+            $value =  implode( " ", $words );
+        }
+
+        if ($condition){
+            // shell array $data
+            foreach($condition as $ckey => $cval){
+
+                if (count($condition)> 1){
+
+                    $cvalue .= "$ckey = '$cval' AND ";
+                }else {
+
+                    $cvalue .= "$ckey = '$cval'";
+                }
+            }
+        
+            // // remove the last AND
+            $cwords = explode( " ", $cvalue );
+            $ccnt = count($cwords);
+            if($cwords[$ccnt-2] == "AND") {
+
+                array_splice( $cwords, -2 );
+            }
+            
+            $cvalue =  implode( " ", $cwords );
+        }
+            
+            $sql ="UPDATE ".$this->_table." SET ".$value." WHERE ".$cvalue;
+            // send $sql to function sql to executate
+            $res =  $this->_pdo->exec($sql);
+    }
+
     /**
      * function get_schema to get schema of table
      *
@@ -206,5 +268,6 @@ class Seed {
         return $res;
 
     }
+
 }
 

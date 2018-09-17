@@ -155,33 +155,33 @@ if(!$select){
                     );
 
     // insert data for WORKPLACE
-    foreach($staff as $val){
+    foreach($staff as $st){
 
-        $work->insert_in_table($val);
+        $work->insert_in_table($st);
     }
 
     // insert data for APPOINTMENT
-    foreach($appointments as $val){
+    foreach($appointments as $app){
 
-        $appointment->insert_in_table($val);
+        $appointment->insert_in_table($app);
     }
 
     // insert data for PERIOD
-    foreach($periods as $val){
+    foreach($periods as $per){
 
-        $period->insert_in_table($val);
+        $period->insert_in_table($per);
     }
     
     // insert data for MARK
-    foreach($marks as $val){
+    foreach($marks as $mar){
 
-        $mark->insert_in_table($val);
+        $mark->insert_in_table($mar);
     }
 
     // insert data for MONTH
-    foreach($months as $val){
+    foreach($months as $mon){
 
-        $month->insert_in_table($val);
+        $month->insert_in_table($mon);
     }
 
     // insert data for YEAR

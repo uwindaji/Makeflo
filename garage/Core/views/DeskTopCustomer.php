@@ -129,28 +129,65 @@
                     <h6 class="card-title">Year : <?= $val[7] ?></h6>
 
                     <?php   
-                    
-                        $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
 
-                        if($select_take){
+                        // check the reception of car where id_car
+                        $src_recept = $recept->search_in_table("*", array("id_car"=>$val[1])); 
+                        // if car in garage
+                        if($src_recept){
 
-                            foreach($select_take as $v){
+                            // display car
+                            foreach($src_recept as $v){
 
-                                $select_appoint = $appoint->search_in_table("*", array("id_appointement"=>$v['id_appointement'])); 
-
-                    ?>
-                                <div class="alert alert-success text-center" role="alert">
-                                    <h5>Appointement : <?= $v['date']; ?></h5> 
-                                    AT <strong><?= $select_appoint[0]['app'] ?> o'clock</strong>
+                        ?>
+                                <!-- display car entred date -->
+                                <div class="alert alert-primary text-center" role="alert">
+                                    <h5>Car entred : <?= $v['date']; ?></h5> 
                                 </div>
-                                <a href="?rec=Cancel&id=<?= $val[1]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >cancel</button></a>
-                    <?php
+                                    
+                        <?php
+                                if($v['ext'] == TRUE){
+
+                                    // serach in exit
+                                    $select_ext = $ext->search_in_table("*", array("id_car"=>$val[1])); 
+                                    // display car exit date
+                                    foreach($select_ext as $v):
+                                ?>
+
+                                    <div class="alert alert-light text-center" role="alert">
+                                        <h5>Car exit : <?= $v['date']; ?></h5> 
+                                    </div>
+
+                                <?php
+                                    endforeach;
+                                }
                             }
-                        }else{
-                    ?>
-                                <a href="?rec=Agenda&id=<?= $val[1]?>&mark=<?= $val[2]?>&model=<?= $val[3]?>&iregister_number=<?= $val[4]?>&kilometers=<?= $val[5]?>&m=<?= $val[6]?>&y=<?= $val[7]?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >Take appointment</button></a>
-                    <?php
                         }
+
+                        
+
+                    
+                            $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
+
+                            if($select_take){
+
+                                foreach($select_take as $v){
+
+                                    $select_appoint = $appoint->search_in_table("*", array("id_appointement"=>$v['id_appointement'])); 
+
+                            ?>
+                                    <div class="alert alert-success text-center" role="alert">
+                                        <h5>Appointement : <?= $v['date']; ?></h5> 
+                                        AT <strong><?= $select_appoint[0]['app'] ?> o'clock</strong>
+                                    </div>
+                                    <a href="?rec=Cancel&id=<?= $val[1]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >cancel</button></a>
+                            <?php
+                                }
+                            }else{
+                        ?>
+                                    <a href="?rec=Agenda&id=<?= $val[1]?>&mark=<?= $val[2]?>&model=<?= $val[3]?>&iregister_number=<?= $val[4]?>&kilometers=<?= $val[5]?>&m=<?= $val[6]?>&y=<?= $val[7]?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >Take appointment</button></a>
+                        <?php
+                            }
+                        
                     ?>
                 </div>
             </div>

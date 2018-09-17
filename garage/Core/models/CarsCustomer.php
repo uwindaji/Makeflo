@@ -18,6 +18,7 @@ $have =  new service\Seed('HAVE');
 $appoint =  new service\Seed('APPOINTMENT');
 $take =  new service\Seed('TAKE');
 $recept =  new service\Seed('RECEPT');
+$ext =  new service\Seed('EXT');
 $select_mark = $mark->search_in_table("*", null);
 $select_month = $month->search_in_table("*", null);
 $select_year = $year->search_in_table("*", null);

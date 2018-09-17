@@ -9,7 +9,7 @@ namespace models ;
 use models as models;
 use app\kernel\service as service;
 
-// instance table CARS
+// instance table CARS, MARK, MONTH, YEAR, HAVE, APPOINTMENT, TAKE, RECEPT, EXT.
 $cars =  new service\Seed('CARS');
 $mark =  new service\Seed('MARK');
 $month =  new service\Seed('MONTH');
@@ -17,14 +17,18 @@ $year =  new service\Seed('YEAR');
 $have =  new service\Seed('HAVE');
 $appoint =  new service\Seed('APPOINTMENT');
 $take =  new service\Seed('TAKE');
+$recept =  new service\Seed('RECEPT');
+$ext =  new service\Seed('EXT');
+
+// search all in MARK, MONTH, YEAR.
 $select_mark = $mark->search_in_table("*", null);
 $select_month = $month->search_in_table("*", null);
 $select_year = $year->search_in_table("*", null);
 
+// serach cars of customer with id 
 $cars_array = new service\CastomerCars($_SESSION['loginCustomer'][0]);
+// get all cars
 $_cars = $cars_array->get();
-
-
 
 if($_POST){
 

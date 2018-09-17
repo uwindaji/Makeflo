@@ -45,15 +45,30 @@
 
                             foreach($select_recept as $v){
 
+                                if($v['ext'] == FALSE){
+
                         ?>
                                     <div class="alert alert-primary text-center" role="alert">
                                         <h5>Car entred : <?= $v['date']; ?></h5> 
                                     </div>
-                                    <a href="?req=Exit&id=<?= $val[1]?>&mark=<?= $val[2]?>&register_number=<?= $val[4]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" >Exit</button></a>
+                                    <a href="?req=Exit&id=<?= $val[1]?>&mark=<?= $val[2]?>&register_number=<?= $val[4]?>&val=<?= $_GET['val']?>" class=""><button class="btn mt-3 pt-4 pb-4" >Exit</button></a>
                         <?php
-                                }
+                                }else {
 
-                        }else {
+                                    $select_ext = $ext->search_in_table("*", array("id_car"=>$val[1])); 
+                                    foreach($select_ext as $v):
+                                ?>
+
+                                    <div class="alert alert-light text-center" role="alert">
+                                        <h5>Car exit : <?= $v['date']; ?></h5> 
+                                    </div>
+
+                                <?php
+                                    endforeach;
+                                }
+                            }
+
+                        }
                             $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
 
                             if($select_take){
@@ -67,11 +82,11 @@
                                         <h5>Appointement : <?= $v['date']; ?></h5> 
                                         AT <strong><?= $select_appoint[0]['app'] ?> o'clock</strong>
                                     </div>
-                                    <a href="?req=Enter&id=<?= $val[1]?>&mark=<?= $val[2]?>&register_number=<?= $val[4]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" >Enter</button></a>
+                                    <a href="?req=Enter&id=<?= $val[1]?>&mark=<?= $val[2]?>&register_number=<?= $val[4]?>&date=<?= $v['date']?>&val=<?= $_GET['val']?>" class=""><button class="btn mt-3 pt-4 pb-4" >Enter</button></a>
                         <?php
                                 }
                             }
-                        }
+                        
                         ?>
                 </div>
             </div>

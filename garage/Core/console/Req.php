@@ -22,6 +22,10 @@ switch ($request){
         $desktop = new controlers\Rooter('Enter');
     break;
     // case for deskTop
+    case "Exit";
+        $desktop = new controlers\Rooter('Exit');
+    break;
+    // case for deskTop
     case "Search";
         require_once "./Core/models/Search.php";
     break;
