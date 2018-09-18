@@ -45,7 +45,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="?req=SearchCustomer">Search customer</a>  <!-- to do -->
-                        <a class="dropdown-item" href="#">Revision</a>  <!-- to do -->
+                        <a class="dropdown-item" href="?req=Revision">Revision</a>  <!-- to do -->
                     </div>
                 </li>
                 <li class="nav-item">
