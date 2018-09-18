@@ -9,8 +9,8 @@ switch ($request){
         $desktop = new controlers\Rooter('DeskTop');
     break;
     // case for deskTop
-    case "Revision";
-        $desktop = new controlers\Rooter('Revision');
+    case "Provider";
+        $desktop = new controlers\Rooter('Provider');
     break;
 
     // case for deskTop
