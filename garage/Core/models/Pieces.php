@@ -11,25 +11,30 @@ namespace models ;
 use models as models;
 use app\kernel\service as service;
 
+// instance table PROVIDER
+$provider =  new service\Seed('PROVIDER');
+
+$select = $provider->search_in_table("*", null);
+
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // instance table Admin and store in variable $admin
-    $provider =  new service\Seed('PROVIDER');
-    $mail = $_POST['mail'];
-    $array = array("mail"=>$mail);
+    $piece =  new service\Seed('PIECES');
+    $bar_code = $_POST['bar_code'];
+    $array = array("bar_code"=>$bar_code);
     // search in table Admin mail and password and sotre in variable $res_admin
-    $res_provider = $provider->search_in_table("*", $array);
+    $res_piece = $piece->search_in_table("*", $array);
 
     // if variable $res_admin existe
-    if($res_provider){
+    if($res_piece){
 
         // session login equal false 
-        $_SESSION['registration'] = 'Provider existe!';
+        $_SESSION['registration'] = 'Piece existe!';
         $_SESSION['icon'] = "danger";
 
     }else {
 
-        $array = array('name', 'mail', 'tel', 'address', 'zip', 'city');
+        $array = array('bar_code', 'num', 'name_pieces', 'for_model', 'description', 'price_ht');
         $return = service\Tools::is_empty($_POST, $array);
 
         $_SESSION['registration'] = $return;
@@ -37,7 +42,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         if(!$return){
 
-            $_SESSION['registration'] = $provider->insert_in_table($_POST);
+            $ad = array("date"=>date('Y-m-d'));
+            $post = service\Tools::array_set($_POST, $ad, 7);
+
+            $_SESSION['registration'] = $piece->insert_in_table($post);
 
             if (!$_SESSION['registration']) {
 
@@ -45,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['icon'] = "success";
 
                 //$rooter = new controlers\Rooter('Login');
-                exit(header('location: ?req=Provider'));
+                exit(header('location: ?req=Pieces'));
             }
 
         }

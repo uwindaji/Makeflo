@@ -249,20 +249,7 @@ CREATE TABLE `PIECES` (
   `description` varchar(250) NOT NULL,
   `price_ht` decimal(15,3) NOT NULL,
   `date` date NOT NULL,
-  `id_provider` int(11) NOT NULL,
-  `id_promotion` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `PROMOTION`
---
-
-CREATE TABLE `PROMOTION` (
-  `id_promotion` int(11) NOT NULL,
-  `date_exp` date NOT NULL,
-  `value` int(11) NOT NULL
+  `id_provider` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -484,14 +471,7 @@ ALTER TABLE `PERIOD`
 --
 ALTER TABLE `PIECES`
   ADD PRIMARY KEY (`id_pieces`),
-  ADD KEY `PIECES_PROVIDER_FK` (`id_provider`),
-  ADD KEY `PIECES_PROMOTION0_FK` (`id_promotion`);
-
---
--- Index pour la table `PROMOTION`
---
-ALTER TABLE `PROMOTION`
-  ADD PRIMARY KEY (`id_promotion`);
+  ADD KEY `PIECES_PROVIDER_FK` (`id_provider`);
 
 --
 -- Index pour la table `PROVIDER`
@@ -610,12 +590,6 @@ ALTER TABLE `PIECES`
   MODIFY `id_pieces` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `PROMOTION`
---
-ALTER TABLE `PROMOTION`
-  MODIFY `id_promotion` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `PROVIDER`
 --
 ALTER TABLE `PROVIDER`
@@ -717,7 +691,6 @@ ALTER TABLE `MENDES`
 -- Contraintes pour la table `PIECES`
 --
 ALTER TABLE `PIECES`
-  ADD CONSTRAINT `PIECES_PROMOTION0_FK` FOREIGN KEY (`id_promotion`) REFERENCES `PROMOTION` (`id_promotion`),
   ADD CONSTRAINT `PIECES_PROVIDER_FK` FOREIGN KEY (`id_provider`) REFERENCES `PROVIDER` (`id_provider`);
 
 --

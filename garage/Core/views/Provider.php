@@ -16,7 +16,7 @@
             endif;
             ?>
             <div class="form-group">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of provider">
             </div>
             <div class="form-group">
                 <input type="email" class="form-control" id="mail" name="mail" placeholder="Enter email">
