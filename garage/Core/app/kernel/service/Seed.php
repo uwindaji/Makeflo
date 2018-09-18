@@ -248,7 +248,7 @@ class Seed {
             
             $sql ="UPDATE ".$this->_table." SET ".$value." WHERE ".$cvalue;
             // send $sql to function sql to executate
-            $res =  $this->_pdo->exec($sql);
+            $res =  $this->_pdo->exec($sql); //or var_dump($this->_pdo->errorInfo());;
     }
 
     /**

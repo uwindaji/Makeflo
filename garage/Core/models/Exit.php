@@ -16,10 +16,10 @@ use  Core\app\controlers as controlers;
 $ext =  new service\Seed('EXT');
 $recept =  new service\Seed('RECEPT');
 
-$array = array("id_car"=>$_GET['id'], "id"=>$_SESSION['login'][0], "date"=>date('Y-m-d H:m'));
+$array = array("id_car"=>$_GET['id'], "id"=>$_SESSION['login'][0], "date"=>date('Y-m-d H:m:s'));
 $src_ad = $ext->insert_in_table($array);
 
-$data = array("ext"=>"TRUE");
+$data = array("ext"=>1);
 $condition = array("id_car"=>$_GET['id']);
 
 $update = $recept->update_table($data, $condition);

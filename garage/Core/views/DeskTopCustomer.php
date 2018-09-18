@@ -136,36 +136,32 @@
                         if($src_recept){
 
                             // display car
-                            foreach($src_recept as $v){
+                            for($s = 0; $s < count($src_recept); $s++){
 
                         ?>
                                 <!-- display car entred date -->
                                 <div class="alert alert-primary text-center" role="alert">
-                                    <h5>Car entred : <?= $v['date']; ?></h5> 
+                                    <h5>Car entred : <?= $src_recept[$s]['date']; ?></h5> 
                                 </div>
                                     
                         <?php
-                                if($v['ext'] == TRUE){
+                                if($src_recept[$s]['ext'] == TRUE){
 
                                     // serach in exit
                                     $select_ext = $ext->search_in_table("*", array("id_car"=>$val[1])); 
                                     // display car exit date
-                                    foreach($select_ext as $v):
+                                    
                                 ?>
 
                                     <div class="alert alert-light text-center" role="alert">
-                                        <h5>Car exit : <?= $v['date']; ?></h5> 
+                                        <h5>Car exit : <?= $select_ext[$s]['date']; ?></h5> 
                                     </div>
 
                                 <?php
-                                    endforeach;
                                 }
                             }
                         }
 
-                        
-
-                    
                             $select_take = $take->search_in_table("*", array("id_car"=>$val[1])); 
 
                             if($select_take){
