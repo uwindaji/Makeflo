@@ -9,5 +9,5 @@ namespace models ;
 use models as models;
 use app\kernel\service as service;
 
-// init table TAKE
+// instantiate table TAKE
 $take = new service\Seed('CUSTOMER');

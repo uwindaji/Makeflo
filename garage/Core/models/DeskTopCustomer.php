@@ -9,7 +9,7 @@ namespace models ;
 use models as models;
 use app\kernel\service as service;
 
-// instance table CARS, MARK, MONTH, YEAR, HAVE, APPOINTMENT, TAKE, RECEPT, EXT.
+// instantiate table CARS, MARK, MONTH, YEAR, HAVE, APPOINTMENT, TAKE, RECEPT, EXT.
 $cars =  new service\Seed('CARS');
 $mark =  new service\Seed('MARK');
 $month =  new service\Seed('MONTH');

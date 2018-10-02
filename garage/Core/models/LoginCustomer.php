@@ -18,7 +18,7 @@ if ($_SESSION['loginCustomer'] != null){
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // instance table Admin and store in variable $admin
+    // instantiate table Admin and store in variable $admin
     $admin =  new service\Seed('CUSTOMER');
     // hash post password 
     $password = sha1($_POST['password']);

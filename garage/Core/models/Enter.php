@@ -12,7 +12,7 @@ use models as models;
 use app\kernel\service as service;
 use  Core\app\controlers as controlers;
 
-// instance table CUSTOMER
+// instantiate table CUSTOMER
 $recept =  new service\Seed('RECEPT');
 $take =  new service\Seed('TAKE');
 

@@ -17,19 +17,34 @@
             ?>
 
             <div class="form-group">
-            <select class="form-control" id="exampleFormControlSelect1" name="id_provider">
-                <option value="">Provider</option>
-                <?php
-                if($select):
-                    foreach($select as $key=>$val):
-                ?>
-                <option value="<?=$val['id_provider']?>"><?= $val['name']?></option>
+                <select class="form-control" id="exampleFormControlSelect1" name="id_provider">
+                    <option value="">Provider</option>
+                    <?php
+                    if($select):
+                        foreach($select as $key=>$val):
+                    ?>
+                    <option value="<?=$val['id_provider']?>"><?= $val['name']?></option>
 
-                <?php 
-                    endforeach;
-                endif;
-                ?>
-            </select>
+                    <?php 
+                        endforeach;
+                    endif;
+                    ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="exampleFormControlSelect1" name="id_ray">
+                    <option value="">Ray</option>
+                    <?php
+                    if($select_ray):
+                        foreach($select_ray as $key=>$val):
+                    ?>
+                    <option value="<?=$val['id_ray']?>"><?= $val['ray']?></option>
+
+                    <?php 
+                        endforeach;
+                    endif;
+                    ?>
+                </select>
             </div>
             <div class="form-group">
                 <input type="number" class="form-control" id="bar_code" name="bar_code" placeholder="Enter bar code">
@@ -44,7 +59,7 @@
                 <input type="text" class="form-control" id="for_model" name="for_model" placeholder="Enter models of piece">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" id="description" name="description" placeholder="Enter description">
+                <input type="text" class="form-control" id="description" name="description" placeholder="Enter description">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="price_ht" name="price_ht" placeholder="Enter ht price ">

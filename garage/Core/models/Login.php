@@ -18,7 +18,7 @@ if ($_SESSION['login'] != null){
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // instance table Admin and store in variable $admin
+    // instantiate table Admin and store in variable $admin
     $admin =  new service\Seed('Admin');
     // hash post password 
     $password = sha1($_POST['password']);
@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $_SESSION['user'] = $res_admin[0]['name']." ".$res_admin[0]['first_name'];
 
-        // instance table WORKPLACE and store in variable $work
+        // instantiate table WORKPLACE and store in variable $work
         $work = new service\Seed('WORKPLACE');
 
         $src = array("id_workplace"=>$id);

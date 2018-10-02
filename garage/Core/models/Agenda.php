@@ -9,14 +9,14 @@ namespace models ;
 use models as models;
 use app\kernel\service as service;
 
-// initiation class Month
+// instantiate class Month
 $month = new service\Month($_GET['month'] ?? null, $_GET['year'] ?? null );
 
 // get the first day in month
 $start_day = $month->getStartingDay();
 $start_day = $start_day->format('N') === "1" ? $start_day : $month->getStartingDay()->modify('last monday');
 
-// initiation table APPOINTMENT
+// instantiate table APPOINTMENT
 $appoint = new service\Seed('APPOINTMENT');
 $take = new service\Seed('TAKE');
 
@@ -34,7 +34,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $ad = array("id_car"=>$_GET['id']);
     $post = service\Tools::array_set($_POST, $ad, 0);
-    //print_r($post); die();
     $return = service\Tools::is_empty($post, $array);
     if(!$return){
 

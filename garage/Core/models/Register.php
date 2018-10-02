@@ -10,10 +10,10 @@ use models as models;
 use app\kernel\service as service;
 use  Core\app\controlers as controlers;
 
-// instance table Admin
+// instantiate table Admin, WORKPLACE, PERIOD
 $admin =  new service\Seed('Admin');
-// instance table WORKPLACE
 $work =  new service\Seed('WORKPLACE');
+$period =  new service\Seed('PERIOD');
 
 // variabele $ok equal false
 $ok = 0;
@@ -21,6 +21,7 @@ $ok = 0;
 
 // search all in table WORKPLACE
 $select = $work->search_in_table("*", null);
+$select_period = $period->search_in_table("*", null);
 
 // search id_workplace if name equal admin
 foreach($select as $val){
@@ -59,8 +60,8 @@ if($_POST){
 
         if (!$res){
 
-
-            $array = array('first_name', 'name', 'mail', 'tel', 'date_hiring', 'password');
+            // check if it not null
+            $array = array('first_name', 'name', 'mail', 'tel', 'date_hiring', 'id_period', 'password');
             $return = service\Tools::is_empty($_POST, $array);
 
             

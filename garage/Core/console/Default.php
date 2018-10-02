@@ -10,6 +10,6 @@ if (!$res){
     require_once ('Core/console/Settings.php');
 }else {
 
-    $rooter = new controlers\Rooter('Home');
+    $Controler = new controlers\Controler('Home');
 }
 

@@ -203,10 +203,10 @@ if(!$select){
 if(!$ad){
 
     // open Register form
-    $rooter = new controlers\Rooter('Register');
+    $rooter = new controlers\Controler('Register');
 
 }else {
 
     // open home page
-    $rooter = new controlers\Rooter('Home');
+    $Controler = new controlers\Rooter('Home');
 }

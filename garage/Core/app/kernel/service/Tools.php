@@ -16,9 +16,9 @@ class Tools {
     /**
      * insert an array in position pricise
      *
-     * @param [type] $array
-     * @param [type] $ad
-     * @param [type] $p
+     * @param [array] $array
+     * @param [array] $ad
+     * @param [int] $p
      * @return array
      */
     static function array_set(array $array, array $ad, int $p){

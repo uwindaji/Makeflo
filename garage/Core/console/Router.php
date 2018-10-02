@@ -6,24 +6,24 @@ switch ($rec){
 
     // case for login staff
     case "Login";
-        $desktop = new controlers\Rooter('Login');
+        $desktop = new controlers\Controler('Login');
     break;
     // case for login staff
     case "Password";
-        $desktop = new controlers\Rooter('Password');
+        $desktop = new controlers\Controler('Password');
     break;
     // case for login customer
     case "LoginCustomer";
-        $desktop = new controlers\Rooter('LoginCustomer');
+        $desktop = new controlers\Controler('LoginCustomer');
     break;
     // case for register customer
     case "RegisterCustomer";
-        $desktop = new controlers\Rooter('RegisterCustomer');
+        $desktop = new controlers\Controler('RegisterCustomer');
     break;
     // case for desktop customer
     case "DeskTopCustomer";
         if($_SESSION['loginCustomer']){
-            $desktop = new controlers\Rooter('DeskTopCustomer');
+            $desktop = new controlers\Controler('DeskTopCustomer');
         }else {
 
             exit(header('location: index.php'));
@@ -32,7 +32,7 @@ switch ($rec){
     // case for Agenda
     case "Agenda";
         if($_SESSION['loginCustomer']){
-            $desktop = new controlers\Rooter('Agenda');
+            $desktop = new controlers\Controler('Agenda');
         }else {
 
             exit(header('location: index.php'));
@@ -41,7 +41,7 @@ switch ($rec){
     // case for Agenda
     case "Cancel";
         if($_SESSION['loginCustomer']){
-            $desktop = new controlers\Rooter('Cancel');
+            $desktop = new controlers\Controler('Cancel');
         }else {
 
             exit(header('location: index.php'));

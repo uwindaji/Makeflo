@@ -12,7 +12,7 @@ use models as models;
 use app\kernel\service as service;
 use  Core\app\controlers as controlers;
 
-// instance table CUSTOMER
+// instantiate table CUSTOMER
 $customer =  new service\Seed('CUSTOMER');
 
 if($_POST){

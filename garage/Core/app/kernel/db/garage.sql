@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le :  mar. 18 sep. 2018 à 12:17
+-- Généré le :  mar. 25 sep. 2018 à 08:41
 -- Version du serveur :  5.7.21
 -- Version de PHP :  7.1.16
 
@@ -37,7 +37,8 @@ CREATE TABLE `Admin` (
   `date_hiring` date NOT NULL,
   `date_exit` date DEFAULT NULL,
   `password` varchar(40) NOT NULL,
-  `id_workplace` int(11) NOT NULL
+  `id_workplace` int(11) NOT NULL,
+  `id_period` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -60,17 +61,6 @@ CREATE TABLE `ADMIN_CHANGE` (
 CREATE TABLE `APPOINTMENT` (
   `id_appointement` int(11) NOT NULL,
   `app` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `AT`
---
-
-CREATE TABLE `AT` (
-  `id` int(11) NOT NULL,
-  `id_period` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -127,7 +117,7 @@ CREATE TABLE `CUST_CHANGE` (
 CREATE TABLE `EXT` (
   `id_car` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `date` datetime NOT NULL
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -183,7 +173,7 @@ CREATE TABLE `MEND` (
 CREATE TABLE `MENDED` (
   `id_mend` int(11) NOT NULL,
   `id_car` int(11) NOT NULL,
-  `date` date NOT NULL
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -195,7 +185,7 @@ CREATE TABLE `MENDED` (
 CREATE TABLE `MENDES` (
   `id_mend` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `date` date NOT NULL
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -218,7 +208,7 @@ CREATE TABLE `MONTH` (
 CREATE TABLE `PASSWORD` (
   `id_password` int(11) NOT NULL,
   `token` varchar(40) NOT NULL,
-  `date_token` date NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `mail` varchar(70) NOT NULL,
   `state` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -310,7 +300,7 @@ CREATE TABLE `RECEIVE` (
 CREATE TABLE `RECEPT` (
   `id_car` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `ext` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -323,7 +313,7 @@ CREATE TABLE `RECEPT` (
 CREATE TABLE `TAKE` (
   `id_car` int(11) NOT NULL,
   `id_appointement` int(11) NOT NULL,
-  `date` date NOT NULL
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -357,7 +347,8 @@ CREATE TABLE `YEAR` (
 --
 ALTER TABLE `Admin`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Admin_WORKPLACE_FK` (`id_workplace`);
+  ADD KEY `Admin_WORKPLACE_FK` (`id_workplace`),
+  ADD KEY `Admin_PERIOD0_FK` (`id_period`);
 
 --
 -- Index pour la table `ADMIN_CHANGE`
@@ -371,13 +362,6 @@ ALTER TABLE `ADMIN_CHANGE`
 --
 ALTER TABLE `APPOINTMENT`
   ADD PRIMARY KEY (`id_appointement`);
-
---
--- Index pour la table `AT`
---
-ALTER TABLE `AT`
-  ADD KEY `AT_PERIOD0_FK` (`id_period`),
-  ADD KEY `id` (`id`,`id_period`) USING BTREE;
 
 --
 -- Index pour la table `CARS`
@@ -621,6 +605,7 @@ ALTER TABLE `YEAR`
 -- Contraintes pour la table `Admin`
 --
 ALTER TABLE `Admin`
+  ADD CONSTRAINT `Admin_PERIOD0_FK` FOREIGN KEY (`id_period`) REFERENCES `PERIOD` (`id_period`),
   ADD CONSTRAINT `Admin_WORKPLACE_FK` FOREIGN KEY (`id_workplace`) REFERENCES `WORKPLACE` (`id_workplace`);
 
 --
@@ -629,13 +614,6 @@ ALTER TABLE `Admin`
 ALTER TABLE `ADMIN_CHANGE`
   ADD CONSTRAINT `ADMIN_CHANGE_Admin0_FK` FOREIGN KEY (`id`) REFERENCES `Admin` (`id`),
   ADD CONSTRAINT `ADMIN_CHANGE_PASSWORD_FK` FOREIGN KEY (`id_password`) REFERENCES `PASSWORD` (`id_password`);
-
---
--- Contraintes pour la table `AT`
---
-ALTER TABLE `AT`
-  ADD CONSTRAINT `AT_Admin_FK` FOREIGN KEY (`id`) REFERENCES `Admin` (`id`),
-  ADD CONSTRAINT `AT_PERIOD0_FK` FOREIGN KEY (`id_period`) REFERENCES `PERIOD` (`id_period`);
 
 --
 -- Contraintes pour la table `CARS`

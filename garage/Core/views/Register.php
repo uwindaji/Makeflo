@@ -52,6 +52,15 @@
             <div class="form-group">
                 <input type="date" class="form-control" id="date_exit" name="date_exit" placeholder="Enter date exit">
             </div>
+            <select class="form-control" id="exampleFormControlSelect1" name="id_period">
+                <option value="">Enter type of contract</option>
+                <?php
+                    foreach($select_period as $key=>$val):
+                ?>
+                <option value="<?=$val['id_period']?>"><?= $val['name_period']?></option>
+
+                <?php endforeach;?>
+            </select>
             <div class="form-group">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password">
             </div>

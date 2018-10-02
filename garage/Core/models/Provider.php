@@ -13,7 +13,7 @@ use app\kernel\service as service;
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    // instance table Admin and store in variable $admin
+    // instantiate table Admin and store in variable $admin
     $provider =  new service\Seed('PROVIDER');
     $mail = $_POST['mail'];
     $array = array("mail"=>$mail);

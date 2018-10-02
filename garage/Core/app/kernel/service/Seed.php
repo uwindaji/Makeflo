@@ -1,5 +1,5 @@
 <?php
-// name of project test.
+// name of project Garage.
 // Author :  lakhdar.
 // Create in  2018-08-21 at 16:11:34.
 // Contact : lakhdar-rouibah@live.fr.
@@ -18,7 +18,7 @@ class Seed {
     private $_pdo;
 
     /**
-     * function to recovred name of table
+     * function to recovr name of table
      *
      * @param [string] $table
      */
@@ -67,6 +67,12 @@ class Seed {
             }else if($post[$result[$i]] == "TRUE"){
 
                 $values .= "TRUE,";
+            }else if($result[$i] == 'date'){
+                
+
+                    $values .= "'".strtotime($post[$result[$i]])."',";
+                
+
             }else if($result[$i] == 'password'){
                 // check password with Tools
                 $password = service\Tools::check_password($post[$result[$i]]);
@@ -101,8 +107,8 @@ class Seed {
 
             $sql = "INSERT INTO ".$this->_table."(".$k_res.") VALUES(".$values.")";
 
-            
             $res =  $this->_pdo->exec($sql)or var_dump($this->_pdo->errorInfo());
+
             return $return;
         }else {
 
@@ -162,7 +168,12 @@ class Seed {
 
 
 
-
+    /**
+     * function to delete data in table
+     *
+     * @param array $data
+     * @return void
+     */
     public function delete_in_table (array $data) {
 
         if ($data){
@@ -196,6 +207,13 @@ class Seed {
 
     }
 
+    /**
+     * function to update data
+     *
+     * @param array $data
+     * @param array $condition
+     * @return void
+     */
     public function update_table (array $data, array $condition){
 
         if ($data){

@@ -11,7 +11,7 @@ namespace models ;
 use models as models;
 use app\kernel\service as service;
 
-// instance table CUSTOMER, HAVE
+// instantiate table CUSTOMER, HAVE
 $customer =  new service\Seed('CUSTOMER');
 $have =  new service\Seed('HAVE');
 

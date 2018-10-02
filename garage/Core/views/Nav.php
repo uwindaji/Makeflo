@@ -44,23 +44,22 @@
                         Cars
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="?req=SearchCustomer">Search customer</a>  <!-- to do -->
+                        <a class="dropdown-item" href="?req=SearchCustomer">Search customer</a> 
                         <a class="dropdown-item" href="?req=Revision">Revision</a>  <!-- to do -->
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Customer</a>  <!-- to do -->
+                    <a class="nav-link" href="#">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="?req=Provider">Provider</a>  <!-- to do -->
+                    <a class="nav-link" href="?req=Provider">Provider</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pieces
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Promotion</a>  <!-- to do -->
-                        <a class="dropdown-item" href="#">Ray</a>  <!-- to do -->
+                        <a class="dropdown-item" href="?req=Pieces">Enter Pieces</a>
                     </div>
                 </li>
                 <?php endif; ?>

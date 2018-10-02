@@ -5,7 +5,7 @@
 // Contact : lakhdar-rouibah@live.fr.
 // Web : rouibah.fr
 namespace Core\app\controlers;
-class Rooter {
+class Controler {
     /**
     * Rooter to recovred view and model
     *

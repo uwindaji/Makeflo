@@ -141,7 +141,7 @@
                         ?>
                                 <!-- display car entred date -->
                                 <div class="alert alert-primary text-center" role="alert">
-                                    <h5>Car entred : <?= $src_recept[$s]['date']; ?></h5> 
+                                    <h5>Car entred : <?= date('Y-m-d', $src_recept[$s]['date']); ?></h5> 
                                 </div>
                                     
                         <?php
@@ -154,7 +154,7 @@
                                 ?>
 
                                     <div class="alert alert-light text-center" role="alert">
-                                        <h5>Car exit : <?= $select_ext[$s]['date']; ?></h5> 
+                                        <h5>Car exit : <?= date('Y-m-d', $select_ext[$s]['date']); ?></h5> 
                                     </div>
 
                                 <?php
@@ -172,7 +172,7 @@
 
                             ?>
                                     <div class="alert alert-success text-center" role="alert">
-                                        <h5>Appointement : <?= $v['date']; ?></h5> 
+                                        <h5>Appointement : <?= date('Y-m-d', $v['date']); ?></h5> 
                                         AT <strong><?= $select_appoint[0]['app'] ?> o'clock</strong>
                                     </div>
                                     <a href="?rec=Cancel&id=<?= $val[1]?>&date=<?= $v['date']?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >cancel</button></a>
