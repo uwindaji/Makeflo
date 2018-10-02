@@ -9,6 +9,7 @@ session_start();
 //**addExClass***
 //use models as models;
 
+require_once "./Core/console/Init.php";
 require_once "./Core/Autoload.php";
 require_once "./Core/controlers/Controler.php";
 // require the head
@@ -18,11 +19,11 @@ require_once "./Core/views/Nav.php";
 
 if(isset($_GET["req"]) and $_SESSION['login'] != null){
 
-    require_once ('Core/console/Root2.php');
+    require_once ('./Core/console/Root2.php');
     
 }else if (isset($_GET["rec"])){
 
-    require_once ('Core/console/Router.php');
+    require_once ('./Core/console/Router.php');
 
 }else {
 

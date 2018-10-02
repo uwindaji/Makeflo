@@ -1,18 +1,6 @@
-<div class="row row-sepa"></div>
-
-<div class="row row-cancel">
-    <div class="col-lg-4 col-sm-2"></div>
-    <div class="col-lg-4 col-sm-8 cancel mt-5 mb-5" >
-        <div class="alert alert-success text-center" role="alert">
-            <h3>Car is entred</h3> 
-            Mark : <?=  $_GET['mark']; ?></p>
-            Register number : <?=  $_GET['register_number']; ?></p>
-            date : <?=  date('Y-m-d H:m'); ?></p>
-            <a href="?req=CarsCustomer&val=<?=  $_GET['val']  ?>"><button class="btn">Return</button></a>
-
-        </div>
+<div class="row">
+    <div class="col-12 p-0">
+        <iframe   src= <?= "./Core/app/docs/depot/".$code.".pdf" ?> width="100%" height="1100" >
+        </iframe>
     </div>
-    <div class="col-lg-4 col-sm-2"></div>
 </div>
-
-<div class="row row-sepa"></div>

@@ -94,7 +94,10 @@
     <div class="col-lg-10 col-xm-12">
         <div class="d-flex flex-wrap justify-content-center">
 
-            <? if($_cars):
+            <?php
+            
+            if($_cars):
+
             
             foreach($_cars as $val): ?>
             <div class="card col-lg-3 col-sm-5 col-xm-12 p-0 m-3">
@@ -180,14 +183,15 @@
                                 }
                             }else{
                         ?>
-                                    <a href="?rec=Agenda&id=<?= $val[1]?>&mark=<?= $val[2]?>&model=<?= $val[3]?>&iregister_number=<?= $val[4]?>&kilometers=<?= $val[5]?>&m=<?= $val[6]?>&y=<?= $val[7]?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >Take appointment</button></a>
+                                    <a href="?rec=Agenda&id=<?= $val[1]?>&mark=<?= $val[2]?>&model=<?= $val[3]?>&register_number=<?= $val[4]?>&kilometers=<?= $val[5]?>&m=<?= $val[6]?>&y=<?= $val[7]?>" class=""><button class="btn mt-3 pt-4 pb-4" type="submit" >Take appointment</button></a>
                         <?php
                             }
                         
                     ?>
                 </div>
             </div>
-            <? endforeach; 
+            <?php
+                endforeach; 
                 endif;?>
         </div>
     </div>

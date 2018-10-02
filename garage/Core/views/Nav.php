@@ -1,5 +1,3 @@
-
-
 <div class="row row-menu">
     <div class=" col-xs-0 col-lg-1"></div>
     <nav class="navbar navbar-expand-lg navbar-light col-xs-12 col-lg-10 ">

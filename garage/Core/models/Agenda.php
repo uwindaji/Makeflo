@@ -5,8 +5,6 @@
 // Contact : lakhdar-rouibah@live.fr.
 // Web : rouibah.fr
 
-//this is comment for my file
-
 namespace models ;
 use models as models;
 use app\kernel\service as service;

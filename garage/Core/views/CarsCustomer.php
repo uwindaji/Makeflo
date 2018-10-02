@@ -3,7 +3,9 @@
     <div class="col-lg-10 col-xm-12">
         <div class="d-flex flex-wrap justify-content-center">
 
-            <? if($_cars):
+            <?php 
+            
+            if($_cars):
             
             foreach($_cars as $val): ?>
             <div class="card col-lg-3 col-sm-5 col-xm-12 p-0 m-3">
@@ -98,7 +100,8 @@
                         ?>
                 </div>
             </div>
-            <? endforeach; 
+            <?php
+                endforeach; 
                 endif;?>
         </div>
     </div>

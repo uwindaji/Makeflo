@@ -23,6 +23,12 @@ class Tools {
      */
     static function array_set(array $array, array $ad, int $p){
 
+        $ks = '';
+        $vs = '';
+        $_keys = '';
+        $_values ='';
+        $__keys = '';
+        $__values ='';
         // store keys and values of $ad  in $ks and $vs
         foreach($ad as $k => $v){
 
@@ -30,6 +36,8 @@ class Tools {
             $vs .= $v;
         }
 
+        $keys = '';
+        $values ='';
         // store keys and values of $array in $keys and $values
         foreach ($array as $key => $val){
 
@@ -68,7 +76,6 @@ class Tools {
             }
 
         }
-
         // remove the last charecter of keys and values
         $_keys = substr($_keys, 0, -2);
         $_values = substr($_values, 0, -2);

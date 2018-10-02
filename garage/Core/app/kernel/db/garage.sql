@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.8
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le :  mar. 25 sep. 2018 à 08:41
--- Version du serveur :  5.7.21
--- Version de PHP :  7.1.16
+-- Client :  localhost:3306
+-- Généré le :  Lun 01 Octobre 2018 à 10:56
+-- Version du serveur :  5.7.23-0ubuntu0.18.04.1
+-- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -128,7 +126,8 @@ CREATE TABLE `EXT` (
 
 CREATE TABLE `GOT` (
   `id_car` int(11) NOT NULL,
-  `id_pieces` int(11) NOT NULL
+  `id_pieces` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -161,7 +160,8 @@ CREATE TABLE `MARK` (
 
 CREATE TABLE `MEND` (
   `id_mend` int(11) NOT NULL,
-  `mend` varchar(255) NOT NULL
+  `mend` varchar(255) NOT NULL,
+  `price` decimal(15,3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -208,7 +208,7 @@ CREATE TABLE `MONTH` (
 CREATE TABLE `PASSWORD` (
   `id_password` int(11) NOT NULL,
   `token` varchar(40) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` int(20) NOT NULL,
   `mail` varchar(70) NOT NULL,
   `state` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -238,7 +238,7 @@ CREATE TABLE `PIECES` (
   `for_model` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL,
   `price_ht` decimal(15,3) NOT NULL,
-  `date` date NOT NULL,
+  `date` int(20) NOT NULL,
   `id_provider` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -313,7 +313,7 @@ CREATE TABLE `RECEPT` (
 CREATE TABLE `TAKE` (
   `id_car` int(11) NOT NULL,
   `id_appointement` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -339,7 +339,7 @@ CREATE TABLE `YEAR` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -510,7 +510,7 @@ ALTER TABLE `YEAR`
   ADD PRIMARY KEY (`id_year`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
@@ -518,87 +518,73 @@ ALTER TABLE `YEAR`
 --
 ALTER TABLE `Admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `APPOINTMENT`
 --
 ALTER TABLE `APPOINTMENT`
   MODIFY `id_appointement` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `CARS`
 --
 ALTER TABLE `CARS`
   MODIFY `id_car` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `CUSTOMER`
 --
 ALTER TABLE `CUSTOMER`
   MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `MARK`
 --
 ALTER TABLE `MARK`
   MODIFY `id_mark` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `MEND`
 --
 ALTER TABLE `MEND`
   MODIFY `id_mend` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `MONTH`
 --
 ALTER TABLE `MONTH`
   MODIFY `id_month` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `PASSWORD`
 --
 ALTER TABLE `PASSWORD`
   MODIFY `id_password` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `PERIOD`
 --
 ALTER TABLE `PERIOD`
   MODIFY `id_period` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `PIECES`
 --
 ALTER TABLE `PIECES`
   MODIFY `id_pieces` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `PROVIDER`
 --
 ALTER TABLE `PROVIDER`
   MODIFY `id_provider` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `RAY`
 --
 ALTER TABLE `RAY`
   MODIFY `id_ray` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `WORKPLACE`
 --
 ALTER TABLE `WORKPLACE`
   MODIFY `id_workplace` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `YEAR`
 --
 ALTER TABLE `YEAR`
   MODIFY `id_year` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- Contraintes pour les tables déchargées
+-- Contraintes pour les tables exportées
 --
 
 --
@@ -698,7 +684,6 @@ ALTER TABLE `RECEPT`
 ALTER TABLE `TAKE`
   ADD CONSTRAINT `TAKE_APPOINTMENT0_FK` FOREIGN KEY (`id_appointement`) REFERENCES `APPOINTMENT` (`id_appointement`),
   ADD CONSTRAINT `TAKE_CARS_FK` FOREIGN KEY (`id_car`) REFERENCES `CARS` (`id_car`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

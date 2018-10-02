@@ -39,6 +39,8 @@ class Seed {
     public function insert_in_table(array $post) {
 
         $return = null;
+        $k_res ='';
+        $values = '';
         // store schema in variable $res
         $res = $this->get_schema();
         // shell $res and store in variable $values
@@ -61,6 +63,9 @@ class Seed {
             }else if($post[$result[$i]] == null){
 
                 $values .= "NULL,";
+            }else if($post[$result[$i]] == 'now'){
+
+                $values .= "NOW(),";
             }else if($post[$result[$i]] == "FALSE"){
 
                 $values .= "FALSE,";
@@ -106,7 +111,6 @@ class Seed {
         if($return == null){
 
             $sql = "INSERT INTO ".$this->_table."(".$k_res.") VALUES(".$values.")";
-
             $res =  $this->_pdo->exec($sql)or var_dump($this->_pdo->errorInfo());
 
             return $return;
@@ -125,6 +129,7 @@ class Seed {
      */
     public function search_in_table (string $id, ?array $data= null) {
 
+        $value = '';
         if ($data){
             // shell array $data
             foreach($data as $key => $val){

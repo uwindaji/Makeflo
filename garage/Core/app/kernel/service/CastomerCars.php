@@ -51,6 +51,7 @@ class CastomerCars {
         // declared variable $return as array
         $return = array();
 
+        $add = '';
         // construct arry of car with values in arrays 
         for ($i = 0; $i < count($arr_car); $i++){
 
