@@ -3,6 +3,7 @@
     <div class=" col-xs-0 col-lg-1"></div>
     <div class="col-lg-10 col-xm-12">
         <div class="col-lg-6 col-xm-12 d-flex justify-content-start pl-0">
+
             <button class="alert col-lg-6 col-xm-12 ml-0 mr-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 Add your car
             </button>

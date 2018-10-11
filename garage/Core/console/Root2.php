@@ -9,6 +9,18 @@ switch ($request){
         $desktop = new controlers\Controler('DeskTop');
     break;
     // case for deskTop
+    case "AddPieces";
+        $desktop = new controlers\Controler('AddPieces');
+    break;
+    // case for deskTop
+    case "Ext";
+        $desktop = new controlers\Controler('Ext');
+    break;
+    // case for deskTop
+    case "Mend";
+        $desktop = new controlers\Controler('Mend');
+    break;
+    // case for deskTop
     case "Provider";
         $desktop = new controlers\Controler('Provider');
     break;
@@ -35,6 +47,14 @@ switch ($request){
     // case for deskTop
     case "Search";
         require_once "./Core/models/Search.php";
+    break;
+    // case for deskTop
+    case "SearchCategory";
+        require_once "./Core/models/SearchCategory.php";
+    break;
+    // case for deskTop
+    case "Got";
+        require_once "./Core/models/Got.php";
     break;
 
     // case for NewStaff

@@ -77,6 +77,12 @@ body {
         height: 30px;
         background-color: $orangeDark;
     }
+
+    .col-title {
+
+        color: $orange;
+        background-color: $orangeDark;
+    }
     // this is login area
     .row-login {
         padding: 50px 0px 50px 0px;
@@ -423,6 +429,23 @@ body {
                     background-color: $orange;
                 }
             }
+        }
+    }
+
+    .menu-car {
+
+        background-color: $orange;
+        .btn {
+
+            color: $orange;
+            background-color: $orangeDark;
+        }
+
+        .btn:hover {
+
+            color: $orangeDark;
+            border: solid 1px $orangeDark;
+            background-color: $orange;
         }
     }
 

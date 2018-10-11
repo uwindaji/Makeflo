@@ -9,6 +9,7 @@ function init(){
         $_SESSION['register'] = null;
         $_SESSION['registration'] = null;
         $_SESSION['user'] = null;
+        $_SESSION['choice_car'] = null;
 }
 
 if(!isset($_SESSION['init'])){

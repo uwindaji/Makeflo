@@ -33,7 +33,13 @@ if($_POST){
 
                 $_SESSION['registration'] = "Registration sccess";
                 $_SESSION['icon'] = "success";
-                exit(header('location: ?rec=LoginCustomer'));
+
+                $message = "Bonjour M.".$_POST['first_name']." ".$_POST['name']." GALE VEHICLE vous remercie pour votre confiance et confirme votre inscription";
+                $tel = $_POST['tel'];
+                $ltd = 'http://localhost/garage/';
+                $req = "?rec=LoginCustomer";
+                service\Tools::sms($message, $tel, $ltd, $req);
+                // exit(header('location: ?rec=LoginCustomer'));
                 
             }
         }else {

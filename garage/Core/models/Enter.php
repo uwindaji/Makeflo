@@ -28,7 +28,7 @@ $inf_customer = service\Tools::search_with ('*', 'CUSTOMER', 'WHERE id_customer 
 
 
 
-$array = array("id_car"=>$_GET['id'], "id"=>$_SESSION['login'][0], "date"=>time(), "ext"=>"FALSE");
+$array = array("id_car"=>$_GET['id'], "id"=>$_SESSION['login'][0], "date"=>date('Y-m-d H:i:s'), "ext"=>"FALSE");
 $src_ad = $recept->insert_in_table($array);
 
 $data = array("id_car"=>$_GET['id']);
@@ -36,14 +36,11 @@ $delete = $take->delete_in_table ($data);
 
 
 
-
+//  generate pdf  file
 use app\kernel\service\fpdf as fpdf;
 
-
-//require ('fpdf/barcode.php');
-
 	$date      = date("d/m/y");
-	$code     = "V".$_GET['id']."S".$_SESSION['login'][0]."C".$inf_customer[0]['id_customer']."T".time();
+	$code     = "V".$_GET['id']."S".$_SESSION['login'][0]."C".$inf_customer[0]['id_customer']."T".strtotime(date('Y-m-d H:i:s'));
 	$dcode     = $inf_customer[0]['mail'];
 
 	$pdf = new fpdf\Code();

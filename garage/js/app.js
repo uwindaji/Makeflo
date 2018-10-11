@@ -54,7 +54,6 @@ $("#searchMend").keyup(()=>{
 
     $.get(url, function( data ) {
         data = JSON.parse(data);
-        //console.log(data);
         if(data){
             
             for(i = 0; i<data.length; i++){
@@ -86,4 +85,47 @@ function filling (elem){
     $("#searchMend").val(elem);
     $('#dropSelect').empty();
     window.location = url;
+}
+
+//================================= Mend functions ==================================================//
+
+
+function searchPieces() {
+
+    var category = $('#select_category').val();
+
+    url= path + "?req=SearchCategory&cat=" + category;
+
+    $.get(url, function( data ) {
+        data = JSON.parse(data);
+
+        insertPieces(data)
+    });
+}
+
+function insertPieces(data){
+
+    $("#div-pieces").empty();
+    for(var i = 0; i < data.length; i++) {
+
+            var pcs = data[i].id_pieces;
+        
+            $('#div-pieces').append('<div class="card col-4 text-secondary pb-3 m-3 "><div class="card-body pt-5 p-1 ">Bar code : ' + data[i].bar_code +'</br> Number pieces : ' + data[i].num +'</br>Name pieces : ' + data[i].name_pieces +'</br>For model : ' + data[i].for_model +'</br>Category : ' + data[i].description +'</br>Price : ' + data[i].price_ht +' €</br><div class="col-12 mt-3 d-flex pt-3 pb-3 border-top bg-light"><h3 class="p-0 mt-2 " > Amount : </h3><input class="form-control col-3 pt-4 pb-4 mr-3 ml-3 mt-1 rounded bg-light border border-dark text-dark" value="0" type="number" id="P'+ data[i].bar_code +'"><button class="col-3 btn m-0 mt-1 " onclick="send_data(this, '+pcs+', P'+ data[i].bar_code +')">Add</button></div></div></div>');
+
+    }
+}
+
+
+function send_data(btn, id, qt){
+
+    $(btn).css("background-color", "blue");
+    $(btn).css("color", "white");
+
+    //alert("id_car: "+id_car+" btn: "+btn+" id: "+id+" qt:"+qt.value);
+
+    url= path + "?req=Got&id_car="+id_car+"&id_pcs="+id+"&qt=" + qt.value;
+
+    $.get(url, function( data ) {
+
+    });
 }

@@ -181,6 +181,7 @@ class Seed {
      */
     public function delete_in_table (array $data) {
 
+        $value = '';
         if ($data){
             // shell array $data
             foreach($data as $key => $val){

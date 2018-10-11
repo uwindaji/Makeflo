@@ -19,6 +19,7 @@ require_once "./Core/views/Nav.php";
 
 if(isset($_GET["req"]) and $_SESSION['login'] != null){
 
+    
     require_once ('./Core/console/Root2.php');
     
 }else if (isset($_GET["rec"])){

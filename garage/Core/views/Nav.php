@@ -16,18 +16,11 @@
                 </li>
                 <?php endif; ?>
 
-                <?php if($_SESSION['login'][1] == "admin"):?>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Staff
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="?req=Register">New Staff</a>
-                        <a class="dropdown-item" href="?req=DropStaff">Drop Staff</a> <!-- to do -->
-                    </div>
-                </li>
-                <?php endif; ?>
                 <?php if($_SESSION['login'][1] == "admin" || $_SESSION['login'][1] == "staff"):?>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="?req=DeskTop">DeskTop</a>  <!-- to do -->
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Planning
@@ -60,6 +53,18 @@
                         <a class="dropdown-item" href="?req=Pieces">Enter Pieces</a>
                     </div>
                 </li>
+                <?php if($_SESSION['login'][1] == "admin"):?>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Staff
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?req=Register">New Staff</a>
+                        <a class="dropdown-item" href="?req=DropStaff">Drop Staff</a> <!-- to do -->
+                    </div>
+                </li>
+                <?php endif; ?>
                 <?php endif; ?>
                 <?php if($_SESSION['user']) { ?>
                 <li class="nav-item dropdown">

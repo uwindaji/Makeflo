@@ -59,7 +59,13 @@
                 <input type="text" class="form-control" id="for_model" name="for_model" placeholder="Enter models of piece">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="description" name="description" placeholder="Enter description">
+                <select class="form-control" id="description" name="description">
+                    <option value="">Choice category</option>
+                    <option value="engine">Engine</option>
+                    <option value="suspension">Suspension</option>
+                    <option value="brake">Brake</option>
+                    <option value="bodywork">Bodywork</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="price_ht" name="price_ht" placeholder="Enter ht price ">

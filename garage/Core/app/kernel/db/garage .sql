@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Lun 01 Octobre 2018 à 10:56
+-- Généré le :  Jeu 11 Octobre 2018 à 15:47
 -- Version du serveur :  5.7.23-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -115,7 +115,7 @@ CREATE TABLE `CUST_CHANGE` (
 CREATE TABLE `EXT` (
   `id_car` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -127,7 +127,8 @@ CREATE TABLE `EXT` (
 CREATE TABLE `GOT` (
   `id_car` int(11) NOT NULL,
   `id_pieces` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` int(20) NOT NULL,
+  `qt` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -173,7 +174,7 @@ CREATE TABLE `MEND` (
 CREATE TABLE `MENDED` (
   `id_mend` int(11) NOT NULL,
   `id_car` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -185,7 +186,7 @@ CREATE TABLE `MENDED` (
 CREATE TABLE `MENDES` (
   `id_mend` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -208,7 +209,7 @@ CREATE TABLE `MONTH` (
 CREATE TABLE `PASSWORD` (
   `id_password` int(11) NOT NULL,
   `token` varchar(40) NOT NULL,
-  `date` int(20) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `mail` varchar(70) NOT NULL,
   `state` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -232,12 +233,12 @@ CREATE TABLE `PERIOD` (
 
 CREATE TABLE `PIECES` (
   `id_pieces` int(11) NOT NULL,
-  `bar_code` decimal(10,0) NOT NULL,
+  `bar_code` varchar(13) NOT NULL,
   `num` int(11) NOT NULL,
   `name_pieces` varchar(40) NOT NULL,
   `for_model` varchar(250) NOT NULL,
   `description` varchar(250) NOT NULL,
-  `price_ht` decimal(15,3) NOT NULL,
+  `price_ht` decimal(15,2) NOT NULL,
   `date` int(20) NOT NULL,
   `id_provider` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -300,7 +301,7 @@ CREATE TABLE `RECEIVE` (
 CREATE TABLE `RECEPT` (
   `id_car` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` int(20) NOT NULL,
   `ext` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -211,7 +211,12 @@ class Tools {
 
             return $result;
         }
+    }
 
-        //return $sql;
+    static function sms(string $message, string $tel, string $ltd, string $req){
+
+        $url = '';
+        $token = '';
+        exit(header('location: '.$url.'?token='.$token.'&message='.$message.'&tel='.$tel.'&ltd='.$ltd.'&req='.$req));
     }
 }
