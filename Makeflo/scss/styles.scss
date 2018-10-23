@@ -1,0 +1,269 @@
+@import "_var.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid{
+
+    .row-all{
+
+        .col-menu{
+            position: fixed;
+            height: 100%;
+            background-color: $darkgrey;
+            .row-head{
+
+                border-bottom: solid 3px $grey;
+                .head{
+
+                    color: $lightgrey;
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }            
+            
+            .row-title{
+
+                border-bottom: solid 3px $grey;
+                
+
+                    a {
+
+                        color: $lightgrey;
+                        text-decoration: none;
+                        transition: .5s;
+                        .head{
+
+                                //margin-left: 20px;
+                                text-align: left;
+                                font-size: 18px;
+                                font-weight: normal;
+                                text-transform: uppercase;
+                                transition: .5s;
+                                background-color: $darkgrey;
+                            
+                        }
+
+                        .head:hover {
+                            transform: scale(1, 1.2);
+                            color: $redorange;
+                            background-color: $grey;
+                        }
+                    }
+
+                    
+                    button{
+
+                        color: $redorange;
+                        background-color: $lightgrey;
+                    }
+
+                    button:hover{
+
+                        color: $lightgrey;
+                        background-color: $redorange;
+                        transition: .5s;
+                    }
+
+            }
+            
+            .logo{
+
+                position: absolute;
+                bottom: 50px;
+                padding-right: 50px;
+            }
+        }
+
+        .col-body{
+
+            .row-nav {
+                border-bottom: solid 3px $redorange;
+                background-color : $lightgrey;
+    
+                nav {
+    
+                    li {
+    
+                        a{
+    
+                            color: $redorange;
+                        }
+                    }
+                }
+            }
+    
+            .row-head-nav {
+                
+                .col-12 {
+    
+                    .card{
+    
+                        border: solid 0px;
+                        transition: .5s;
+                    }
+                    .card:hover{
+
+                        transform: scale(1.05);
+                        z-index: 1;
+                    }
+                }
+            }
+
+            .row-body{
+
+                .col-body{
+
+                    .card{
+
+                        border: solid 0px;
+                        .card-header {
+
+                            color: $lightgrey;
+                            background-color: $redorange;
+                        }
+                    }
+
+                    .list-group {
+
+                        border: solid 1px $redorange;
+                    }
+                }
+
+                .col-widget{
+
+                    .card{
+
+                        border: solid 0px;
+                        .card-header {
+
+                            color: $lightgrey;
+                            background-color: $redorange;
+                        }
+                    }
+
+                    .list-group {
+
+                        border: solid 1px $redorange;
+                    }
+
+                    .ch {
+
+                        border-bottom: none;
+                    }
+
+                    .bg-btn {
+
+                        background-color: $redorange;
+                    }
+
+                    .prrdv{
+
+                        transform: scale(1);
+                        transition: .5s;
+                    }
+                    .prrdv:hover{
+
+                        transform: scale(1.05);
+                    }
+
+                    
+                }
+
+            }
+        }
+
+        .col-login {
+
+            position: relative;
+            top: 120px;
+
+            .card {
+
+                border: solid 1px $redorange;
+                .card-header {
+
+                    color: $lightgrey;
+                    background-color: $redorange;
+                }
+
+                .card-body {
+
+
+                    input {
+
+                        outline: none;
+                        box-shadow: none;
+                        border: solid 1px $redorange;
+                    }
+                    input:focus {
+
+                        border: solid 2px $redorange;
+                    }
+
+                    .btn {
+
+                        outline: none;
+                        box-shadow: none;
+                        color: $lightgrey;
+                        background-color: $redorange; 
+                        transition: .5s
+                    }
+                    .btn:hover {
+
+                        color: $redorange; 
+                        background-color: $lightgrey;
+                    }
+                }
+            }
+        }
+
+        .modal {
+
+            .modal-header{
+
+                color: $lightgrey;
+                background-color: $redorange;
+            }
+
+            .modal-body{
+
+                input {
+
+                    outline: none;
+                    box-shadow: none;
+                    border: solid 1px $redorange;
+                }
+                input:focus {
+
+                    border: solid 2px $redorange;
+                }
+
+                .btn {
+
+                    outline: none;
+                    box-shadow: none;
+                    color: $lightgrey;
+                    background-color: $redorange; 
+                    transition: .5s
+                }
+                .btn:hover {
+
+                    color: $redorange; 
+                    background-color: $lightgrey;
+                }
+            }
+        }
+
+        .row-footer {
+
+            color: $lightgrey;
+            background-color: $redorange;
+        }
+    }
+}
