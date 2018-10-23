@@ -1,9 +1,14 @@
 <?php 
+
+
+
+
+
+
 use  controlers as controlers;
 
 if(isset($_GET["page"])){
 
-    echo 'gooo';
 
     $request = $_GET["page"];
 

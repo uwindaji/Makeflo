@@ -24,24 +24,24 @@
                     ?>
                         <div class="form-group">
                             <label for="exampleInputEmail1">nom :</label>
-                            <input type="text" class="form-control" id="" name="nom" aria-describedby="emailHelp" placeholder="nom">
+                            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="nom">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">prenom :</label>
-                            <input type="text" class="form-control" id="" name="prenom" aria-describedby="emailHelp" placeholder="prenom">
+                            <input type="text" class="form-control" id="prenom" name="prenom" aria-describedby="emailHelp" placeholder="prenom">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tél :</label>
-                            <input type="text" class="form-control" id="" name="tel" aria-describedby="emailHelp" placeholder="Tél">
+                            <input type="text" class="form-control" id="tel" name="tel" aria-describedby="emailHelp" placeholder="Tél">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email :</label>
-                            <input type="email" class="form-control" id="" name="mail" aria-describedby="emailHelp" placeholder="Email">
+                            <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Email">
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mot de passe :</label>
-                            <input type="password" class="form-control" id="" name="password" placeholder="Mot de passe">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
                         </div>
                         <div class="d-flex justify-content-lg-end">
                             <button type="submit" class="btn ">Register</button>
