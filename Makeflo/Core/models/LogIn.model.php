@@ -77,16 +77,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($res_admin):
 
             
+            if($res_admin[0]['hide'] === null):
+                // get type of user 
+                $type = $res_admin[0]['type'];
+                // get type of user 
+                $id = $res_admin[0]['id_user'];
 
-            // get type of user 
-            $type = $res_admin[0]['type'];
-            // get type of user 
-            $id = $res_admin[0]['id_user'];
+                // set $_SESSION['login'] to array id and type 
+                $_SESSION['login'] = array('id' => $id, 'type' => $type);
 
-            // set $_SESSION['login'] to array id and type 
-            $_SESSION['login'] = array('id' => $id, 'type' => $type);
+                exit(header('location: index.php'));
+            else:
 
-            exit(header('location: index.php'));
+                // set flash message "password or mail error" 
+                $_SESSION['flash'] = "Compte supprimé !";
+                // set icon danger
+                $_SESSION['icon'] = "danger";
+
+            endif;
 
             // end 
 
@@ -94,7 +102,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         else :
 
             // set flash message "password or mail error" 
-            $_SESSION['flash'] = "Mot de passe ou E-mail incorrect!";
+            $_SESSION['flash'] = "Mot de passe ou E-mail incorrect !";
             // set icon danger
             $_SESSION['icon'] = "danger";
 

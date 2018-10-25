@@ -61,6 +61,15 @@
                 <ul class="navbar-nav">
                 <li class="nav-item  dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-box-open pl-3"></i>
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?page=ListeAbonnement">Les produits </a>
+                        <a class="dropdown-item" href="?page=Abonnement">Ajouter un produit</a>
+                    </div>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-envelope pl-3"></i>
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">

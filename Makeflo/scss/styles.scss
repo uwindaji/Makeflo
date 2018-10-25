@@ -104,13 +104,22 @@ body{
     
                     .card{
     
-                        border: solid 0px;
+                        border: solid 0px ;
                         transition: .5s;
                     }
                     .card:hover{
 
                         transform: scale(1.05);
                         z-index: 1;
+                    }
+
+                    div.title {
+
+                        border-bottom: solid 1px $redorange;
+                        h2 {
+
+                            color: $redorange;
+                        }
                     }
                 }
             }
@@ -126,6 +135,15 @@ body{
 
                             color: $lightgrey;
                             background-color: $redorange;
+                        }
+                    }
+
+                    .card-deck{
+
+                        .card{
+
+                            color: $lightgrey;
+                            //background-color: $redorange;
                         }
                     }
 

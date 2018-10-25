@@ -241,11 +241,12 @@ class Tools {
      */
     static function send_mail(string $to, string $mail_sub, string $message){
 
-        $token = "sfrdirtoken042980";
+        $token = "***************";
+        $url = "xxxxxxxxxxxxxxxxx";
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL,"http://marouane.rouibah.fr/SendMail.php");
+        curl_setopt($ch, CURLOPT_URL,$url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,"token=".$token."&subject=".$mail_sub."&to=".$to."&message=".$message);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -327,6 +328,37 @@ class Tools {
             break;
 
         }
+
+    }
+
+    /**
+     * @param [file] $img
+     * @param [array] $dem
+     * @return string
+     */
+    static function check_img($img, array $dem){
+
+        // gte list information of image 
+        list($width, $height, $type, $attr) = getimagesize($img['tmp_name']);
+
+
+        // if demension or type not correct return error
+        if($width !== $dem[0] || $height !== $dem[1] || $type !== 3){
+
+            return "L'image doit avoir une largeur de ".$dem[0]."px et une hauteur de ".$dem[1]. "px en format PNG";
+        
+        // else return null
+        }else {
+
+            return null;
+        }
+    }
+
+    static function upload_img($file, $dir, $name){
+
+        $up = move_uploaded_file($file["tmp_name"], $dir.$name);
+
+        
 
     }
 }

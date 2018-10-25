@@ -3,10 +3,10 @@
         <div class="card col-12 pl-lg-0 pb-5" >
 
             <div class="card-header text-center">
-                <h3><b>Login</b></h3>
+                <b>Ajouter</b>
             </div>
-            <div class="card-body">
-                    <form method="post" action="?post=register">
+            <div class="card-body p-0 pt-3">
+                    <form method="post" action="">
 
                     <?PHP
 
@@ -14,7 +14,7 @@
                     ?>
 
                     <div class="alert alert-<?= $_SESSION['icon'];?>" role="alert">
-                        <?= $_SESSION['registration']; ?>
+                        <?= $_SESSION['flash']; ?>
                     </div>
 
                     <?PHP
@@ -22,6 +22,15 @@
                     $_SESSION['flash'] = null;
                         endif;
                     ?>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Privilège</label>
+                            <select class="form-control" id="type" name="type">
+                                <option value="">Choisir un privilège</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">nom :</label>
                             <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="nom">

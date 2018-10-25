@@ -27,9 +27,7 @@ CREATE TABLE Abonnement(
         id_services Int  Auto_increment  NOT NULL ,
         nom         Varchar (40) NOT NULL ,
         description Varchar (255) NOT NULL ,
-        prix        DECIMAL (15,3)  NOT NULL ,
-        date_achat  Date NOT NULL ,
-        date_exp    Date NOT NULL
+        prix        DECIMAL (15,3)  NOT NULL
 	,CONSTRAINT Abonnement_PK PRIMARY KEY (id_services)
 )ENGINE=InnoDB;
 
@@ -79,13 +77,15 @@ CREATE TABLE Paiement(
 
 CREATE TABLE Souscrire(
         id_services Int NOT NULL ,
-        id_user     Int NOT NULL
+        id_user     Int NOT NULL ,
+        date_achat  Date NOT NULL ,
+        date_exp    Date NOT NULL
 	,CONSTRAINT Souscrire_PK PRIMARY KEY (id_services,id_user)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: `Change`
+# Table: Change
 #------------------------------------------------------------
 
 CREATE TABLE `Change`(
@@ -100,9 +100,9 @@ CREATE TABLE `Change`(
 #------------------------------------------------------------
 
 CREATE TABLE Paie(
-        id_paiement Int NOT NULL ,
-        id_services Int NOT NULL
-	,CONSTRAINT Paie_PK PRIMARY KEY (id_paiement,id_services)
+        id_user     Int NOT NULL ,
+        id_paiement Int NOT NULL
+	,CONSTRAINT Paie_PK PRIMARY KEY (id_user,id_paiement)
 )ENGINE=InnoDB;
 
 
@@ -162,14 +162,14 @@ ALTER TABLE `Change`
 	REFERENCES User(id_user);
 
 ALTER TABLE Paie
-	ADD CONSTRAINT Paie_Paiement0_FK
-	FOREIGN KEY (id_paiement)
-	REFERENCES Paiement(id_paiement);
+	ADD CONSTRAINT Paie_User0_FK
+	FOREIGN KEY (id_user)
+	REFERENCES User(id_user);
 
 ALTER TABLE Paie
-	ADD CONSTRAINT Paie_Abonnement1_FK
-	FOREIGN KEY (id_services)
-	REFERENCES Abonnement(id_services);
+	ADD CONSTRAINT Paie_Paiement1_FK
+	FOREIGN KEY (id_paiement)
+	REFERENCES Paiement(id_paiement);
 
 ALTER TABLE Project
 	ADD CONSTRAINT Project_User0_FK

@@ -1,12 +1,12 @@
 <?php 
-use  Core\app\controlers;
-$request = $_GET["admin"];
+use  controlers as controlers;
+$request = $_GET["page"];
     
 switch ($request){
 
     // case for deskTop
-    case "DeskTop";
-        $desktop = new controlers\Controler('DeskTop');
+    case "Desktop";
+        $desktop = new controlers\Controler('Desktop');
     break;
 
 
@@ -16,6 +16,5 @@ switch ($request){
         exit(header('location: index.php'));
     break;
     default: 
-    exit(header('location: index.php'));
-    // @addDefaultCase
+    exit(header('location: ?page=Desktop'));
 }

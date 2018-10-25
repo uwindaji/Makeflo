@@ -9,21 +9,22 @@
     <div class="col-12 d-flex flex-wrap">
         <a href="" class="card col-12 col-sm-6 col-lg-3 mb-3">
             <div class="test">
-                <img class="card-img-top" src="./ressources/img/bloc_rouge.png" alt="Card image cap">
+                <img class="card-img-top" src="./ressources/img/bloc_rougeA.png" alt="Card image cap">
+            </div>
+        </a>
+        <a href="?page=Abonnement" class="card col-12 col-sm-6 col-lg-3 mb-3">
+            <div class="test">
+                <img class="card-img-top" src="./ressources/img/bloc_bleuA.png" alt="Card image cap">
+            </div>
+        </a>
+        <a href="?page=Upload" class="card col-12 col-sm-6 col-lg-3 mb-3">
+            <div class="test">
+                <img class="card-img-top" src="./ressources/img/bloc_orangeA.png" alt="Card image cap">
             </div>
         </a>
         <a href="" class="card col-12 col-sm-6 col-lg-3 mb-3">
             <div class="test">
-                <img class="card-img-top" src="./ressources/img/bloc_bleu.png" alt="Card image cap">
-            </div>
-        <a href="" class="card col-12 col-sm-6 col-lg-3 mb-3">
-            <div class="test">
-                <img class="card-img-top" src="./ressources/img/bloc_orange.png" alt="Card image cap">
-            </div>
-        </a>
-        <a href="" class="card col-12 col-sm-6 col-lg-3 mb-3">
-            <div class="test">
-                <img class="card-img-top" src="./ressources/img/bloc_vert.png" alt="Card image cap">
+                <img class="card-img-top" src="./ressources/img/bloc_vertA.png" alt="Card image cap">
             </div>
         </a>
         
