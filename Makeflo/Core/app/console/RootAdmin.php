@@ -41,15 +41,9 @@ if(isset($_GET["page"])){
         case "Search";
             require_once './Core/models/Search.model.php';
         break;
-
-        // case for exit
-        case "LogOut":
-            session_destroy();
-            exit(header('location: index.php'));
-        break;
+        
         default: 
         exit(header('location: index.php'));
-        // @addDefaultCase
     }
 
 }else {

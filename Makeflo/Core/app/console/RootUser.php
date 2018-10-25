@@ -10,10 +10,8 @@ switch ($request){
     break;
 
 
-    // case for exit
-    case "LogOut":
-        session_destroy();
-        exit(header('location: index.php'));
+    case "Deconnexion";
+        $desktop = new controlers\Controler('Deconnexion');
     break;
     default: 
     exit(header('location: ?page=Desktop'));
