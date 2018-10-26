@@ -69,6 +69,9 @@ class Seed {
             }else if($post[$result[$i]] == "FALSE"){
 
                 $values .= "FALSE,";
+            }else if($post[$result[$i]] == "LAST_INSERT_ID"){
+
+                $values .= "LAST_INSERT_ID(),";
             }else if($post[$result[$i]] == "TRUE"){
 
                 $values .= "TRUE,";
@@ -121,7 +124,7 @@ class Seed {
         if($return == null){
 
             $sql = "INSERT INTO ".$this->_table."(".$k_res.") VALUES(".$values.")";
-            $res =  $this->_pdo->exec($sql);
+            $res =  $this->_pdo->exec($sql)or var_dump($this->_pdo->errorInfo());
 
             return $return;
         }else {

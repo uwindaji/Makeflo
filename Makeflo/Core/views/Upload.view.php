@@ -5,19 +5,39 @@
             <b>Charger un fichier</b>
         </div>
 
-        <form method="post" action="" class="mt-5">
+        <form method="post" action="" class="mt-3"  enctype="multipart/form-data">
+
+            <?PHP
+
+            if ($_SESSION['flash']):
+            ?>
+
+            <div class="alert alert-<?= $_SESSION['icon'];?>" role="alert">
+            <?= $_SESSION['flash']; ?>
+            </div>
+
+            <?PHP
+
+            $_SESSION['flash'] = null;
+            endif;
+            ?>
 
             <div class="form-group" >
-                <input type="text" class="form-control" id="searchUser" name="mail" aria-describedby="emailHelp" autocomplete="off" placeholder="Chercher  E-mail">
+                <input type="email" class="form-control" id="searchUser" name="mail" aria-describedby="emailHelp" autocomplete="off" placeholder="Chercher  E-mail" />
                 <div id="dropSelect" class=" alert alert-info mt-3 " role="alert"></div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="projectSelect" name="nom">
+                    <option value="">Choisir un projet</option>
+                </select>
             </div>
 
             <div class="custom-file mb-5">
-                <input type="file" class="custom-file-input" id="zip" name = "zip" lang="fr">
+                <input type="file" class="custom-file-input" id="file" name = "file" lang="fr" />
                 <label class="custom-file-label" for="customFileLang">Sélectionner un fichier zip</label>
             </div>
             <div class="d-flex justify-content-lg-end">
-                <button type="submit" class="btn ">Charger</button>
+                <button type="submit" class="btn " >Charger</button>
             </div>
         </form>
     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 26 Octobre 2018 à 09:59
+-- Généré le :  Ven 26 Octobre 2018 à 17:06
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -67,8 +67,7 @@ CREATE TABLE `Contrat` (
 CREATE TABLE `File` (
   `id_file` int(11) NOT NULL,
   `url` varchar(20) NOT NULL,
-  `id_project` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_project` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -120,6 +119,7 @@ CREATE TABLE `Project` (
   `nom` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
   `deadline` date NOT NULL,
+  `folder` varchar(40) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_file` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -195,8 +195,7 @@ ALTER TABLE `Contrat`
 --
 ALTER TABLE `File`
   ADD PRIMARY KEY (`id_file`),
-  ADD UNIQUE KEY `File_Project0_AK` (`id_project`),
-  ADD KEY `File_User1_FK` (`id_user`);
+  ADD KEY `File_Project0_AK` (`id_project`) USING BTREE;
 
 --
 -- Index pour la table `Messages`
@@ -224,8 +223,8 @@ ALTER TABLE `Paiement`
 --
 ALTER TABLE `Project`
   ADD PRIMARY KEY (`id_project`),
-  ADD UNIQUE KEY `Project_File0_AK` (`id_file`),
-  ADD KEY `Project_User0_FK` (`id_user`);
+  ADD KEY `Project_User0_FK` (`id_user`),
+  ADD KEY `id_file` (`id_file`) USING BTREE;
 
 --
 -- Index pour la table `Souscrire`
@@ -311,8 +310,7 @@ ALTER TABLE `Contrat`
 -- Contraintes pour la table `File`
 --
 ALTER TABLE `File`
-  ADD CONSTRAINT `File_Project0_FK` FOREIGN KEY (`id_project`) REFERENCES `Project` (`id_project`),
-  ADD CONSTRAINT `File_User1_FK` FOREIGN KEY (`id_user`) REFERENCES `User` (`id_user`);
+  ADD CONSTRAINT `File_Project0_FK` FOREIGN KEY (`id_project`) REFERENCES `Project` (`id_project`);
 
 --
 -- Contraintes pour la table `Messages`
@@ -337,7 +335,6 @@ ALTER TABLE `Paiement`
 -- Contraintes pour la table `Project`
 --
 ALTER TABLE `Project`
-  ADD CONSTRAINT `Project_File1_FK` FOREIGN KEY (`id_file`) REFERENCES `File` (`id_file`),
   ADD CONSTRAINT `Project_User0_FK` FOREIGN KEY (`id_user`) REFERENCES `User` (`id_user`);
 
 --

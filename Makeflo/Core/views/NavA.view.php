@@ -64,8 +64,17 @@
                         <i class="fas fa-box-open pl-3"></i>
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="?page=ListeAbonnement">Les produits </a>
-                        <a class="dropdown-item" href="?page=Abonnement">Ajouter un produit</a>
+                        <a class="dropdown-item" href="?page=ListeAbonnement"><i class="fab fa-blackberry pr-3"></i>Les produits </a>
+                        <a class="dropdown-item" href="?page=Abonnement"><i class="fas fa-plus pr-3"></i> Ajouter un produit</a>
+                    </div>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-atom pl-3"></i>
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?page="><i class="fas fa-code-branch pr-3"></i> Les projets </a>
+                        <a class="dropdown-item" href="?page=AddProject"><i class="fas fa-plus pr-3"></i> Ajouter un projet</a>
                     </div>
                 </li>
                 <li class="nav-item  dropdown">
@@ -95,10 +104,10 @@
                         <i class="fas fa-user pl-3"></i>
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"><?= $res_admin[0]['nom']." ".$res_admin[0]['prenom'] ?></a>
-                        <a class="dropdown-item" href="#">Mon profil</a>
+                        <a class="dropdown-item" ><i class="fas fa-user-circle pr-3"></i> <?= $res_admin[0]['nom']." ".$res_admin[0]['prenom'] ?></a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-user-alt pr-3"></i> Mon profil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="?page=Deconnexion">Déconnexion</a>
+                        <a class="dropdown-item" href="?page=Deconnexion"><i class="fas fa-sign-out-alt pr-3"></i> Déconnexion</a>
                     </div>
                 </li>
 
@@ -110,8 +119,8 @@
                         <i class="fas fa-user-plus pl-3"></i>
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="?page=Register">Ajouter</a>
-                        <a class="dropdown-item" href="?page=Drop">Suprimmer</a>
+                        <a class="dropdown-item" href="?page=Register"><i class="fas fa-plus pr-3"></i> Ajouter user</a>
+                        <a class="dropdown-item" href="?page=Drop"><i class="fas fa-user-times pr-3"></i> Suprimmer user</a>
                     </div>
                 </li>
 

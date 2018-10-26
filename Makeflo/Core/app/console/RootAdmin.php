@@ -21,6 +21,10 @@ if(isset($_GET["page"])){
             $desktop = new controlers\Controler('ListeAbonnement');
         break;
 
+        case "AddProject";
+            $desktop = new controlers\Controler('AddProject');
+        break;
+
         case "Upload";
             $desktop = new controlers\Controler('Upload');
         break;
@@ -40,6 +44,10 @@ if(isset($_GET["page"])){
         
         case "Search";
             require_once './Core/models/Search.model.php';
+        break;
+
+        case "SearchProject";
+            require_once './Core/models/SearchProject.model.php';
         break;
         
         default: 

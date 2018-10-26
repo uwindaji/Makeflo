@@ -10,7 +10,9 @@ use services as services;
 
 
 if($_GET['val']):
-    $res = services\Tools::search_with("*", "User", " WHERE mail LIKE '%".$_GET['val']."%'  LIMIT 10");
+
+    $res_user = services\Tools::search_with("*", "User", " WHERE mail='".$_GET['val']."'");
+    $res = services\Tools::search_with("*", "Project", " WHERE id_user='".$res_user[0]['id_user']."'");
 endif;
 
 

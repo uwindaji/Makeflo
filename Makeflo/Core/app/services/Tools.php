@@ -358,7 +358,24 @@ class Tools {
 
         $up = move_uploaded_file($file["tmp_name"], $dir.$name);
 
-        
+    }
+
+    static function get_extension(string $name){
+
+        // check if point
+        $pos = strpos($name, '.');
+
+        if($pos >0){
+
+            $exp = explode('.', $name );
+            $ext = $exp[count($exp)-1];
+
+            return $ext;
+        }else {
+
+            return null;
+        }
+
 
     }
 }

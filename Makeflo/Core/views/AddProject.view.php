@@ -1,0 +1,46 @@
+<div class="row row-body p-lg-5 p-3">
+    <div class="col-12 col-lg-8 col-body pl-lg-0">
+    <div class="card col-12 pl-lg-0 pb-5" >
+        <div class="card-header text-center">
+            <b>Ajouter un projet</b>
+        </div>
+
+        <form method="post" action="" class="mt-5"  >
+        <?PHP
+
+            if ($_SESSION['flash']):
+        ?>
+
+        <div class="alert alert-<?= $_SESSION['icon'];?>" role="alert">
+            <?= $_SESSION['flash']; ?>
+        </div>
+
+        <?PHP
+
+        $_SESSION['flash'] = null;
+            endif;
+        ?>
+
+            <div class="form-group" >
+                <input type="email" class="form-control" id="searchUser" name="mail"   placeholder="Chercher  E-mail" autocomplete="nope" />
+                <div id="dropSelect" class=" alert alert-info mt-3 " role="alert"></div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nom :</label>
+                <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp" placeholder="Nom du projet" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Description :</label>
+                <input type="text" class="form-control" id="description" name="description" aria-describedby="emailHelp" placeholder="Description" />
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Deadline :</label>
+                <input type="date" class="form-control" id="deadline" name="deadline" aria-describedby="emailHelp" placeholder="Deadline" />
+            </div>
+            <div class="d-flex justify-content-lg-end">
+                <button type="submit" class="btn ">Ajouter</button>
+            </div>
+        </form>
+    </div>
+
+</div>
