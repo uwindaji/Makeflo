@@ -18,12 +18,12 @@ $table = $abonnement->search_in_table("*", null);
 if(isset($_GET['delete'])):
 
     // search in table Abonnement id_abonnement
-    $arr_id = services\Tools::search_with("*", "Abonnement", "WHERE id_services='".$_GET['delete']."'");
-    $id = $arr_id[0]['id_services'];
+    $arr_id = services\Tools::search_with("*", "Abonnement", "WHERE id_abonnement='".$_GET['delete']."'");
+    $id = $arr_id[0]['id_abonnement'];
     $img = $arr_id[0]['img'];
 
     // search if not used
-    $arr_sous = services\Tools::search_with("*", "Souscrire", "WHERE id_services='".$id."'");
+    $arr_sous = services\Tools::search_with("*", "Souscrire", "WHERE id_abonnement='".$id."'");
     $date = strtotime($arr_sous[0]['date_exp']);
     $today = strtotime(date('Y-m-d'));
 
@@ -33,7 +33,7 @@ if(isset($_GET['delete'])):
         $_SESSION['icon'] = "danger";
     else:
 
-        $abonnement->delete_in_table (array("id_services" => $_GET['delete']));
+        $abonnement->delete_in_table (array("id_abonnement" => $_GET['delete']));
 
         unlink('./ressources/img/assets/'.$img.'.png');
 
