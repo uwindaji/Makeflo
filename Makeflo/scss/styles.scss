@@ -10,6 +10,15 @@ body{
 
     .row-all{
 
+
+        .col-error{
+
+            .img-error{
+                margin-top: 170px;
+                width:100%;
+            }
+        }
+
         .col-menu{
             position: fixed;
             height: 100%;
@@ -132,6 +141,12 @@ body{
 
                         border: solid 0px;
                         .card-header {
+
+                            color: $lightgrey;
+                            background-color: $redorange;
+                        }
+
+                        .row-project{
 
                             color: $lightgrey;
                             background-color: $redorange;

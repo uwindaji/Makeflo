@@ -16,7 +16,7 @@
             <div class="test">
                 <img class="card-img-top" src="./ressources/img/bloc_bleu.png" alt="Card image cap">
             </div>
-        <a href="" class="card col-12 col-sm-6 col-lg-3 mb-3">
+        <a href="?page=MyProject" class="card col-12 col-sm-6 col-lg-3 mb-3">
             <div class="test">
                 <img class="card-img-top" src="./ressources/img/bloc_orange.png" alt="Card image cap">
             </div>

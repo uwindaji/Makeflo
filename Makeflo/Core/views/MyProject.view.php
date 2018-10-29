@@ -1,0 +1,32 @@
+<div class="row row-body p-lg-5 p-3">
+    <div class="col-12 col-lg-8 col-body pl-lg-0">
+    <div class="card col-12 pl-lg-0 pb-5" >
+    <!-- start -->
+        <div class="card-header text-center">
+            <b>Mes projets</b>
+        </div>
+        <div class="card-body p-3">
+        <?php
+
+            if($res_project):
+                foreach($res_project as $key =>$val):
+        ?>
+                    <div class="row d-flex row-project mb-1 p-3 pr-0 rounded">
+                        <div class="col-1 pt-2"><i class="fas fa-file-archive"></i> </div>
+                        <div class="col-9 col-lg-8 col-xl-3 pt-2"><b><?= strtoupper($val['nom']) ?></b></div>
+                        <div class="d-none d-xl-block col-xl-4 pt-2"><?= $val['description'] ?></div>
+                        <div class="d-none d-xl-block col-xl-2 pt-2"><i><?= $val['deadline'] ?></i></div>
+                        <div class="col-2 d-flex justify-content-end"><a href="?page=MyProject&folder=<?= $val['folder'] ?>"><button class="btn"><i class="fas fa-download"></i></button></a></div>
+                    </div>
+
+        <?php
+                endforeach;
+            endif;
+
+
+        ?>
+        </div>
+    <!-- end -->
+    </div>
+
+</div>
