@@ -29,7 +29,7 @@
                         <div class="card col-12 col-lg-4">
                             <img class="card-img-top" src="./ressources/img/assets/<?=   $table[$i]['img'].'.png' ?>" alt="Card image cap">
                             <div class="card-body p-0 pt-1">
-                                <a href="?page=ListeAbonnement&delete=<?=  $table[$i]['id_services'] ?>"><button class="btn col-12"> Supprimer </button></a>
+                                <a href="?page=ListeAbonnement&delete=<?=  $table[$i]['id_abonnement'] ?>"><button class="btn col-12"> Supprimer </button></a>
                             </div>
                         </div>
 

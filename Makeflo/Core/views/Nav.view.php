@@ -1,5 +1,3 @@
-
-
 <div class="d-none d-lg-block col-lg-4 col-xl-3 ">
 
 </div>

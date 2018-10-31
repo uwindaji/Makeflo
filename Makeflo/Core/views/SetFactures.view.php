@@ -1,0 +1,43 @@
+<div class="row row-body p-lg-5 p-3">
+    <div class="col-12 col-lg-8 col-body pl-lg-0">
+    <div class="card col-12 pl-lg-0 pb-5" >
+    <!-- start -->
+    <div class="card-header text-center">
+            <b>Charger une facture</b>
+        </div>
+
+        <form method="post" action="" class="mt-3"  enctype="multipart/form-data">
+
+            <?PHP
+
+            if ($_SESSION['flash']):
+            ?>
+
+            <div class="alert alert-<?= $_SESSION['icon'];?>" role="alert">
+                <?= $_SESSION['flash']; ?>
+            </div>
+
+            <?PHP
+
+            $_SESSION['flash'] = null;
+            endif;
+            ?>
+
+            <div class="form-group" >
+                <input type="email" class="form-control" id="searchUser" name="mail" aria-describedby="emailHelp" autocomplete="off" placeholder="Chercher  E-mail" />
+                <div id="dropSelect" class=" alert alert-info mt-3 " role="alert"></div>
+            </div>
+
+            <div class="custom-file mb-5">
+                <input type="file" class="custom-file-input" id="file" name = "file" lang="fr" />
+                <label class="custom-file-label" for="customFileLang">Sélectionner un fichier zip</label>
+            </div>
+            <div class="d-flex justify-content-lg-end">
+                <button type="submit" class="btn " >Charger</button>
+            </div>
+        </form>
+
+    <!-- end -->
+    </div>
+
+</div>

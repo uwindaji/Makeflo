@@ -7,7 +7,7 @@
 </div>
 <div class="row row-head-nav p-3 pt-3">
     <div class="col-12 d-flex flex-wrap">
-        <a href="" class="card col-12 col-sm-6 col-lg-3 mb-3">
+        <a href="?page=SetContract" class="card col-12 col-sm-6 col-lg-3 mb-3">
             <div class="test">
                 <img class="card-img-top" src="./ressources/img/bloc_rougeA.png" alt="Card image cap">
             </div>
@@ -22,7 +22,7 @@
                 <img class="card-img-top" src="./ressources/img/bloc_orangeA.png" alt="Card image cap">
             </div>
         </a>
-        <a href="" class="card col-12 col-sm-6 col-lg-3 mb-3">
+        <a href="?page=SetFactures" class="card col-12 col-sm-6 col-lg-3 mb-3">
             <div class="test">
                 <img class="card-img-top" src="./ressources/img/bloc_vertA.png" alt="Card image cap">
             </div>

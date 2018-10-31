@@ -29,6 +29,14 @@ if(isset($_GET["page"])){
             $desktop = new controlers\Controler('Upload');
         break;
 
+        case "SetContract";
+            $desktop = new controlers\Controler('SetContract');
+        break;
+
+        case "SetFactures";
+            $desktop = new controlers\Controler('SetFactures');
+        break;
+
         case "Repondre";
             $desktop = new controlers\Controler('Repondre');
         break;
