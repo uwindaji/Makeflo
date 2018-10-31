@@ -7,34 +7,34 @@
 <div class="d-none d-lg-block col-lg-4 col-xl-3 col-menu " >
     <div class="row row-head">
         <div class="col-12 head pt-3 pb-3">
-            <span class="">Espace client</span>
+            <span class="">Espace Admin</span>
         </div>
     </div>
     <div class="row row-title">
-        <a href="#" class="col-12 p-0">
+        <a href="?page=Abonnement" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-tachometer-alt mr-3"></i> mes données
+                <i class="fas fa-tachometer-alt mr-3"></i> abonnement
             </div>
         </a>
     </div>
     <div class="row row-title">
-        <a href="#" class="col-12 p-0">
+        <a href="?page=SetFactures" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-file-invoice mr-3"></i> mes factures
+                <i class="fas fa-file-invoice mr-3"></i> ajouter une factures
             </div>
         </a>
     </div>
 
     <div class="row row-title">
-        <a href="#" class="col-12 p-0">
+        <a href="?page=SetContract" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-file-signature mr-3"></i> mon contrat
+                <i class="fas fa-file-signature mr-3"></i> ajouter un contrat
             </div>
         </div>
     <div class="row row-title">
         <a href="?page=MessageA" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-envelope mr-3"></i> mes messages
+                <i class="fas fa-envelope mr-3"></i> mes messages <span class="badge badge-danger ml-3"><?= $nb_message ?></span>
             </div>
         </a>
     </div>
@@ -73,19 +73,16 @@
                     <i class="fas fa-atom pl-3"></i>
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="?page="><i class="fas fa-code-branch pr-3"></i> Les projets </a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-code-branch pr-3"></i> Les projets </a>
                         <a class="dropdown-item" href="?page=AddProject"><i class="fas fa-plus pr-3"></i> Ajouter un projet</a>
                     </div>
                 </li>
                 <li class="nav-item  dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-envelope pl-3"></i>
+                        <i class="fas fa-envelope pl-3"><span class="badge badge-danger" style="position:relative; bottom: 10px;"><?= $nb_message ?></span></i>
                     </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="?page=MessageA">Mes messages</a>
                     </div>
                 </li>
                 <li class="nav-item  dropdown">
