@@ -32,7 +32,7 @@
             </div>
         </div>
     <div class="row row-title">
-        <a href="#" class="col-12 p-0">
+        <a href="?page=MessageA" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
                 <i class="fas fa-envelope mr-3"></i> mes messages
             </div>

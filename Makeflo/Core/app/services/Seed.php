@@ -124,6 +124,7 @@ class Seed {
         if($return == null){
 
             $sql = "INSERT INTO ".$this->_table."(".$k_res.") VALUES(".$values.")";
+            
             $res =  $this->_pdo->exec($sql)or var_dump($this->_pdo->errorInfo());
 
             return $return;

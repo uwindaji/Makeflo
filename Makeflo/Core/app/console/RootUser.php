@@ -9,9 +9,13 @@ $request = $_GET["page"];
     
 switch ($request){
 
-    // case for deskTop
+    // case for MyProject
     case "MyProject";
     $desktop = new controlers\Controler('MyProject');
+    break;
+    // case for Message
+    case "Message";
+    $desktop = new controlers\Controler('Message');
     break;
     // case for deskTop
     case "Desktop";

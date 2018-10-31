@@ -151,6 +151,29 @@ body{
                             color: $lightgrey;
                             background-color: $redorange;
                         }
+
+                        .row-message {
+
+                            .col-message{
+                            
+                                background-color: $redorange;
+                                .title{
+
+                                    background-color: $orange;
+                                }
+                            }
+
+                            .col-reponse{
+                                
+                                color: $lightgrey;
+                                background-color: $grey;
+                                .title{
+
+                                    background-color: $dark;
+                                }
+                            
+                            }
+                        }
                     }
 
                     .card-deck{
