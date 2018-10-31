@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 26 Octobre 2018 à 17:06
+-- Généré le :  Mer 31 Octobre 2018 à 09:51
 -- Version du serveur :  5.7.24-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
@@ -34,6 +34,13 @@ CREATE TABLE `Abonnement` (
   `img` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `Abonnement`
+--
+
+INSERT INTO `Abonnement` (`id_abonnement`, `nom`, `description`, `prix`, `img`) VALUES
+(1, 'lakhdar', 'retro castre model', '234.000', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -61,28 +68,29 @@ CREATE TABLE `Contrat` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `File`
---
-
-CREATE TABLE `File` (
-  `id_file` int(11) NOT NULL,
-  `url` varchar(20) NOT NULL,
-  `id_project` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `Messages`
 --
 
 CREATE TABLE `Messages` (
   `id_message` int(11) NOT NULL,
-  `sujet` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL,
   `date_message` datetime NOT NULL,
+  `nature` varchar(20) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `Messages`
+--
+
+INSERT INTO `Messages` (`id_message`, `message`, `date_message`, `nature`, `id_user`) VALUES
+(1, 'bonjour je souhaite avoir des information merci', '2018-10-30 11:48:05', 'send', 2),
+(2, 'bonjour je suis user2 je vous contact pour un test', '2018-10-30 13:47:39', 'send', 3),
+(5, 'kagsliujfgvlqiusdlfiuv bqlsiduhfbv', '2018-10-30 14:37:55', 'response', 3),
+(6, 'bonjour', '2018-10-30 14:43:16', 'send', 3),
+(7, '&ccedil;a va', '2018-10-30 14:43:36', 'send', 3),
+(8, 'ok', '2018-10-30 14:44:14', 'response', 3),
+(9, 'Salut loulou', '2018-10-30 17:16:27', 'send', 3);
 
 -- --------------------------------------------------------
 
@@ -120,9 +128,16 @@ CREATE TABLE `Project` (
   `description` varchar(255) NOT NULL,
   `deadline` date NOT NULL,
   `folder` varchar(40) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_file` int(11) NOT NULL
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `Project`
+--
+
+INSERT INTO `Project` (`id_project`, `nom`, `description`, `deadline`, `folder`, `id_user`) VALUES
+(3, 'pojet name', 'retro castre model', '2018-10-31', 'FP1540812919U2', 2),
+(4, 'project 2', 'second project', '2018-11-24', 'FP1540784404U2', 2);
 
 -- --------------------------------------------------------
 
@@ -163,8 +178,18 @@ CREATE TABLE `User` (
   `tel` varchar(40) NOT NULL,
   `mail` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL,
+  `folder` varchar(40) DEFAULT NULL,
   `type` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `User`
+--
+
+INSERT INTO `User` (`id_user`, `nom`, `prenom`, `tel`, `mail`, `password`, `folder`, `type`) VALUES
+(1, 'rouibah', 'lakhdar', '0651294448', 'lakhdar-rouibah@live.fr', '5dd6fb7ff4994682742fc1f861f4fa56e43938fe', NULL, 'super admin'),
+(2, 'user', 'mister', '0651294448', 'contact@user.fr', '5dd6fb7ff4994682742fc1f861f4fa56e43938fe', 'FP1540812919U2', 'user'),
+(3, 'user2', 'mister', '0651294448', 'contact@user2.fr', '5dd6fb7ff4994682742fc1f861f4fa56e43938fe', NULL, 'user');
 
 --
 -- Index pour les tables exportées
@@ -191,18 +216,11 @@ ALTER TABLE `Contrat`
   ADD KEY `Contrat_User0_FK` (`id_user`);
 
 --
--- Index pour la table `File`
---
-ALTER TABLE `File`
-  ADD PRIMARY KEY (`id_file`),
-  ADD KEY `File_Project0_AK` (`id_project`) USING BTREE;
-
---
 -- Index pour la table `Messages`
 --
 ALTER TABLE `Messages`
   ADD PRIMARY KEY (`id_message`),
-  ADD KEY `Messages_User0_FK` (`id_user`);
+  ADD KEY `Messages_User0_FK` (`id_user`) USING BTREE;
 
 --
 -- Index pour la table `Paie`
@@ -223,8 +241,7 @@ ALTER TABLE `Paiement`
 --
 ALTER TABLE `Project`
   ADD PRIMARY KEY (`id_project`),
-  ADD KEY `Project_User0_FK` (`id_user`),
-  ADD KEY `id_file` (`id_file`) USING BTREE;
+  ADD KEY `Project_User0_FK` (`id_user`);
 
 --
 -- Index pour la table `Souscrire`
@@ -253,22 +270,17 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT pour la table `Abonnement`
 --
 ALTER TABLE `Abonnement`
-  MODIFY `id_abonnement` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_abonnement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `Contrat`
 --
 ALTER TABLE `Contrat`
   MODIFY `id_contrat` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT pour la table `File`
---
-ALTER TABLE `File`
-  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT pour la table `Messages`
 --
 ALTER TABLE `Messages`
-  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `Paiement`
 --
@@ -278,7 +290,7 @@ ALTER TABLE `Paiement`
 -- AUTO_INCREMENT pour la table `Project`
 --
 ALTER TABLE `Project`
-  MODIFY `id_project` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_project` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `Token`
 --
@@ -288,7 +300,7 @@ ALTER TABLE `Token`
 -- AUTO_INCREMENT pour la table `User`
 --
 ALTER TABLE `User`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Contraintes pour les tables exportées
 --
@@ -305,12 +317,6 @@ ALTER TABLE `Change`
 --
 ALTER TABLE `Contrat`
   ADD CONSTRAINT `Contrat_User0_FK` FOREIGN KEY (`id_user`) REFERENCES `User` (`id_user`);
-
---
--- Contraintes pour la table `File`
---
-ALTER TABLE `File`
-  ADD CONSTRAINT `File_Project0_FK` FOREIGN KEY (`id_project`) REFERENCES `Project` (`id_project`);
 
 --
 -- Contraintes pour la table `Messages`
