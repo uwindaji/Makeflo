@@ -8,6 +8,7 @@ session_start();
 
 
 require_once "./Core/default/Init.php";
+require_once "./Core/app/services/Functions.php";
 require_once "./Core/app/Autoload.php";
 require_once "./Core/app/controlers/Controler.php";
 // require the head

@@ -55,7 +55,7 @@
                             <div class="col-6 p-0 col-message mb-4 rounded ">
                                 <div class="row m-0">
                             
-                                    <div class="col-3 ml-0 pl-0 title pl-2 pt-2 pb-2 rounded">Makeflo :</div>
+                                    <div class="col-3 ml-0 pl-0 title pl-2 pt-2 pb-2 rounded"><?= $val['id_user']   ?> :</div>
                                     <div class="col-9 ml-0 pl-0 title pl-2 pt-2 pb-2 rounded d-flex justify-content-end"><?= $val['date_message'] ?></div>
 
                                 </div>

@@ -11,26 +11,31 @@ $message = new services\Seed('Messages');
 $user = new services\Seed('User');
 
 // get all message
-$res_msg = services\Tools::search_with ("*", "Messages", " ORDER BY id_message DESC");
+$res_user = services\Tools::search_with ("*", "User", null);
 
-// create $table_id_user as array
-$table_id_user = array();
-// get id user from tabme message
+$array_message = array();
 
-//create boucle for to get all id_user in arrayb $table_id_user
-for($i = 0; $i < count($res_msg); $i++):
-    array_push($table_id_user, $res_msg[$i]['id_user']);
-endfor;
+function check_message ($id){
 
-// create $array_user as array
-$array_user = array();
+    $res_response = services\Tools::search_with ("*", "Messages", "WHERE id_user='".$id."' ORDER BY id_message DESC" );
 
-for($x = 0; $x < count($table_id_user); $x++):
+    if($res_response[0]['nature'] === 'send'){
+        $cor_user = services\Tools::search_with ("*", "User", "WHERE id_user='".$id."'");
+        $array = array('message'=> $res_response[0]['message'],'date_message'=> $res_response[0]['date_message'],'id_user'=>$id, 'name'=>$cor_user[0]['nom']." ".$cor_user[0]['prenom']);
+        return $array;
+    }
 
-    $res_user = $user->search_in_table('*', array("id_user"=>$table_id_user[$x]));
-    array_push($array_user, $res_user);
+}
 
-endfor;
+foreach($res_user as $val){
 
+    $return = check_msg($val['id_user']);
+    if(!empty($return)){
+
+        array_push($array_message, check_msg($val['id_user']));
+
+    }
+
+}
 
 

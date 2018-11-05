@@ -38,13 +38,6 @@
             </div>
         </a>
     </div>
-    <div class="row row-title">
-        <a href="#" class="col-12 p-0">
-            <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-headset mr-3"></i> assistance technique
-            </div>
-        </a>
-    </div>
     <div class="col-12  d-flex justify-content-center logo">
         <img class="" style="max-width: 300px;" src="./ressources/img/logo_makeflo.png"/>
     </div>
