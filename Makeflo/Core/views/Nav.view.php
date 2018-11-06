@@ -9,14 +9,14 @@
         </div>
     </div>
     <div class="row row-title">
-        <a href="#" class="col-12 p-0">
+        <a href="?page=MyProject" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-tachometer-alt mr-3"></i> mes données
+                <i class="fas fa-tachometer-alt mr-3"></i> mes téléchargements
             </div>
         </a>
     </div>
     <div class="row row-title">
-        <a href="#" class="col-12 p-0">
+        <a href="?page=MesFactures" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
                 <i class="fas fa-file-invoice mr-3"></i> mes factures
             </div>
@@ -24,15 +24,15 @@
     </div>
 
     <div class="row row-title">
-        <a href="#" class="col-12 p-0">
+        <a href="?page=MyContract" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-file-signature mr-3"></i> mon contrat
+                <i class="fas fa-file-signature mr-3"></i> mes contrats
             </div>
         </div>
     <div class="row row-title">
         <a href="?page=Message" class="col-12 p-0">
             <div class="col-12 head pt-3 pb-3">
-                <i class="fas fa-envelope mr-3"></i> mes messages
+                <i class="fas fa-envelope mr-3"></i> mes messages <span class="badge badge-danger ml-3"><?= count($array_message) ?></span>
             </div>
         </a>
     </div>
@@ -57,56 +57,39 @@
             </button>
             <div class="collapse navbar-collapse justify-content-sm-start justify-content-lg-end" id="navbarNav">
                 <ul class="navbar-nav">
-                <li class="nav-item  dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-envelope pl-3"></i>
-                    </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item  dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell pl-3"></i>
-                    </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item  dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user pl-3"></i>
-                    </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"><?= $res_admin[0]['nom']." ".$res_admin[0]['prenom'] ?></a>
-                        <a class="dropdown-item" href="#">Mon profil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="?page=Deconnexion">Déconnexion</a>
-                    </div>
-                </li>
-
-                <?php
-                    if($su === 'su'):
-                ?>
-                <li class="nav-item  dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-plus pl-3"></i>
-                    </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="?page=Register">Ajouter</a>
-                        <a class="dropdown-item" href="?page=Drop">Suprimmer</a>
-                    </div>
-                </li>
-
-                <?php
-                    endif;
-                ?>
+                    <li class="nav-item  dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-envelope pl-3"><span class="badge badge-danger" style="position:relative; bottom: 10px;"><?= count($array_message) ?></span></i>
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item  dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell pl-3"></i>
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item  dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user pl-3"></i>
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"><?= $res_admin[0]['nom']." ".$res_admin[0]['prenom'] ?></a>
+                            <a class="dropdown-item" href="#">Mon profil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="?page=Deconnexion">Déconnexion</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>

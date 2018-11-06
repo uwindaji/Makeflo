@@ -34,12 +34,18 @@
                             <label for="exampleInputEmail1">Prix :</label>
                             <input type="text" class="form-control" id="prix" name="prix" aria-describedby="emailHelp" placeholder="Prix">
                         </div>
+                        <div class="form-check pb-3">
+                            <input class="form-check-input" type="checkbox" name="type" value="1" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Nouveau
+                            </label>
+                        </div>
                         <div class="custom-file mb-5">
                             <input type="file" class="custom-file-input" id="img" name = "img" lang="fr">
                             <label class="custom-file-label" for="customFileLang">Sélectionner une image</label>
                         </div>
                         <div class="d-flex justify-content-lg-end">
-                            <button type="submit" class="btn ">Abonner</button>
+                            <button type="submit" class="btn ">Ajouter</button>
                         </div>
                     </form>
             </div>

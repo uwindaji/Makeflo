@@ -21,6 +21,30 @@ switch ($request){
     case "Desktop";
     $desktop = new controlers\Controler('Desktop');
     break;
+    // case for deskTop
+    case "MesFactures";
+    $desktop = new controlers\Controler('MesFactures');
+    break;
+    // case for deskTop
+    case "MyContract";
+    $desktop = new controlers\Controler('MyContract');
+    break;
+    // case for deskTop
+    case "New";
+    $desktop = new controlers\Controler('New');
+    break;
+    // case for deskTop
+    case "AddService";
+    $desktop = new controlers\Controler('AddService');
+    break;
+    // case for deskTop
+    case "MyService";
+    $desktop = new controlers\Controler('MyService');
+    break;
+    // case for deskTop
+    case "ServiceView";
+    $desktop = new controlers\Controler('ServiceView');
+    break;
 
 
     case "Deconnexion";
