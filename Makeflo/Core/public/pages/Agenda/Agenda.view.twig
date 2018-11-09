@@ -1,0 +1,98 @@
+<div class="row row-body p-lg-5 p-3">
+    <div class="col-12 col-lg-8 col-body pl-lg-0">
+    <div class="card col-12 pl-lg-0 pb-5" >
+    <!-- start -->
+        <div class="card-header text-center">
+            <b>Title</b>
+        </div>
+
+        <?PHP
+
+            if ($_SESSION['flash']):
+        ?>
+
+            <div class="alert mt-3 alert-<?= $_SESSION['icon'];?>" role="alert">
+                <?= $_SESSION['flash']; ?>
+            </div>
+
+        <?PHP
+
+        $_SESSION['flash'] = null;
+            endif;
+        ?>
+
+        <div class="agenda-head d-flex justify-content-between mt-3 pt-2">
+            <a href="/Agenda/?rec=Agenda&month=<?= $month->previousMonth()->_month ?>&year=<?= $month->previousMonth()->_year ?>" class="btn pl-3 m-0"><i class="fas fa-caret-square-left"></i></a>
+            <h4 class="m-0" ><?= $month->toString(); ?></h4>
+            <a href="/Agenda/?rec=Agenda&month=<?= $month->nextMonth()->_month ?>&year=<?= $month->nextMonth()->_year ?>" class="btn pr-3 m-0"><i class="fas fa-caret-square-right"></i></a>
+        </div>
+        <table class="calend mt-3">
+            <?php  for($i = 0; $i < $month->getWeeks(); $i++ ):   ?>
+                <?php if($i === 0): ?>
+                    <tr>
+                        <?php foreach($month->days as $k => $day): 
+
+                            $date =(clone $start_day)->modify("+" . ($k + $i * 7) . " days");
+                            
+                        ?>
+                        <td >
+                            
+                                <div class="week-day"><?= $day; ?></div>
+                            
+                        </td>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endif; ?>
+                <tr>
+                    <?php 
+
+                        
+                    
+                        foreach($month->days as $k => $day): 
+                        
+                            
+
+                            $date =(clone $start_day)->modify("+" . ($k + $i * 7) . " days");
+                            $app = appoint($date->format('Y-m-d'), $all_appoint);
+
+                            $msg = "'vous confirmez votre rendez-vous le : ".$date->format('Y-m-d')."'";
+                            $fun = "return check_submit($msg)";
+                            $enabled = 'onclick="'.$fun.'"';
+                            $desabled = "onclick='return desabled()'";
+
+                            $before = "";
+                            if(strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))){
+
+                                $before = "true";
+                            }else{
+
+                                $before = "";
+                            }
+                        
+                    ?>
+                    <td class="text-center" >
+                        <a href="/Agenda/?appoint=<?= $date->format('Y-m-d'); ?>" <?php if($app == 'ok' || $day == "Sun" || $day == "Sat" || $before == "true"){ echo $desabled; }else{ echo $enabled;} ?> >
+                            <div <?php  if (strtotime(date('d-m-Y')) <= strtotime($date->format('d-m-Y'))){ ?> data-toggle="modal" data-target="#exampleModal" <?php } ?> 
+                                                                                    class="d-flex justify-content-between
+                                                                                    <?= $month->withinMonth($date) ? 'day' : 'day'; ?>  
+                                                                                    <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> 
+                                                                                    <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?> 
+                                                                                    <?= $day == "Sun" || $day == "Sat" ? 'remove' : '' ?> 
+                                                                                    <?php if($app == 'ok'){ echo 'week-day';} ?> 
+                                                                                    <?= strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))? 'remove' : '' ?>" >
+                                <?= $date->format('d'); ?> 
+                            </div>
+                        </a>
+
+                    </td>
+                    <?php endforeach; ?>
+                </tr>
+
+            <?php  endfor;  ?>
+        </table>
+
+
+    <!-- end -->
+    </div>
+
+</div>

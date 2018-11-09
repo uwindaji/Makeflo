@@ -1,46 +1,57 @@
 <?php
 ob_start();
 session_start();
-// name of project Makeflo.
-// Script create by Lakhdar.
+// name of project New.
+//Script create by Lakhdar.
 // Contact: lakhdar-rouibah@live.fr.
 // Web : rouibah.fr
+use services as services;
+use controlers as controlers;
+require_once "./Core/functions/functions.php";
+require_once "./Core/Autoload.php";
 
+// $page = "page";
+// $str = "azerty {{% page %}} vgfrt";
+// echo strpos($str, "{{% $page %}}"); die();
 
-require_once "./Core/default/Init.php";
-require_once "./Core/app/services/Functions.php";
-require_once "./Core/app/Autoload.php";
-require_once "./Core/app/controlers/Controler.php";
-// require the head
-require_once "./Core/default/Head.view.php";// require the head
-
-// if page equal error
-if(isset($_GET['page']) and $_GET['page'] ==="error" ){    
-    
-    require_once "./Core/default/Error.view.php";
-
-}else if($_SESSION['login']['type'] === 'admin' || $_SESSION['login']['type'] === 'super admin'){    
-
-    require_once "./Core/models/NavA.model.php";
-    require_once "./Core/views/NavA.view.php";
-    require_once "./Core/default/HeadNavA.view.php";
-    require_once './Core/app/console/RootAdmin.php';
-    require_once "./Core/views/WidgetA.view.php";
-    require_once "./Core/default/EndBody.view.php";
-
-}else if($_SESSION['login']['type'] === 'user'){    
-
-        require_once "./Core/models/Nav.model.php";
-        require_once "./Core/views/Nav.view.php";
-        require_once "./Core/default/HeadNav.view.php";
-        require_once './Core/app/console/RootUser.php';
-        require_once "./Core/views/Widget.view.php";
-        require_once "./Core/default/EndBody.view.php";
-
-}else  {
-
-    require_once ('Core/app/console/Default.php');
+function url(){
+    return sprintf(
+        "%s://%s%s",
+        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+        $_SERVER['SERVER_NAME'],
+        $_SERVER['REQUEST_URI']
+    );
 }
 
 
-require_once "./Core/default/Footer.view.php";
+$host = $_SERVER['HTTP_HOST'];
+// get folder
+$url = url();
+$realpath = realpath(dirname(__FILE__)); 
+$_folder = explode("/", $realpath);
+$folder = $_folder[count($_folder)-1];
+
+$root = explode($host, $url);
+
+if(isset($root[1])){
+    $root = explode("/", $root[1]);
+    $root = "/".$root[1]."/";
+    
+}else {
+    $root ="/";
+}
+
+$root = substr($root, 0, -1);
+
+if($_SESSION['login'] == null){
+    $root ="/Login";
+}else if($_SESSION['login'] and $root =="/Login"){
+    $root ="/Home";
+}
+
+
+
+
+//print_r($root); die();
+$request = new services\Target($root);
+$controle = new controlers\Controler($request);
