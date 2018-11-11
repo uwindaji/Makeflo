@@ -26,8 +26,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $name_folder = "FU".strtotime(date('Y-m-d'))."U".$res_user[0]['id_user'];
 
             // create folder 
-            mkdir("./Core/app/projects/".$name_folder, 0755);
-            copy('ht/.htaccess', "./Core/app/projects/".$name_folder."/.htaccess");
+            mkdir("./Core/public/folders/projects/".$name_folder, 0755);
+            copy('ht/.htaccess', "./Core/public/folders/projects/".$name_folder."/.htaccess");
             $data = array('folder'=>$name_folder);
             $condition = array('id_user'=>$res_user[0]['id_user']);
             $user->update_table ($data, $condition);
@@ -39,14 +39,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // insert data in table
         $project-> insert_in_table ($post);
 
-        mkdir("./Core/app/projects/".$name_folder."/".$name_project, 0755);
-        copy('ht/.htaccess', "./Core/app/projects/".$name_folder."/".$name_project."/.htaccess");
+        mkdir("./Core/public/folders/projects/".$name_folder."/".$name_project, 0755);
+        copy('ht/.htaccess', "./Core/public/folders/projects/".$name_folder."/".$name_project."/.htaccess");
 
         $_SESSION['flash'] = "Votre projet est créer avec success";
         // set icon danger
         $_SESSION['icon'] = "success";
 
-        exit(header('location: ?page=AddProject'));
+        exit(header('location: /AddProject'));
         
 
     else :

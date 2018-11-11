@@ -43,37 +43,48 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // check in table User if folder existe
         if(!$res_folder[0]['folder']){
 
+            // set name of folder
             $name_folder = "FU".strtotime(date('Y-m-d'))."U".$res_folder[0]['id_user'];
+            // update name of folder
             $data = array("folder" => $name_folder);
             $condition = array('id_user' => $res_folder[0]['id_user']);
             $user->update_table ($data, $condition);
-            mkdir("./Core/app/factures/".$name_folder, 0755);
-            copy('ht/.htaccess', "./Core/app/factures/".$name_folder."/.htaccess");
-            $target = "./Core/app/factures/".$name_folder."/".$_FILES['file']['name'];
+            // create directory
+            mkdir("./Core/public/folders/factures/".$name_folder, 0755);
+            // copy the htaccess
+            copy('ht/.htaccess', "./Core/public/folders/factures/".$name_folder."/.htaccess");
+            // set the target
+            $target = "./Core/public/folders/factures/".$name_folder."/".$_FILES['file']['name'];
 
+            // if folder existe
         }else if ($res_folder[0]['folder']){
             
-            $dir = is_dir("./Core/app/factures/".$res_folder[0]['folder']);
+            // check directory 
+            $dir = is_dir("./Core/public/folders/factures/".$res_folder[0]['folder']);
+            //if directory not existe
             if($dir === false):
-                mkdir("./Core/app/factures/".$res_folder[0]['folder'], 0755);
-                copy('ht/.htaccess', "./Core/app/factures/".$res_folder[0]['folder']."/.htaccess");
-                
+                // create directory
+                mkdir("./Core/public/folders/factures/".$res_folder[0]['folder'], 0755);
+                // copy the htaccess
+                copy('ht/.htaccess', "./Core/public/folders/factures/".$res_folder[0]['folder']."/.htaccess");
             endif;
             
-            $target = "./Core/app/factures/".$res_folder[0]['folder']."/".$_FILES['file']['name'];
+            // set the target
+            $target = "./Core/public/folders/factures/".$res_folder[0]['folder']."/".$_FILES['file']['name'];
         
         }
         
         // check if file existe in folder
         if (file_exists($target)) {
 
+            // error
             $_SESSION['flash'] = "Ce fichier existe déja !";
             // set icon danger
             $_SESSION['icon'] = "danger";
 
         }else {
 
-            // upload file
+            // upload file 
             $up = move_uploaded_file($_FILES['file']["tmp_name"], $target);
             
 
@@ -82,12 +93,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $post = array("date_facture"=>date('Y-m-d'), "lien"=>$_FILES['file']['name'], "id_user"=>$res_folder[0]['id_user']);
                 $return = $factures->insert_in_table($post);
 
-
+                // success
                 $_SESSION['flash'] = "Votre fichier est charger avec success";
                 // set icon danger
                 $_SESSION['icon'] = "success";
+                exit(header('location: /SetFactures'));
             }else {
 
+                // error
                 $_SESSION['flash'] = "Erreur de chargement de fichier !";
                 // set icon danger
                 $_SESSION['icon'] = "danger";

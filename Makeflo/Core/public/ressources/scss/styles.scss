@@ -184,10 +184,6 @@ body{
                             }
                         }
 
-                        table, th, td {
-                            border: 1px solid black;
-                        }
-
                         .calend{
 
                             .week-day{
@@ -198,6 +194,7 @@ body{
                             a{
                                 color: $dark;
                                 text-decoration: none;
+
                                 .day{
 
                                     background-color: $lightgrey;
@@ -226,6 +223,13 @@ body{
                                     opacity: .3;
                                     cursor: auto;
                                 }
+                                .week-day{
+                                    text-align: center;
+                                    background-color: $redorange;
+                                    cursor: auto;
+                                    
+                                }
+
                             }
 
                         }

@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
 
             // set directory
-            $dir = "ressources/img/assets/";
+            $dir = "./Core/public/ressources/img/assets/";
             // set name of image
             $name = $name_n.".png";
             
@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_SESSION['icon'] = "success";
             
             // exit to return on the same page
-            exit(header('location: ?page=Abonnement'));
+            exit(header('location: /Abonnement'));
 
         }
     }

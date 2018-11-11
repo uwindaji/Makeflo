@@ -37,11 +37,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     }else {
 
-        // get project folder in File
-        $res_folder = services\Tools::search_with("*", "User", " WHERE id_user='".$_POST['mail']."'");
+        // get project folder 
         $res_project = services\Tools::search_with("*", "Project", " WHERE id_project='".$_POST['nom']."'");
 
-        $target = "./Core/app/projects/".$res_folder[0]['folder']."/".$res_project[0]['folder']."/".$_FILES['file']['name'];
+        $target = "./Core/public/folders/projects/".$res_project[0]['folder']."/".$_FILES['file']['name'];
 
         // check if file existe in folder
         if (file_exists($target)) {

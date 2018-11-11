@@ -241,8 +241,8 @@ class Tools {
      */
     static function send_mail(string $to, string $mail_sub, string $message){
 
-        $token = "***************";
-        $url = "xxxxxxxxxxxxxxxxx";
+        $token = "*****************";
+        $url = "xxxxxxxxxxxxxxxxxxx";
 
         $ch = curl_init();
 
@@ -269,7 +269,7 @@ class Tools {
     static function code(){
 
         $code = sha1(rand(pow(2,10), pow(2,60)));
-        $arr_token = services\Tools::search_with("token", "PASSWORD", "WHERE token='".$code."' and state IS NULL");
+        $arr_token = services\Tools::search_with("token", "Token", "WHERE token='".$code."'");
 
         if($arr_token[0]['token'] === $code){
 

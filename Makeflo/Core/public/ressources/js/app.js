@@ -1,4 +1,4 @@
-var path = "http://localhost/Makeflo/index.php";
+
 
 $('#dropSelect').css('display', 'none');
 $('#projectSelect').css('display', 'none');
@@ -11,10 +11,9 @@ $("#searchUser").keyup(()=>{
     var i = 0;
     var $val = $("#searchUser").val();
 
-    var url= path + "?page=Search&val=" + $val;
+    var url= "/Search/?val=" + $val;
 
     $.get(url, function( data ) {
-
         
         data = JSON.parse(data);
         if(data){
@@ -47,7 +46,7 @@ function create_select_project(mail){
 
     var i = 0;
 
-    var url= path + "?page=SearchProject&val=" + mail;
+    var url= "/SearchProject/?val=" + mail;
 
     $.get(url, function( data ) {
 

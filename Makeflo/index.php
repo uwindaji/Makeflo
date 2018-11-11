@@ -27,6 +27,7 @@ function url(){
 $host = $_SERVER['HTTP_HOST'];
 // get folder
 $url = url();
+
 $realpath = realpath(dirname(__FILE__)); 
 $_folder = explode("/", $realpath);
 $folder = $_folder[count($_folder)-1];
@@ -43,15 +44,13 @@ if(isset($root[1])){
 
 $root = substr($root, 0, -1);
 
+
 if($_SESSION['login'] == null){
     $root ="/Login";
 }else if($_SESSION['login'] and $root =="/Login"){
     $root ="/Home";
 }
-
-
-
-
 //print_r($root); die();
 $request = new services\Target($root);
 $controle = new controlers\Controler($request);
+

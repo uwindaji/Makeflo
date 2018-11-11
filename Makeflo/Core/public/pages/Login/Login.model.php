@@ -8,6 +8,8 @@ use services as services;
 
 // inbstancier la table User
 $login = new services\Seed('User');
+$token = new services\Seed('Token');
+$pass = new services\Seed('Pass');
 
 $res_admin = $login->search_in_table('*', null);
 
@@ -73,42 +75,102 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     // else search in table user for user 
     else :
 
-        $admin = array('mail' => $_POST['mail'], 'password' => sha1($_POST['password']));
-        // search in table User if login existe 
-        $res_admin = $login->search_in_table('*', $admin);
+        if(isset($_POST['login'])):
+            $admin = array('mail' => $_POST['mail'], 'password' => sha1($_POST['password']));
+            // search in table User if login existe 
+            $res_admin = $login->search_in_table('*', $admin);
 
-        // if find result do this  
-        if($res_admin):
+            // if find result do this  
+            if($res_admin):
 
-            
-            if($res_admin[0]['hide'] === null):
-                // get type of user 
-                $type = $res_admin[0]['type'];
-                // get type of user 
-                $id = $res_admin[0]['id_user'];
+                
+                if($res_admin[0]['hide'] === null):
+                    // get type of user 
+                    $type = $res_admin[0]['type'];
+                    // get type of user 
+                    $id = $res_admin[0]['id_user'];
 
-                // set $_SESSION['login'] to array id and type 
-                $_SESSION['login'] = array('id' => $id, 'type' => $type);
+                    // set $_SESSION['login'] to array id and type 
+                    $_SESSION['login'] = array('id' => $id, 'type' => $type);
 
-                exit(header('location: /Home'));
-            else:
+                    exit(header('location: /Home'));
+                else:
+
+                    // set flash message "password or mail error" 
+                    $_SESSION['flash'] = "Compte supprimé !";
+                    // set icon danger
+                    $_SESSION['icon'] = "danger";
+
+                endif;
+
+                // end 
+
+            // else error in password or mail
+            else :
 
                 // set flash message "password or mail error" 
-                $_SESSION['flash'] = "Compte supprimé !";
+                $_SESSION['flash'] = "Mot de passe ou E-mail incorrect !";
                 // set icon danger
                 $_SESSION['icon'] = "danger";
 
             endif;
-
-            // end 
-
-        // else error in password or mail
+        
         else :
 
-            // set flash message "password or mail error" 
-            $_SESSION['flash'] = "Mot de passe ou E-mail incorrect !";
-            // set icon danger
-            $_SESSION['icon'] = "danger";
+            // check is not empty
+            $table = array('email');
+            $post = array('email', $_POST['email']);
+            $retour = services\Tools::is_empty($post, $table);
+            if($retour === null){
+
+                // check if mail existe 
+                $res_login = $login->search_in_table('*', array('mail'=>$_POST['email']));
+
+                if($res_login){
+                    // construct token
+                    $code = services\Tools::code();
+                    // insert token in table Token
+                    $arr_token = array('token'=>$code, 'date_token'=>date('Y-m-d'));
+                    $token->insert_in_table($arr_token);
+
+                    //serch last id 
+                    $res_token = $token->search_in_table('*', null);
+                    $id_token = $res_token[count($res_token)-1]['id_token'];
+
+                    // insert in table change id_token and id_user
+                    $arr_pass= array('id_token'=>$id_token, 'id_user'=>$res_login[0]['id_user']);
+                    $pass->insert_in_table($arr_pass);
+
+                    // send mail
+                    // generate the url
+
+                    //todo change this code
+                    $url = "http://lakhdar.ovh/index.php?rec=Change%code=".$code."%user=".$res_login[0]['id_user'];
+                    $name = $res_login[0]['nom']. " ".$res_login[0]['prenom'];
+                    $to = $res_login[0]['mail'];
+                    $mail_sub = "E-mail pour changer le mot de passe";
+                    $msg = "Bonjour M.".$name."\n message de  Makeflo\n veilliez cliquer sur ce lien  ".$url." pour modifiez votre mot de pass";
+
+                    // send mail to 
+                    $mail = services\Tools::send_mail($to, $mail_sub, $msg);
+
+                    if($mail === "ok"):
+                        exit(header('location: /Login'));
+                    endif;
+
+                    //todo end 
+
+
+                }else {
+
+
+                    exit(header('location: /Error'));
+
+                }
+
+                
+
+            }
 
         endif;
 

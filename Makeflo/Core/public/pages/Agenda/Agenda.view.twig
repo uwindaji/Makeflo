@@ -55,7 +55,7 @@
                             $date =(clone $start_day)->modify("+" . ($k + $i * 7) . " days");
                             $app = appoint($date->format('Y-m-d'), $all_appoint);
 
-                            $msg = "'vous confirmez votre rendez-vous le : ".$date->format('Y-m-d')."'";
+                            $msg = "'vous confirmez votre rendez-vous le : ".$date->format('d-m-Y')."'";
                             $fun = "return check_submit($msg)";
                             $enabled = 'onclick="'.$fun.'"';
                             $desabled = "onclick='return desabled()'";

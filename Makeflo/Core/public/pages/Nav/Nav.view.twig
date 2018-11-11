@@ -62,21 +62,7 @@
                             <i class="fas fa-envelope pl-3"><span class="badge badge-danger" style="position:relative; bottom: 10px;"><?= count($array_message) ?></span></i>
                         </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item  dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell pl-3"></i>
-                        </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/Message">Mes messages</a>
                         </div>
                     </li>
                     <li class="nav-item  dropdown">
@@ -84,8 +70,8 @@
                             <i class="fas fa-user pl-3"></i>
                         </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><?= $res_admin[0]['nom']." ".$res_admin[0]['prenom'] ?></a>
-                            <a class="dropdown-item" href="#">Mon profil</a>
+                            <b class="dropdown-item" ><?= $res_admin[0]['nom']." ".$res_admin[0]['prenom'] ?></b>
+                            <a class="dropdown-item" href="/Profile">Mon profil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/Deconnexion">Déconnexion</a>
                         </div>

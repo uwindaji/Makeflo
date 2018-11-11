@@ -9,11 +9,13 @@
                 <?php
                 if($table):
                     for($i = 0; $i <count($table); $i++){
+
+                        $image =  get_service_img($table[$i]['id_abonnement']).".png";
                 ?>
                         <div class="card col-12 col-lg-4">
-                            <img class="card-img-top" src="./ressources/img/assets/<?=   get_service_img($table[$i]['id_abonnement']).'.png' ?>" alt="Card image cap">
+                            <img class="card-img-top" src="./<?= asset('img/assets/'.$image); ?>" alt="Card image cap">
                             <div class="card-body p-0 pt-1">
-                                <a href="?page=ServiceView&id=<?=  $table[$i]['id_abonnement'] ?>"><button class="btn col-12"> Découvrir </button></a>
+                                <a href="/ServiceView/?id=<?=  $table[$i]['id_abonnement'] ?>"><button class="btn col-12"> Découvrir </button></a>
                             </div>
                         </div>
 

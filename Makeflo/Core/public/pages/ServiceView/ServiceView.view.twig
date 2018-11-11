@@ -8,9 +8,10 @@
             <div class="card pt-3">
             <?php
             if($table):
+                $image =  $table[0]['img'].".png";
             ?>
                     <div class="card col-12 col-lg-4">
-                        <img class="card-img-top" src="./ressources/img/assets/<?=   $table[0]['img'].'.png' ?>" alt="Card image cap">
+                        <img class="card-img-top" src="./<?= asset('img/assets/'.$image); ?>" alt="Card image cap">
                             <div class="card-body p-0 pt-1">
                                 <h4>Nom: <?=   $table[0]['nom'] ?></h4>
                                 <p>Description: <?=   $table[0]['description'] ?></p>

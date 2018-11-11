@@ -47,20 +47,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $data = array("folder" => $name_folder);
                 $condition = array('id_user' => $res_folder[0]['id_user']);
                 $user->update_table ($data, $condition);
-                mkdir("./Core/app/contracts/".$name_folder, 0755);
-                copy('ht/.htaccess', "./Core/app/contracts/".$name_folder."/.htaccess");
-                $target = "./Core/app/contracts/".$name_folder."/".$_FILES['file']['name'];
+                mkdir("./Core/public/folders/contracts/".$name_folder, 0755);
+                copy('ht/.htaccess', "./Core/public/folders/contracts/".$name_folder."/.htaccess");
+                $target = "./Core/public/folders/contracts/".$name_folder."/".$_FILES['file']['name'];
 
             }else if ($res_folder[0]['folder']){
                 
-                $dir = is_dir("./Core/app/contracts/".$res_folder[0]['folder']);
+                $dir = is_dir("./Core/public/folders/contracts/".$res_folder[0]['folder']);
                 if($dir === false):
-                    mkdir("./Core/app/contracts/".$res_folder[0]['folder'], 0755);
-                    copy('ht/.htaccess', "./Core/app/contracts/".$res_folder[0]['folder']."/.htaccess");
+                    mkdir("./Core/public/folders/contracts/".$res_folder[0]['folder'], 0755);
+                    copy('ht/.htaccess', "./Core/public/folders/contracts/".$res_folder[0]['folder']."/.htaccess");
                     
                 endif;
                 
-                $target = "./Core/app/contracts/".$res_folder[0]['folder']."/".$_FILES['file']['name'];
+                $target = "./Core/public/folders/contracts/".$res_folder[0]['folder']."/".$_FILES['file']['name'];
             
             }
             

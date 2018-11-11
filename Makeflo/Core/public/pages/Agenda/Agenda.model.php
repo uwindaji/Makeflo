@@ -37,7 +37,7 @@ if(isset($_GET['appoint'])){
         // set icon danger
         $_SESSION['icon'] = "success";
 
-
+        exit(header('location: /Agenda'));
     }
 }
 

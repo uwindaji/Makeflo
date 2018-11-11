@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $post = array("message"=> $_POST['message'], "date_message"=> date('Y-m-d H:i:s'), "nature"=>"send", "id_user"=>$_SESSION['login']['id']);
         $message->insert_in_table($post);
 
-        exit(header('location: ?page=Message'));
+        exit(header('location: /Message'));
 
         $_SESSION['flash'] = 'Votre message a été envoyé avec success';
         $_SESSION['icon'] = "success";
