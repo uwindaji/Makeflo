@@ -220,7 +220,6 @@ class Tools {
         
         $sql = "SELECT ".$id." FROM ".$table." ".$prifix;
 
-
         // send $sql to function sql to executate
         $res =  $pdo->query($sql)or var_dump($pdo->errorInfo());
 
@@ -233,7 +232,7 @@ class Tools {
         }
     }
 
-    /**
+     /**
      * send_mail is function to send data to another web site use php cURL
      * @param [string] $to
      * @param [string] $mail_sub
@@ -241,8 +240,8 @@ class Tools {
      */
     static function send_mail(string $to, string $mail_sub, string $message){
 
-        $token = "*****************";
-        $url = "xxxxxxxxxxxxxxxxxxx";
+        $token = "**************";
+        $url = "xxxxxxxxxxxxxxxxxx";
 
         $ch = curl_init();
 
@@ -261,6 +260,7 @@ class Tools {
             return "ok";
         endif;
     }
+
 
     /**
      * code function to generate code type sha1

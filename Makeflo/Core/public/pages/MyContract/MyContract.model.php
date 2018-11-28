@@ -18,7 +18,7 @@ if(isset($_GET['contrat'])){
     $zip = new ZipArchive;
     $zip->open($zipname, ZipArchive::CREATE | ZipArchive::OVERWRITE);
     
-    $zip->addFile('./Core/app/contracts/'.$res_user[0]['folder'].'/'.$_GET['contrat'], 'Makeflo/'.$_GET['contrat']);
+    $zip->addFile('./Core/public/folders/contracts/'.$res_user[0]['folder'].'/'.$_GET['contrat'], 'Makeflo/'.$_GET['contrat']);
     
 
     if ($zip->close() === false) {

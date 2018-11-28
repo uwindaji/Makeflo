@@ -76,7 +76,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     else :
 
         if(isset($_POST['login'])):
-            $admin = array('mail' => $_POST['mail'], 'password' => sha1($_POST['password']));
+
+
+            // ===================================================================================== to change
+            $admin = array('mail' => $_POST['mail'], 'password' => sha1($_POST['password']), 'etat' => null);
             // search in table User if login existe 
             $res_admin = $login->search_in_table('*', $admin);
 
@@ -143,12 +146,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     // send mail
                     // generate the url
-
-                    //todo change this code
-                    $url = "http://lakhdar.ovh/index.php?rec=Change%code=".$code."%user=".$res_login[0]['id_user'];
+                    $url = "http://rouibah.ovh/Password/?rec=Change%code=".$code."%user=".$res_login[0]['id_user'];
                     $name = $res_login[0]['nom']. " ".$res_login[0]['prenom'];
                     $to = $res_login[0]['mail'];
-                    $mail_sub = "E-mail pour changer le mot de passe";
+                    $mail_sub = "MAKEFLO E-mail pour changer le mot de passe";
                     $msg = "Bonjour M.".$name."\n message de  Makeflo\n veilliez cliquer sur ce lien  ".$url." pour modifiez votre mot de pass";
 
                     // send mail to 

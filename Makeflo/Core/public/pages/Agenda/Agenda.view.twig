@@ -21,12 +21,12 @@
             endif;
         ?>
 
-        <div class="agenda-head d-flex justify-content-between mt-3 pt-2">
-            <a href="/Agenda/?rec=Agenda&month=<?= $month->previousMonth()->_month ?>&year=<?= $month->previousMonth()->_year ?>" class="btn pl-3 m-0"><i class="fas fa-caret-square-left"></i></a>
+        <div class="agenda-head d-flex justify-content-between mt-3 pt-2 col-12">
+            <a href="/Agenda/?month=<?= $month->previousMonth()->_month ?>&year=<?= $month->previousMonth()->_year ?>" class="btn pl-3 m-0"><i class="fas fa-caret-square-left"></i></a>
             <h4 class="m-0" ><?= $month->toString(); ?></h4>
-            <a href="/Agenda/?rec=Agenda&month=<?= $month->nextMonth()->_month ?>&year=<?= $month->nextMonth()->_year ?>" class="btn pr-3 m-0"><i class="fas fa-caret-square-right"></i></a>
+            <a href="/Agenda/?month=<?= $month->nextMonth()->_month ?>&year=<?= $month->nextMonth()->_year ?>" class="btn pr-3 m-0"><i class="fas fa-caret-square-right"></i></a>
         </div>
-        <table class="calend mt-3">
+        <table class="calend mt-3 col-12">
             <?php  for($i = 0; $i < $month->getWeeks(); $i++ ):   ?>
                 <?php if($i === 0): ?>
                     <tr>
@@ -71,12 +71,12 @@
                         
                     ?>
                     <td class="text-center" >
-                        <a href="/Agenda/?appoint=<?= $date->format('Y-m-d'); ?>" <?php if($app == 'ok' || $day == "Sun" || $day == "Sat" || $before == "true"){ echo $desabled; }else{ echo $enabled;} ?> >
+                        <a href="/Agenda/?appoint=<?= $date->format('Y-m-d'); ?>" <?php if($app == 'ok' || $day == "Dim" || $day == "Sam" || $before == "true"){ echo $desabled; }else{ echo $enabled;} ?> >
                             <div <?php  if (strtotime(date('d-m-Y')) <= strtotime($date->format('d-m-Y'))){ ?> data-toggle="modal" data-target="#exampleModal" <?php } ?> 
                                                                                     class="d-flex justify-content-between
                                                                                     <?= $month->withinMonth($date) ? 'day' : 'day'; ?>  
-                                                                                    <?= $day == "Sun" || $day == "Sat" ? 'weekend' : ''; ?> 
-                                                                                    <?= date('Y-d-m') == $date->format('Y-d-m') ? 'today' : ''; ?> 
+                                                                                    <?= $day == "Dim" || $day == "Sam" ? 'remove' : ''; ?> 
+                                                                                    <?= date('Y-d-m') == $date->format('Y-d-m') ? 'weekend' : ''; ?> 
                                                                                     <?= $day == "Sun" || $day == "Sat" ? 'remove' : '' ?> 
                                                                                     <?php if($app == 'ok'){ echo 'week-day';} ?> 
                                                                                     <?= strtotime(date('d-m-Y')) > strtotime($date->format('d-m-Y'))? 'remove' : '' ?>" >

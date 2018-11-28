@@ -6,9 +6,9 @@
             </div>
             <div class="list-group list-group-flush">
 
-                        <li class="list-group-item">vous avez <span class="badge badge-danger ml-3 mr-3"><?= $nb_rdv ?></span> rendez-vous</li>
-                        <li class="list-group-item"> mes messages <span class="badge badge-danger ml-3"><?= count($array_message) ?></span></li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <li class="list-group-item"><a href="/Rdv" >Vous avez <span class="badge badge-danger ml-3 mr-3"><?= $nb_rdv ?></span> rendez-vous </a></li>
+                        <li class="list-group-item"> <a href="/Message" >Mes messages <span class="badge badge-danger ml-3"><?= count($array_message) ?></span></a></li>
+                        <li class="list-group-item"><a href="/MesFactures" >Mes factures</a></li>
             </div>
         </div>
         <div class="card col-12 p-lg-0 mb-5" >
@@ -16,7 +16,7 @@
                 <img class="card-img-top" src="./<?= asset('img/nous_contacter.png'); ?>" alt="Card image cap">
             </div>
             <div class="list-group list-group-flush p-3 bg-btn">
-                <button type="button" class="btn btn-light">Nous Contacter</button>
+                <a href="/Message"class="list-group list-group-flush" ><button type="button" class="btn btn-light">Nous Contacter</button></a>
             </div>
             
         </div>

@@ -20,10 +20,12 @@ function asset($url){
 
     $slash = '../';
     $run = '';
-    for($i = 0; $i <= $_SESSION['slash']; $i++){
+    for($i = 0; $i < $_SESSION['sll']; $i++){
+
 
         $run .= $slash;
     }
+
 
 
 

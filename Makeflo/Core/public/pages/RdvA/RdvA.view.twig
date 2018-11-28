@@ -1,0 +1,36 @@
+<div class="row row-body p-lg-5 p-3">
+    <div class="col-12 col-lg-8 col-body pl-lg-0">
+    <div class="card col-12 pl-lg-0 pb-5" >
+    <!-- start -->
+        <div class="card-header text-center">
+            <b>Mes rendez-vous</b>
+        </div>
+        <div class="card-body p-3">
+
+        <?php 
+
+        if(isset($res_rdv)):
+            foreach($res_rdv as $key =>$val){
+
+                if(strtotime($val['date_appoint']) > strtotime(date('Y-m-d'))){
+        ?>
+
+                    <div class="row d-flex justify-content-start row-message  ">
+                        <div class="col-12 p-3 col-message mb-4 rounded ">
+                                Vous avez un rendez-vous le <?= $val['date_appoint'] ?> avec <?= get_user($val['id_user'])[0]['nom'] ?> <?= get_user($val['id_user'])[0]['prenom'] ?>
+                        </div>
+                    </div>
+
+
+        <?php 
+                }
+            }
+
+        endif;
+        ?>
+
+        </div>
+    <!-- end -->
+    </div>
+
+</div>

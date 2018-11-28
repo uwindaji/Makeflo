@@ -63,6 +63,9 @@ class Seed {
             }else if($post[$result[$i]] == null){
 
                 $values .= "NULL,";
+            }else if(!$post[$result[$i]]){
+
+                $values .= "NULL,";
             }else if($post[$result[$i]] == 'now'){
 
                 $values .= "NOW(),";
@@ -109,7 +112,7 @@ class Seed {
                     $values .= "'".$vergule."',";
             }else {
 
-                $values .= "'".htmlentities(trim($post[$result[$i]]))."',";
+                $values .= "'".addslashes(htmlentities(trim($post[$result[$i]])))."',";
             }
         }
 
@@ -124,6 +127,8 @@ class Seed {
         if($return == null){
 
             $sql = "INSERT INTO ".$this->_table."(".$k_res.") VALUES(".$values.")";
+
+            //echo $sql; die();
             
             $res =  $this->_pdo->exec($sql)or var_dump($this->_pdo->errorInfo());
 
@@ -150,10 +155,26 @@ class Seed {
 
                 if (count($data)> 1){
 
-                    $value .= "$key = '$val' AND ";
+                    if($val == null){
+
+                        $value .= "$key  IS NULL AND ";
+                    }else{
+
+                        $value .= "$key = '$val' AND ";
+                    }
+
+                    
                 }else {
 
-                    $value .= "$key = '$val'";
+                    if($val == null){
+
+                        $value .= "$key  IS NULL";
+                    }else{
+
+                        $value .= "$key = '$val'";
+                    }
+
+                    //$value .= "$key = '$val'";
                 }
             }
         
@@ -172,7 +193,8 @@ class Seed {
                 $sql = "SELECT ".$id." FROM ".$this->_table;
             }else {
                 $sql = "SELECT ".$id." FROM ".$this->_table." WHERE ".$value;
-                //print_r($value);die();
+                //echo $sql; die();
+                
             }
             // send $sql to function sql to executate
             $res =  $this->_pdo->query($sql);
@@ -184,9 +206,6 @@ class Seed {
                 return $result;
             }
     }
-
-
-
     /**
      * function to delete data in table
      *

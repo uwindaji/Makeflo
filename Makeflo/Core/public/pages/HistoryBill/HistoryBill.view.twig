@@ -1,0 +1,58 @@
+<div class="row row-body p-lg-5 p-3">
+    <div class="col-12 col-lg-8 col-body pl-lg-0">
+    <div class="card col-12 pl-lg-0 pb-5" >
+    <!-- start -->
+        <div class="card-header text-center">
+            <b>Historique des factures</b>
+        </div>
+        <div class="card-body p-3">
+        <?php
+            if($resultatFacture):
+                foreach($resultatFacture as $key =>$val):
+                if($val['etat'] == null){
+
+                    $id_user = $val['id_user'];
+        ?>
+                        <div class="row d-flex row-red mb-1 p-3 pr-0 rounded">
+                            <div class="col-1 pt-2"><i class="fas fa-file-archive"></i> </div>
+                            <div class="col-3 col-xl-4 pt-2"><?= $val['lien'] ?></div>
+                            <div class="col-2 col-xl-3 pt-2">Relance : <?= $val['msg'] ?></div>
+                            <div class="col-5 col-lg-4 col-xl-3 pt-2"><b><?= strtoupper($val['date_facture']) ?></b></div>
+                            <div class="col-1 d-flex justify-content-end"><button type="button" class="btn btn-primary" onclick="create_form(this, <?= $id_user = $val['id_user'] ?>, <?=$val['id_facture'] ?>);"><i class="fas fa-comment"></i></button></div>
+                        </div>
+
+        <?php
+
+                }else {
+                    $id_user = $val['id_user'];
+
+        ?>
+
+                        <div class="row d-flex  mb-1 p-3 pr-0 rounded row-green">
+                            <div class="col-1 pt-2"><i class="fas fa-file-archive"></i> </div>
+                            <div class="col-3 col-xl-4 pt-2"><?= $val['lien'] ?></div>
+                            <div class="col-2 col-xl-3 pt-2">Relance :<?= $val['msg'] ?></div>
+                            <div class="col-5 col-lg-4 col-xl-3 pt-2"><b><?= strtoupper($val['date_facture']) ?></b></div>
+                            <div class="col-1 d-flex justify-content-end"><button type="button" class="btn btn-primary" onclick="create_form(this, <?= $id_user  ?>, <?=$val['id_facture'] ?>);"><i class="fas fa-comment"></i></button></div>
+                        </div>
+
+
+        <?php
+                }
+                endforeach;
+            endif;
+        ?>
+        </div>
+        <div class="card-body p-3">
+                <div class="row d-flex  mb-1 p-3 pr-0 rounded bg-light">
+                    <div class="col-12 d-flex justify-content-center">
+                        <a class="mr-5" href="/HistoryBill/?limit=<?= $page - 10; ?>"><i class="fas fa-chevron-left"></i></a>
+                        <a class="ml-5" href="/HistoryBill/?limit=<?= $page + 10; ?>"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+        </div>
+    <!-- end -->
+    </div>
+
+</div>
+

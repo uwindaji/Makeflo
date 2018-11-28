@@ -46,6 +46,13 @@ class Target {
             $base->twig_code($sendDir, $sendDir.'.model.php');
             eval('?>'.$_SESSION['base']);
             die();
+        }else if( $reqDir == $this->_url and $admin == "Password"){
+            $_SESSION['base'] = null;  
+            $base = new services\Injector('BaseLogin');
+            $base->twig_page($sendDir, $sendDir.'.view.twig', 'Login');
+            $base->twig_code($sendDir, $sendDir.'.model.php');
+            eval('?>'.$_SESSION['base']);
+            die();
         }else if( $reqDir == $this->_url and $admin === "admin"){
             $_SESSION['base'] = null;  
             $base = new services\Injector('BaseA');

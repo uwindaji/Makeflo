@@ -1,0 +1,50 @@
+<div class="row row-body p-lg-5 p-3">
+    <div class="col-12 col-lg-8 col-body pl-lg-0">
+    <div class="card col-12 pl-lg-0 pb-5" >
+    <!-- start -->
+        <div class="card-header text-center">
+            <b>liste des projets</b>
+        </div>
+        <div class="card-body p-3">
+
+
+                        <div class="row d-flex justify-content-start row-message mb-2 rounded">
+                            <div class="col-2 p-0 col-message p-2">
+                                <b>Nom:</b>
+                            </div>
+                            <div class="col-7 p-0 col-message p-2">
+                                
+                                <b>description:</b>
+                            </div>
+                            <div class="col-3 p-0 col-message p-2">
+                                
+                                <b>Deadline:</b>
+                            </div>
+                        </div>
+            <?php
+            if($res_project):
+                foreach($res_project as $val):
+            ?>
+                        <div class="row d-flex justify-content-start alert-success rounded">
+                            <div class="col-2 p-0 col-message  p-2">
+                                <?= $val['nom'] ?>
+                            </div>
+                            <div class="col-7 p-0 col-message  p-2">
+                                
+                                <?= $val['description'] ?>
+                            </div>
+                            <div class="col-3 p-0 col-message  p-2">
+                                
+                                <?= $val['deadline'] ?>
+                            </div>
+                        </div>
+            <?php
+                endforeach;
+            endif;
+            ?>
+        </div>
+
+    <!-- end -->
+    </div>
+
+</div>

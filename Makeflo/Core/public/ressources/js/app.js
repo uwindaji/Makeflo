@@ -1,4 +1,4 @@
-
+$( document ).ready(function() {
 
 $('#dropSelect').css('display', 'none');
 $('#projectSelect').css('display', 'none');
@@ -33,6 +33,7 @@ $("#searchUser").keyup(()=>{
     });
 });
 
+
 function filling (mail){
 
     $("#searchUser").val(mail);
@@ -41,6 +42,8 @@ function filling (mail){
 
     create_select_project(mail);
 }
+
+
 
 function create_select_project(mail){
 
@@ -115,3 +118,61 @@ function desabled(){
 
     return false;
 }
+
+var run = false;
+
+function create_form(elem, id, facture){
+
+    var divForm = $(elem).parent().parent();
+    if(run == false){
+
+        show_form(divForm, id, facture);
+        
+
+    }else if(run == true){
+
+        empty_form(divForm);
+        
+    }
+}
+
+
+function empty_form (elem){
+
+    elem.children('form').remove();
+    run = false;
+
+}
+
+function show_form(elem, id, facture){
+
+
+    var divForm = elem;
+    var formulaire = document.createElement('form');
+    formulaire.setAttribute("method", "post");;
+    formulaire.setAttribute("action","/Repondre/?user=" + id + "&facture=" + facture); 
+    formulaire.setAttribute("class", "col-12 p-0");
+    var fg = document.createElement('div');
+    fg.setAttribute("class", "form-group col-12 mt-3");
+    var fgb = document.createElement('div');
+    fgb.setAttribute("class", "form-group col-12 d-flex justify-content-end");
+    var msg = document.createElement('textarea');
+    msg.setAttribute("row", 2);
+    msg.setAttribute("class", "col-12 rounded");
+    msg.setAttribute("name", "message");
+    msg.style.width = "100%";
+    var btn = document.createElement('button');
+    btn.setAttribute("type","submit");
+    btn.setAttribute("class", "btn");
+    btn.innerHTML = "Envoyer";
+    fg.appendChild(msg);
+    formulaire.appendChild(fg);
+    fgb.appendChild(btn);
+    formulaire.appendChild(fgb);
+    divForm[0].appendChild(formulaire);
+
+    run = true;
+
+}
+
+});

@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+
 // name of project New.
 //Script create by Lakhdar.
 // Contact: lakhdar-rouibah@live.fr.
@@ -27,15 +28,18 @@ function url(){
 $host = $_SERVER['HTTP_HOST'];
 // get folder
 $url = url();
-
 $realpath = realpath(dirname(__FILE__)); 
 $_folder = explode("/", $realpath);
 $folder = $_folder[count($_folder)-1];
 
 $root = explode($host, $url);
+$_SESSION['sll'] = count(explode('/',$root[1])) -2;
 
+//echo asset('css/bootstrap.min.css'); die();
 if(isset($root[1])){
     $root = explode("/", $root[1]);
+
+    
     $root = "/".$root[1]."/";
     
 }else {
@@ -45,12 +49,12 @@ if(isset($root[1])){
 $root = substr($root, 0, -1);
 
 
-if($_SESSION['login'] == null){
+if($_SESSION['login'] == null and $root != '/Password'){
     $root ="/Login";
 }else if($_SESSION['login'] and $root =="/Login"){
     $root ="/Home";
 }
-//print_r($root); die();
 $request = new services\Target($root);
 $controle = new controlers\Controler($request);
 
+//print_r($controle); die();

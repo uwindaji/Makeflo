@@ -3,10 +3,12 @@
 // Script create by Lakhdar.
 // Contact: lakhdar-rouibah@live.fr.
 // Web : rouibah.fr
+//namespace MyProject;
 
 // inbstancier la table User
 $user = new services\Seed('User');
 $project = new services\Seed('Project');
+
 // search user information
 $res_user = $user->search_in_table ("*", array("id_user"=>$_SESSION['login']['id']));
 
@@ -21,13 +23,12 @@ $res_project = $project->search_in_table ("*", array("id_user"=>$_SESSION['login
 if(isset($_GET['folder'])):
 
 
-    $read = scandir ('./Core/app/projects/'.$_GET['folder']);
-
+    $read = scandir ('./Core/public/folders/projects/'.$_GET['folder']);
     $zipname = 'file.zip';
-    $zip = new ZipArchive;
+    $zip = new \ZipArchive;
     $zip->open($zipname, ZipArchive::CREATE | ZipArchive::OVERWRITE);
     for($i = 3; $i<count($read); $i++) {
-        $zip->addFile('./Core/app/projects/'.$_GET['folder'].'/'.$read[$i], 'Makeflo/'.$read[$i]);
+        $zip->addFile('./Core/public/folders/projects/'.$_GET['folder'].'/'.$read[$i], 'Makeflo/'.$read[$i]);
     
     }
     if ($zip->close() === false) {

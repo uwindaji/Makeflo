@@ -151,6 +151,28 @@ body{
                             color: $lightgrey;
                             background-color: $redorange;
                         }
+                        .row-red{
+
+                            color: $lightgrey;
+                            background-color: $red;
+
+                            .btn{
+
+                                border: solid 1px $lightgrey;
+                                background-color: $redorange;
+                            }
+                        }
+                        .row-green{
+
+                            color: $lightgrey;
+                            background-color: $green;
+
+                            .btn{
+
+                                border: solid 1px $lightgrey;
+                                background-color: $redorange;
+                            }
+                        }
 
                         .row-message {
 
