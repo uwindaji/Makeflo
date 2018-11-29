@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $pass->insert_in_table($arr_pass);
                 // send mail
                 // generate the url
-                $url = "https://dashboard.makeflo.tv/Password/?code=".$code."%user=".$id_user;
+                $url = "https://localhost/Password/?code=".$code."%user=".$id_user;
                 $name = $_POST['nom']. " ".$_POST[0]['prenom'];
                 $to = $_POST['mail'];
                 $mail_sub = "MAKEFLO E-mail pour changer le mot de passe";

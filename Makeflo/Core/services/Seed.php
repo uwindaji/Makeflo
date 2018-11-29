@@ -60,10 +60,10 @@ class Seed {
             if($res[$i][5] == 'auto_increment'){
 
                 $values .= "DEFAULT, ";
-            }else if($post[$result[$i]] == null){
+            }else if(isset($post[$result[$i]]) and $post[$result[$i]] == null){
 
                 $values .= "NULL,";
-            }else if(!$post[$result[$i]]){
+            }else if(!isset($post[$result[$i]])){
 
                 $values .= "NULL,";
             }else if($post[$result[$i]] == 'now'){
@@ -324,6 +324,7 @@ class Seed {
         $q->execute();
         $res = $q->fetchAll();
 
+        //print_r($res); die();
         //return schema of table
         return $res;
 

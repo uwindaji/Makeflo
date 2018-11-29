@@ -241,7 +241,7 @@ class Tools {
     static function send_mail(string $to, string $mail_sub, string $message){
 
         $token = "**************";
-        $url = "xxxxxxxxxxxxxxxxxx";
+        $url = "xxxxxxxxxxxxxxxxx";
 
         $ch = curl_init();
 

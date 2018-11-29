@@ -10,9 +10,9 @@ use PDO;
 class Database {
 
 private $_host = "localhost";
-private $_user = "xxxxxxxxxx";
-private $_password = "**********";
-private $_bdd = "xxxxxxxxxxx";
+private $_user = "root";
+private $_password = "root";
+private $_bdd = "makeflo";
 public $_pdo;
 
     public function connect (){

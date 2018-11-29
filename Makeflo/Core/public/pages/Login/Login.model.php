@@ -146,7 +146,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     // send mail
                     // generate the url
-                    $url = "http://rouibah.ovh/Password/?rec=Change%code=".$code."%user=".$res_login[0]['id_user'];
+                    $url = "http://localhost/Password/?rec=Change%code=".$code."%user=".$res_login[0]['id_user'];
                     $name = $res_login[0]['nom']. " ".$res_login[0]['prenom'];
                     $to = $res_login[0]['mail'];
                     $mail_sub = "MAKEFLO E-mail pour changer le mot de passe";

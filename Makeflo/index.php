@@ -11,33 +11,13 @@ use controlers as controlers;
 require_once "./Core/functions/functions.php";
 require_once "./Core/Autoload.php";
 
-// $page = "page";
-// $str = "azerty {{% page %}} vgfrt";
-// echo strpos($str, "{{% $page %}}"); die();
 
-function url(){
-    return sprintf(
-        "%s://%s%s",
-        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-        $_SERVER['SERVER_NAME'],
-        $_SERVER['REQUEST_URI']
-    );
-}
-
-
-$host = $_SERVER['HTTP_HOST'];
-// get folder
-$url = url();
-$realpath = realpath(dirname(__FILE__)); 
-$_folder = explode("/", $realpath);
-$folder = $_folder[count($_folder)-1];
-
-$root = explode($host, $url);
-$_SESSION['sll'] = count(explode('/',$root[1])) -2;
+$root = $_SERVER['REQUEST_URI'];
+$_SESSION['sll'] = count(explode('/',$root)) -2;
 
 //echo asset('css/bootstrap.min.css'); die();
-if(isset($root[1])){
-    $root = explode("/", $root[1]);
+if(isset($root)){
+    $root = explode("/", $root);
 
     
     $root = "/".$root[1]."/";
